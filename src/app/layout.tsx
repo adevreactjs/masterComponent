@@ -3,7 +3,9 @@ import { Inter, Exo_2 } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/header/Header';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+ const exo = Exo_2({ subsets: ['latin'], variable: '--font-exo_2' });
+
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
+      <body className={`${inter.variable} ${exo.variable}`}>
         <Header />
         {children}
       </body>
