@@ -17,6 +17,13 @@ import { useState } from 'react';
 const Header = () => {
   const [activeMenu, setActiveMenu] = useState(false);
   const [activeCategory, setActiveCategory] = useState(0);
+
+  const openCategory = () => {
+    setActiveMenu(!activeMenu);
+    setActiveCategory(0)
+
+  };
+
   return (
     <header className={cls.header}>
       <div className={cls.container}>
@@ -29,9 +36,7 @@ const Header = () => {
             </div>
             <div className={cls.navBlock}>
               <ul className={cls.navCategories}>
-                <li
-                  className={`${activeMenu && cls.active}`}
-                  onClick={() => setActiveMenu(!activeMenu)}>
+                <li className={`${activeMenu && cls.active}`} onClick={openCategory}>
                   Каталог
                   <Image className={cls.navBtn} src={btnArrow} width={24} height={24} alt='arrow' />
                 </li>
@@ -81,7 +86,9 @@ const Header = () => {
                   <Image src={mouseIcon} width={17} height={26} alt='mouseIcon' />
                   Периферія
                 </li>
-                <li>
+                <li
+                  id={`${activeCategory === 5 ? cls.activeCategory : ''}`}
+                  onMouseEnter={() => setActiveCategory(5)}>
                   <Image src={wifiIcon} width={25} height={20} alt='mouseIcon' />
                   Мережеве обладнання
                 </li>
@@ -244,11 +251,38 @@ const Header = () => {
                   }`}>
                   <div className={cls.peripheryItems}>
                     <div className={cls.peripheryItem}>
-                      <h2>Аксесуари</h2>
+                      <h2>Витратні матеріали</h2>
                       <ul>
+                        <li>Картриджі</li>
+                        <li>Тонери</li>
                         <li>Кабелі та перехідники</li>
-                        <li>Кронштейни та підставки</li>
                         <li>Чистячі засоби</li>
+                      </ul>
+                      <button>
+                        Більше варіантів
+                        <Image src={rightArrow} width={11} height={7} alt='link' />
+                      </button>
+                    </div>
+                    <div className={cls.peripheryItem}>
+                      <h2>Аудіотехніка</h2>
+                      <ul>
+                        <li>Навушники</li>
+                        <li>Акустичні системи</li>
+                        <li>Портативна акустика</li>
+                        <li>Мікрофони</li>
+                      </ul>
+                      <button>
+                        Більше варіантів
+                        <Image src={rightArrow} width={11} height={7} alt='link' />
+                      </button>
+                    </div>
+                    <div className={cls.peripheryItem}>
+                      <h2>Техніка для стрімінгу</h2>
+                      <ul>
+                        <li>Веб-камери</li>
+                        <li>Мікрофони</li>
+                        <li>Навушники з мікрофоном</li>
+                        <li>Пристрої захоплення відео</li>
                       </ul>
                       <button>
                         Більше варіантів
@@ -258,9 +292,11 @@ const Header = () => {
                     <div className={cls.peripheryItem}>
                       <h2>Аксесуари</h2>
                       <ul>
-                        <li>Кабелі та перехідники</li>
-                        <li>Кронштейни та підставки</li>
-                        <li>Чистячі засоби</li>
+                        <li>ДБЖ</li>
+                        <li>USB хаби</li>
+                        <li>Кардрідери</li>
+                        <li>Батарейки</li>
+                        <li>Мережеві фільтри</li>
                       </ul>
                       <button>
                         Більше варіантів
@@ -268,11 +304,13 @@ const Header = () => {
                       </button>
                     </div>
                     <div className={cls.peripheryItem}>
-                      <h2>Аксесуари</h2>
+                      <h2>Кабелі та перехідники</h2>
                       <ul>
-                        <li>Кабелі та перехідники</li>
-                        <li>Кронштейни та підставки</li>
-                        <li>Чистячі засоби</li>
+                        <li>HDMI, DVI, VGA</li>
+                        <li>Мережеві кабелі</li>
+                        <li>Кабелі та перехідники USB</li>
+                        <li>Аудіо-відео кабелі</li>
+                        <li>Кабелі живлення</li>
                       </ul>
                       <button>
                         Більше варіантів
@@ -280,11 +318,13 @@ const Header = () => {
                       </button>
                     </div>
                     <div className={cls.peripheryItem}>
-                      <h2>Аксесуари</h2>
+                      <h2>Маніпулятори</h2>
                       <ul>
-                        <li>Кабелі та перехідники</li>
-                        <li>Кронштейни та підставки</li>
-                        <li>Чистячі засоби</li>
+                        <li>Миші</li>
+                        <li>Клавіатури</li>
+                        <li>Комплекти миша і клавіатура</li>
+                        <li>Килимки</li>
+                        <li>Ігрові маніпулятори</li>
                       </ul>
                       <button>
                         Більше варіантів
@@ -292,59 +332,76 @@ const Header = () => {
                       </button>
                     </div>
                     <div className={cls.peripheryItem}>
-                      <h2>Аксесуари</h2>
+                      <h2>БФП</h2>
                       <ul>
-                        <li>Кабелі та перехідники</li>
-                        <li>Кронштейни та підставки</li>
-                        <li>Чистячі засоби</li>
+                        <li>Лазерні</li>
+                      </ul>
+                    </div>
+                    <div className={cls.peripheryItem}>
+                      <h2>Принтери</h2>
+                      <ul>
+                        <li>Лазерні</li>
+                      </ul>
+                    </div>
+                    <div className={cls.peripheryItem}>
+                      <h2>Накопичувачі SSD та HDD</h2>
+                      <ul>
+                        <li>USB-Flash</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  className={`${cls.networkEquipment} ${
+                    activeCategory === 5 ? cls.activeMonitors : cls.noMonitors
+                  }`}>
+                  <div className={cls.networkEquipmentItems}>
+                    <div className={cls.networkEquipmentItem}>
+                      <h2>Активне</h2>
+                      <ul>
+                        <li>Точки доступу</li>
+                        <li>Wi-Fi адаптери</li>
+                        <li>Bluetooth адаптери</li>
+                        <li>Мережеві карти</li>
+                        <li>Комутатори</li>
+                        <li>PowerLine</li>
+                        <li>Медіаконвертери</li>
                       </ul>
                       <button>
                         Більше варіантів
                         <Image src={rightArrow} width={11} height={7} alt='link' />
                       </button>
                     </div>
-                    <div className={cls.peripheryItem}>
-                      <h2>Аксесуари</h2>
+                    <div className={cls.networkEquipmentItem}>
+                      <h2>Роутери</h2>
                       <ul>
-                        <li>Кабелі та перехідники</li>
-                        <li>Кронштейни та підставки</li>
-                        <li>Чистячі засоби</li>
+                        <li>802.11ax (Wi-Fi 7)</li>
+                        <li>802.11ax (Wi-Fi 6E)</li>
+                        <li>802.11ax (Wi-Fi 6)</li>
+                        <li>802.11ac (Wi-Fi 5)</li>
+                        <li>802.11n (Wi-Fi 4)</li>
+                        <li>802.11g (Wi-Fi 3)</li>
                       </ul>
                       <button>
                         Більше варіантів
                         <Image src={rightArrow} width={11} height={7} alt='link' />
                       </button>
                     </div>
-                    <div className={cls.peripheryItem}>
-                      <h2>Аксесуари</h2>
+                    <div className={cls.networkEquipmentItem}>
+                      <h2>Пасивне</h2>
                       <ul>
-                        <li>Кабелі та перехідники</li>
-                        <li>Кронштейни та підставки</li>
-                        <li>Чистячі засоби</li>
+                        <li>Антени</li>
+                        <li>Патч-корди</li>
+                        <li>Бухти кабелю</li>
+                        <li>Коннектори</li>
+                        <li>Аксесуари</li>
+                        <li>Інструменти</li>
                       </ul>
                       <button>
                         Більше варіантів
                         <Image src={rightArrow} width={11} height={7} alt='link' />
                       </button>
-                    </div>
-                    <div className={cls.peripheryItem}>
-                      <h2>Аксесуари</h2>
-                      <ul>
-                        <li>Кабелі та перехідники</li>
-                        <li>Кронштейни та підставки</li>
-                        <li>Чистячі засоби</li>
-                      </ul>
-                      <button>
-                        Більше варіантів
-                        <Image src={rightArrow} width={11} height={7} alt='link' />
-                      </button>
-                    </div>
-                    <div className={cls.peripheryItem}>
-                      <h2>Аксесуари</h2>
-                      <ul>
-                        <li>Кабелі та перехідники</li>
-                      </ul>
-                    
                     </div>
                   </div>
                 </div>
