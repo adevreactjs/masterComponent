@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Exo_2 } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/header/Header';
+import Footer from './components/ServerSide/Footer';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
  const exo = Exo_2({ subsets: ['latin'], variable: '--font-exo_2' });
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${inter.variable} ${exo.variable}`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
