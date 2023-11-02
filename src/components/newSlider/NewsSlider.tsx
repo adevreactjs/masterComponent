@@ -7,9 +7,9 @@ import rightArrow from '../../assets/leftArr.svg';
 import Image from 'next/image';
 
 const NewsSlider = () => {
-    const [activeBreakLine, setActiveBreakLine] = useState(true);
-    console.log(activeBreakLine);
+  const [activeBreakLine, setActiveBreakLine] = useState(true);
   const scrollRef = useRef<HTMLInputElement | null | any>(null);
+
   const scroll = (scrollOffset: number) => {
     scrollRef.current.scrollLeft += scrollOffset;
   };

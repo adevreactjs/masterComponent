@@ -1,11 +1,12 @@
 .newsSlider {
   width: 100%;
-  background: var(---900, #FBFBFB);
+  background: var(---900, #fbfbfb);
+  padding-bottom: 148px;
 }
 .container {
   position: relative;
-  // max-width: 1392px;
-  // margin: 0 auto;
+  max-width: 1392px;
+  margin: 0 auto;
 }
 .title {
   margin-bottom: 58px;
