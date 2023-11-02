@@ -3,7 +3,9 @@
   padding: 20px;
   border-radius: 25px;
   background: var(---800, #f1f1f1);
+  flex-shrink: 0;
 }
+
 .cartImage {
   position: relative;
   margin-bottom: 12px;

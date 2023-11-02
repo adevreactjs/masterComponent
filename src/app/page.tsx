@@ -1,9 +1,8 @@
-import NewsCart from '@/components/newsCart/NewsCart';
-import Image from 'next/image';
+import NewsSlider from "@/components/newSlider/NewsSlider";
 
 export default function Home() {
-  return (
-    <main>
-    </main>
-  );
+  return <main>
+    
+    <NewsSlider/>
+  </main>;
 }
