@@ -30,9 +30,9 @@ export default function Footer() {
                 </div>
             </div>
 
-            <div className="min-[280px]:hidden min-[895px]:flex flex-row items-center justify-between">
+            <div className="min-[280px]:hidden min-[895px]:flex flex-row items-center justify-between mt-[20vw]">
                 <p className="text-[15px] text-[#C1C1C1]">© mastercomponent 2023</p>
-                <div className="flex flex-row justify-around text-[20px] mt-[20vw] mb-[20vw] gap-[20px] min-[1000px]:gap-[70px] min-[895px]:text-[2.5vw]">
+                <div className="flex flex-row justify-around text-[20px] gap-[20px] min-[1000px]:gap-[70px] min-[895px]:text-[2.5vw]">
                     <Link href='/' className="bg-transparent">Ми в Києві</Link>
                     <Link href='/' className="bg-transparent">Ми у Львові</Link>
                     <Link href='/' className="bg-transparent">Ми у Харкові</Link>

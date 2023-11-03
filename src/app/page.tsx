@@ -1,9 +1,11 @@
 import Image from 'next/image';
+import Accordion from './components/ServerSide/Accordion';
+import FAQ from './components/ServerSide/FAQ';
 
 export default function Home() {
   return (
-    <main>
-      <h1>Hello Word !!</h1>
+    <main className='bg-[#FBFBFB]'>
+      <FAQ />
     </main>
   );
 }
