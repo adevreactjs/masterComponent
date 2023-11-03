@@ -1,12 +1,19 @@
 'use client';
-import React, { useRef, useState } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import NewsCart from '../newsCart/NewsCart';
 import cls from './index.module.scss';
 import leftArrow from '../../assets/leftArrow.svg';
 import rightArrow from '../../assets/leftArr.svg';
 import Image from 'next/image';
 
-const NewsSlider = () => {
+interface NewsSliderProps {
+  title?: string;
+  width?: number;
+  discount?: number;
+  fontSize?: number;
+}
+
+const NewsSlider: FC<NewsSliderProps> = ({ title, width, discount, fontSize }) => {
   const [activeBreakLine, setActiveBreakLine] = useState(true);
   const scrollRef = useRef<HTMLInputElement | null | any>(null);
 
@@ -25,8 +32,7 @@ const NewsSlider = () => {
 
   return (
     <div className={cls.newsSlider}>
-      <h1 className={cls.title}>Новинки</h1>
-
+      <h1 className={cls.title}>{title}</h1>
       <div className={cls.container}>
         <button className={cls.leftArrow} onClick={() => scroll(-1390)}>
           <Image src={leftArrow} width={22} height={22} alt='leftArrow' />
@@ -35,10 +41,10 @@ const NewsSlider = () => {
           <Image src={rightArrow} width={22} height={22} alt='rightArrow' />
         </button>
         <div className={cls.carts} ref={scrollRef}>
-          <NewsCart />
-          <NewsCart />
-          <NewsCart />
-          <NewsCart />
+          <NewsCart width={width} discount={discount} fontSize={fontSize} />
+          <NewsCart width={width} discount={discount} fontSize={fontSize} />
+          <NewsCart width={width} discount={discount} fontSize={fontSize} />
+          <NewsCart width={width} discount={discount} fontSize={fontSize} />
         </div>
         <div className={cls.breakLines}>
           <div

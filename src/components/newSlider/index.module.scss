@@ -19,8 +19,8 @@
 }
 .leftArrow {
   position: absolute;
-  left: 12px;
-  top: 173px;
+  left: -50px;
+  top: 30%;
   z-index: 1;
   display: flex;
   width: 102px;
@@ -30,11 +30,13 @@
   border-radius: 90px;
   background: rgba(111, 111, 111, 0.05);
   backdrop-filter: blur(5px);
+   margin-left: auto; 
+  margin-right: auto;
 }
 .rightArrow {
   position: absolute;
-  right: 12px;
-  top: 173px;
+  right: -50px;
+  top: 30%;
   z-index: 1;
   display: flex;
   width: 102px;

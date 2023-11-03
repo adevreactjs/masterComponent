@@ -34,6 +34,7 @@
   line-height: 23px;
 }
 .cartCharacteristic {
+  position: relative;
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
@@ -51,6 +52,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  white-space: nowrap;
 }
 .characteristic {
   display: flex;
@@ -66,4 +68,16 @@
     font-weight: 500;
     line-height: normal;
   }
+}
+.discount {
+  position: absolute;
+  right: 0;
+  bottom: -16px;
+  color: var(---500, #c1c1c1);
+  font-family: var(--font-exo_2);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration-line: line-through;
 }
