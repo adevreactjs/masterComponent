@@ -11,9 +11,10 @@ interface NewsSliderProps {
   width?: number;
   discount?: number;
   fontSize?: number;
+  showMoreBtn?: boolean; 
 }
 
-const NewsSlider: FC<NewsSliderProps> = ({ title, width, discount, fontSize }) => {
+const NewsSlider: FC<NewsSliderProps> = ({ title, width, discount, fontSize, showMoreBtn }) => {
   const [activeBreakLine, setActiveBreakLine] = useState(true);
   const scrollRef = useRef<HTMLInputElement | null | any>(null);
 
@@ -53,6 +54,9 @@ const NewsSlider: FC<NewsSliderProps> = ({ title, width, discount, fontSize }) =
           <div
             onClick={breakLineHandlerSecond}
             className={`${activeBreakLine ? cls.breakLine : cls.activeBreakLine}`}></div>
+        </div>
+        <div className={cls.showMoreBtn}>
+          {showMoreBtn && <button>Показати усі продукти</button>}
         </div>
       </div>
     </div>

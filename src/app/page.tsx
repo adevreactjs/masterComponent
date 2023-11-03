@@ -8,7 +8,7 @@ export default function Home() {
     <main className='bg-[#FBFBFB]'>
       <NewsSlider title={'Новинки'} />
       <PopularRequests />
-      <NewsSlider title={'Знижки'} width={450} discount={2244} fontSize={22} />
+      <NewsSlider title={'Знижки'} width={450} discount={2244} fontSize={22} showMoreBtn={true}/>
       <OurBenefits />
       <FAQ />
     </main>
