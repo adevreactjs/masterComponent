@@ -12,16 +12,26 @@ import monicIcon from '../../assets/monicIcon.svg';
 import mouseIcon from '../../assets/mouseIcon.svg';
 import wifiIcon from '../../assets/wifiIcon.svg';
 import rightArrow from '../../assets/rightArrow.svg';
+import telIcon from '../../assets/telIcon.svg';
+import mailIcon from '../../assets/mailIcon.svg';
+import phoneIcon from '../../assets/phoneIcon.svg';
+import shopIcon from '../../assets/shopIcon.svg';
+import pointIcon from '../../assets/pointIcon.svg';
 import { useState } from 'react';
 
 const Header = () => {
   const [activeMenu, setActiveMenu] = useState(false);
+  const [activeHelpMenu, setHelpActiveMenu] = useState(false);
   const [activeCategory, setActiveCategory] = useState(0);
 
   const openCategory = () => {
     setActiveMenu(!activeMenu);
-    setActiveCategory(0)
-
+    setActiveCategory(0);
+    setHelpActiveMenu(false)
+  };
+  const openHelpMenu = () => {
+    setHelpActiveMenu(!activeHelpMenu);
+    setActiveMenu(false)
   };
 
   return (
@@ -40,11 +50,37 @@ const Header = () => {
                   Каталог
                   <Image className={cls.navBtn} src={btnArrow} width={24} height={24} alt='arrow' />
                 </li>
-                <li>
+                <li className={`${activeHelpMenu && cls.active}`} onClick={openHelpMenu}>
                   Допомога
                   <Image className={cls.navBtn} src={btnArrow} width={24} height={24} alt='arrow' />
                 </li>
                 <li>Про компанію</li>
+                {activeHelpMenu && (
+                  <div className={cls.helpMenu}>
+                    <ul>
+                      <li>
+                        <Image src={telIcon} width={16} height={16} alt='telega' />
+                        Telrgram
+                      </li>
+                      <li>
+                        <Image src={mailIcon} width={16} height={16} alt='email' />
+                        Email
+                      </li>
+                      <li>
+                        <Image src={phoneIcon} width={16} height={16} alt='phoneIcon' />
+                        Гаряча лінія
+                      </li>
+                      <li>
+                        <Image src={shopIcon} width={16} height={16} alt='shopIcon' />
+                        Магазини
+                      </li>
+                      <li>
+                        <Image src={pointIcon} width={16} height={16} alt='pointIcon' />
+                        Пункти видачі
+                      </li>
+                    </ul>
+                  </div>
+                )}
               </ul>
             </div>
           </nav>
@@ -59,6 +95,7 @@ const Header = () => {
               <Image src={cartIcon} width={19} height={20} alt='registrationUser' />
             </button>
           </div>
+
           {activeMenu && (
             <section id={cls.mainMenu}>
               <ul className={cls.mainMenuItems}>
