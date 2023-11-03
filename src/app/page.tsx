@@ -1,5 +1,5 @@
-import FAQ from './components/ServerSide/FAQ';
-import OurBenefits from './components/ServerSide/OurBenefits';
+import FAQ from '../components/accordion/FAQ';
+import OurBenefits from '../components/benefitsCard/OurBenefits';
 import NewsSlider from '@/components/newSlider/NewsSlider';
 import PopularRequests from '@/components/popularRequests/PopularRequests';
 
