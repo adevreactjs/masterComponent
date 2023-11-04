@@ -4,7 +4,7 @@ export default function OurBenefits() {
     return(
         <>
             <h2 className="text-center text-[3vw] font-[500] min-[280px]:text-[22px] min-[795px]:text-[4vw]">Наші переваги</h2>
-            <div className="flex flex-row flex-wrap justify-center min-[280px]:gap-[15px] min-[920px]:gap-[1vw]">
+            <div className="flex flex-row flex-wrap justify-center min-[280px]:gap-[10px] min-[920px]:gap-[30px]">
                 <BenefitsCard Num="1" Point="Конфігуратор ПК" Text="Конфігуратор допоможе зібрати ПК, який відповідає потребам та бюджету покупця, шляхом підбору оптимальних та сумісних компонентів."/>
                 <BenefitsCard Num="2" Point="Офіційні партнери" Text="Наші офіційні партнери: Asus, AMD, Nivida, Intel. Закдяки цьому покупці мають доступ до спеціальних пропозицій, знижок та додаткових послуг."/>
                 <BenefitsCard Num="3" Point="Система знижок" Text="Наші клієнти можуть накопичувати бонуси при кожній покупці і потім використовувати їх для отримання знижки на майбутні покупки."/>

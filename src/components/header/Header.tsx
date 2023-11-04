@@ -17,6 +17,7 @@ import mailIcon from '../../assets/mailIcon.svg';
 import phoneIcon from '../../assets/phoneIcon.svg';
 import shopIcon from '../../assets/shopIcon.svg';
 import pointIcon from '../../assets/pointIcon.svg';
+import menu from '../../assets/menu.png';
 import { useState } from 'react';
 
 const Header = () => {
@@ -38,6 +39,7 @@ const Header = () => {
     <header className={cls.header}>
       <div className={cls.container}>
         <div className={cls.wrapper}>
+          <Image className={cls.menu} src={menu} width={24} height={24} alt='menu' />
           <div className={cls.logo}>MasterComponent</div>
           <nav className={cls.navBar}>
             <div className={cls.searchBar}>
@@ -88,10 +90,10 @@ const Header = () => {
             <button className={cls.registrationUser}>
               <Image src={userIcon} width={15} height={20} alt='registrationUser' />
             </button>
-            <button className={cls.registrationUser}>
+            <button className={cls.favUser}>
               <Image src={favoriteIcon} width={20} height={17} alt='registrationUser' />
             </button>
-            <button className={cls.registrationUser}>
+            <button className={cls.cart}>
               <Image src={cartIcon} width={19} height={20} alt='registrationUser' />
             </button>
           </div>
