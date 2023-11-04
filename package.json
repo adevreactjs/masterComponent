@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/json5": "^2.2.0",
+    "json5": "^2.2.3",
     "next": "14.0.0",
     "react": "^18",
     "react-dom": "^18",
