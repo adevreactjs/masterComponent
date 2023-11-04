@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500&display=swap');
+
+
 /* global styles and resets */
 *,
 *::after,
@@ -19,6 +23,7 @@ body {
   line-height: 1.6;
   font-family: black;
   color: black;
+  font-family: 'Exo 2', sans-serif;
 }
 ul {
   list-style-type: none;

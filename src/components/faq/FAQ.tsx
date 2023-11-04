@@ -107,10 +107,12 @@ export default function FAQ() {
     return(
         <div className="flex flex-col items-center mb-[9vw]">
             <h2 className="text-center font-[600] text-[2.5vw] mb-[3vw]">FAQ</h2>
-            <Accordion accordionInformation={accordionInformationDelivery} Openheight="h-[30vw]" Name="Доставка"/>
-            <Accordion accordionInformation={accordionInformationGuarantees} Openheight="h-[23vw]" Name="Гарантійність"/>
-            <Accordion accordionInformation={accordionInformationPayment} Openheight="h-[30vw]" Name="Оплата"/>
-            <Accordion accordionInformation={accordionInformationReturns} Openheight="h-[24vw]" Name="Повернення та обмін"/>
+            <div className="flex flex-col gap-[1vw]">
+                <Accordion accordionInformation={accordionInformationDelivery} Openheight="h-[30vw]" Name="Доставка"/>
+                <Accordion accordionInformation={accordionInformationGuarantees} Openheight="h-[23vw]" Name="Гарантійність"/>
+                <Accordion accordionInformation={accordionInformationPayment} Openheight="h-[30vw]" Name="Оплата"/>
+                <Accordion accordionInformation={accordionInformationReturns} Openheight="h-[24vw]" Name="Повернення та обмін"/>
+            </div>
         </div>
     )
 };
