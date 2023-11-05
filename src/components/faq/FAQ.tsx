@@ -106,7 +106,7 @@ const accordionInformationReturns = [
 export default function FAQ() {
     return(
         <div className="flex flex-col items-center mb-[18vw]">
-            <h2 className="text-center font-[600] text-[2.5vw] mb-[3vw] min-[280px]:text-[25px] min-[700px]:text-[5vw]">FAQ</h2>
+            <h2 className="text-center font-[600] text-[2.5vw] mb-[3vw] min-[280px]:text-[25px] min-[700px]:text-[3.5vw]">FAQ</h2>
             <div className="flex flex-col gap-[1vw] min-[280px]:gap-[3vw]">
                 <Accordion accordionInformation={accordionInformationDelivery} Openheight="min-[280px]:h-[129vw] min-[500px]:h-[69vw] min-[1000px]:h-[56vw]" Name="Доставка"/>
                 <Accordion accordionInformation={accordionInformationGuarantees} Openheight="min-[280px]:h-[100vw] min-[500px]:h-[56vw] min-[1000px]:h-[47vw]" Name="Гарантійність"/>
