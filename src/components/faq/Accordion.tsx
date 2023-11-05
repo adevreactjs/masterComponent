@@ -19,7 +19,7 @@ export default function Accordion({Openheight, accordionInformation, Name}:{Open
                         </svg>)
     return(
         <div className={`min-[280px]:w-[75vw] overflow-hidden flex flex-col items-center transition-[height] delay-75 ${click ? Openheight :'h-[3.3vw] min-[280px]:h-[8vw] min-[500px]:h-[6vw]'}`}>
-            <div className={`w-full min-h-[8vw] min-[500px]:min-h-[6vw] rounded-lg pl-4 pr-3 flex flex-row justify-between items-center hover:text-green-900 ${click ? 'bg-[#B9FF61]' : 'bg-[#F1F1F1]'}`} onClick={() => setClick(!click)}>
+            <div className={`w-full min-h-[8vw] min-[500px]:min-h-[6vw] pl-[3vw] pr-[2vw] flex flex-row justify-between items-center hover:cursor-pointer ${click ? 'bg-[#B9FF61]' : 'bg-[#F1F1F1]'}   min-[280px]:rounded-[5px] min-[375px]:rounded-[10px] min-[850px]:rounded-[15px] min-[1000px]:rounded-[20px] min-[1400px]:rounded-[25px] min-[1850px]:rounded-[30px]`} onClick={() => setClick(!click)}>
                 <p className="text-[2vw] min-[280px]:text-[14px] min-[500px]:text-[3vw]">{Name}</p>
                 {arrowDown}
             </div>
