@@ -91,7 +91,6 @@
   justify-content: center;
   align-items: center;
   button {
-    margin-top: 42px;
     padding: 15px 36px;
     font-family: var(--font-exo_2);
     font-size: 20px;
@@ -126,5 +125,10 @@
   }
   .breakLines {
     display: none;
+  }
+  .showMoreBtn {
+    button {
+      margin-top: 40px;
+    }
   }
 }

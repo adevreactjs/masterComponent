@@ -43,10 +43,13 @@ const NewsSlider: FC<NewsSliderProps> = ({
   };
 
   useEffect(() => {
-    setCurrentWidth(window.innerWidth < 600 ? 328 : 450);
+    // setCurrentWidth(window.innerWidth < 600 ? 328 : 668);
     const handleResize = () => {
-      setCurrentWidth(window.innerWidth < 600 ? 328 : 450);
-      setCurrentFont(window.innerWidth < 600 ? 18 : 22);
+      if(window.innerWidth < 600) {
+        setCurrentWidth(328);
+      }
+      // setCurrentWidth(window.innerWidth < 600 ? 328 : 450);
+      // setCurrentFont(window.innerWidth < 600 ? 18 : 22);
     };
     window.addEventListener('resize', handleResize);
     return () => {
