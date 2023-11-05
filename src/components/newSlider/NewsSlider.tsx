@@ -43,6 +43,7 @@ const NewsSlider: FC<NewsSliderProps> = ({
   };
 
   useEffect(() => {
+    setCurrentWidth(window.innerWidth < 600 ? 328 : 450);
     const handleResize = () => {
       setCurrentWidth(window.innerWidth < 600 ? 328 : 450);
       setCurrentFont(window.innerWidth < 600 ? 18 : 22);
