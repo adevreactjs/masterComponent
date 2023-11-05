@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500&display=swap');
-
 
 /* global styles and resets */
 *,
@@ -64,4 +62,9 @@ textarea,
 select {
   outline: 0;
   resize: none;
+}
+@media (max-width: 785px) {
+  body {
+    padding: 0 1rem;
+  }
 }

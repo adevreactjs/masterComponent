@@ -6,9 +6,9 @@ import PopularRequests from '@/components/popularRequests/PopularRequests';
 export default function Home() {
   return (
     <main>
-      <NewsSlider title={'Новинки'} />
+      <NewsSlider title={'Новинки'} showDots={true} />
       <PopularRequests />
-      <NewsSlider title={'Знижки'} width={450} discount={2244} fontSize={22} showMoreBtn={true}/>
+      <NewsSlider title={'Знижки'} discount={2244} showMoreBtn={true} />
       <OurBenefits />
       <FAQ />
     </main>

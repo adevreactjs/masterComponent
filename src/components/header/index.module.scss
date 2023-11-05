@@ -1,7 +1,7 @@
 .header {
-  padding-top: 30px;
-  padding-bottom: 50px;
   background: var(---900, #fbfbfb);
+  overflow-x: hidden;
+  padding: 30px 60px 50px 60px;
 }
 .container {
   position: relative;
@@ -422,6 +422,10 @@
   }
 }
 @media (max-width: 785px) {
+  .header {
+      padding: 30px 1rem 80px 1rem;
+
+  }
   .navItems {
     .registrationUser {
       display: none;
@@ -432,16 +436,21 @@
   }
 }
 @media (max-width: 660px) {
+  .header {
+    padding-bottom: 90px;
+  }
+  .container {
+    max-width: 328px;
+  }
   .navBar {
     max-width: 100%;
     width: 100%;
-    background: gold;
     padding: 0;
     position: absolute;
     left: 0;
     top: 64px;
     right: 0;
-    z-index: 1;
+    z-index: 4;
     width: 100%;
   }
   .searchBar {

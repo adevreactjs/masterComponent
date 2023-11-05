@@ -81,3 +81,48 @@
   line-height: normal;
   text-decoration-line: line-through;
 }
+//media
+
+@media (max-width: 740px) {
+  .cart {
+    width: 620px;
+  }
+}
+@media (max-width: 660px) {
+  .cart {
+    width: 328px;
+    padding: 12px;
+    .cartImg {
+      width: 304px;
+      height: 294px;
+    }
+  }
+  .bonusLabel {
+    left: 15px;
+    top: 15px;
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+  .favIcon {
+    right: 18px;
+    top: 18px;
+    width: 23px;
+    height: 20px;
+  }
+  .cartCharacteristic {
+    h1 {
+      font-size: 18px;
+    }
+    p {
+      font-size: 20px;
+    }
+  }
+  .characteristic {
+    flex-wrap: wrap;
+    gap: 8px;
+    li {
+      font-size: 14px;
+      padding: 7px 16px;
+    }
+  }
+}

@@ -11,10 +11,18 @@ interface NewsSliderProps {
   width?: number;
   discount?: number;
   fontSize?: number;
-  showMoreBtn?: boolean; 
+  showMoreBtn?: boolean;
+  showDots?: boolean;
 }
 
-const NewsSlider: FC<NewsSliderProps> = ({ title, width, discount, fontSize, showMoreBtn }) => {
+const NewsSlider: FC<NewsSliderProps> = ({
+  title,
+  width,
+  discount,
+  fontSize,
+  showMoreBtn,
+  showDots,
+}) => {
   const [activeBreakLine, setActiveBreakLine] = useState(true);
   const scrollRef = useRef<HTMLInputElement | null | any>(null);
 
@@ -47,14 +55,17 @@ const NewsSlider: FC<NewsSliderProps> = ({ title, width, discount, fontSize, sho
           <NewsCart width={width} discount={discount} fontSize={fontSize} />
           <NewsCart width={width} discount={discount} fontSize={fontSize} />
         </div>
-        <div className={cls.breakLines}>
-          <div
-            onClick={breakLineHandlerFirst}
-            className={`${activeBreakLine ? cls.activeBreakLine : cls.breakLine}`}></div>
-          <div
-            onClick={breakLineHandlerSecond}
-            className={`${activeBreakLine ? cls.breakLine : cls.activeBreakLine}`}></div>
-        </div>
+        {
+         showDots && <div className={cls.breakLines}>
+            <div
+              onClick={breakLineHandlerFirst}
+              className={`${activeBreakLine ? cls.activeBreakLine : cls.breakLine}`}></div>
+            <div
+              onClick={breakLineHandlerSecond}
+              className={`${activeBreakLine ? cls.breakLine : cls.activeBreakLine}`}></div>
+          </div>
+        }
+
         <div className={cls.showMoreBtn}>
           {showMoreBtn && <button>Показати усі продукти</button>}
         </div>

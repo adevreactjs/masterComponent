@@ -1,6 +1,8 @@
 .popularRequests {
   background: var(---900, #fbfbfb);
   padding-bottom: 168px;
+  padding-right: 60px;
+  padding-left: 60px;
 }
 .container {
   max-width: 1392px;
@@ -54,4 +56,45 @@
 }
 .productLogo {
   width: 43px;
+}
+
+@media (max-width: 1365px) {
+  .wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .title {
+    position: static;
+    font-size: 30px;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 825px) {
+  .categoryList {
+    li {
+      width: 600px;
+    }
+  }
+}
+@media (max-width: 615px) {
+  .categoryList {
+    li {
+      width: 328px;
+      white-space: nowrap;
+    }
+  }
+  .categoryTitle {
+    align-items: center;
+    p {
+      font-size: 20px;
+    }
+    img {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  .popularRequests {
+    padding-bottom: 80px;
+  }
 }
