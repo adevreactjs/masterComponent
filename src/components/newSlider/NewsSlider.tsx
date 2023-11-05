@@ -49,7 +49,7 @@ const NewsSlider: FC<NewsSliderProps> = ({
         setCurrentWidth(328);
       }
       // setCurrentWidth(window.innerWidth < 600 ? 328 : 450);
-      // setCurrentFont(window.innerWidth < 600 ? 18 : 22);
+      setCurrentFont(window.innerWidth < 600 ? 18 : 22);
     };
     window.addEventListener('resize', handleResize);
     return () => {

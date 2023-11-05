@@ -1,6 +1,5 @@
 .header {
   background: var(---900, #fbfbfb);
-  overflow-x: hidden;
   padding: 30px 60px 50px 60px;
 }
 .container {
@@ -75,7 +74,6 @@
         transition: all 0.5s;
         .navBtn {
           transition: all 0.5s ease-in-out;
-          transform: rotate(180deg);
         }
       }
     }
@@ -97,7 +95,7 @@
   position: absolute;
   left: 0;
   top: 100px;
-  z-index: 2;
+  z-index: 4;
   display: flex;
   gap: 54px;
   padding-bottom: 45px;
@@ -401,6 +399,9 @@
 
 // media
 @media (max-width: 1220px) {
+  .header {
+    overflow-x: hidden;
+  }
   .menu {
     display: block;
   }
@@ -423,8 +424,7 @@
 }
 @media (max-width: 785px) {
   .header {
-      padding: 30px 1rem 80px 1rem;
-
+    padding: 30px 1rem 80px 1rem;
   }
   .navItems {
     .registrationUser {
