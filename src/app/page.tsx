@@ -8,7 +8,7 @@ export default function Home() {
     <main>
       <NewsSlider title={'Новинки'} showDots={true} />
       <PopularRequests />
-      <NewsSlider title={'Знижки'} discount={2244} showMoreBtn={true} />
+      <NewsSlider title={'Знижки'} width={450} discount={2244} showMoreBtn={true} fontSize={22}/>
       <OurBenefits />
       <FAQ />
     </main>
