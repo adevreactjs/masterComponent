@@ -1,0 +1,9 @@
+
+@keyframes spinBlock {
+    0%{rotate: 0deg;}
+    100%{rotate: 360deg;}
+}
+
+.animSpin {
+    animation: spinBlock 2s linear infinite;
+}
