@@ -21,22 +21,22 @@ export default function Footer() {
 
             <div className="min-[895px]:hidden min-[280px]:block">
                 <div className="flex flex-row justify-around text-[3.5vw] mt-[20vw] mb-[20vw] min-[1499px]:text-[27px]">
-                    <Circles text='Ми у Києві'/>
-                    <Circles text='Ми у Львові'/>
-                    <Circles text='Ми у Харкові'/>
+                    <Circles text='Ми у Києві' redirectionLink='https://maps.app.goo.gl/zP364ukyc7L1FMvE6'/>
+                    <Circles text='Ми у Львові' redirectionLink='https://maps.app.goo.gl/uQMnoJ1caqhsSPQ96'/>
+                    <Circles text='Ми у Харкові' redirectionLink='https://maps.app.goo.gl/TWACtTTQXEMmGsGY7'/>
                 </div>
                 <div className="flex flex-row justify-between">
-                    <p className="text-[3vw] text-[#C1C1C1]">© mastercomponent 2023</p>
-                    <p className="text-[3vw] text-[#C1C1C1]">Privacy Policy</p>
+                    <p className="text-[2vw] text-[#C1C1C1]">© mastercomponent 2023</p>
+                    <p className="text-[2vw] text-[#C1C1C1]">Privacy Policy</p>
                 </div>
             </div>
 
             <div className="min-[280px]:hidden min-[895px]:flex flex-row items-center justify-between mt-[15vw] min-[1200px]:mt-[13vw]">
                 <p className="text-[1vw] text-[#C1C1C1]">© mastercomponent 2023</p>
-                <div className="flex flex-row justify-around text-[20px] gap-[20px] min-[1000px]:gap-[70px] min-[895px]:text-[2vw]">
-                    <Circles text='Ми у Києві'/>
-                    <Circles text='Ми у Львові'/>
-                    <Circles text='Ми у Харкові'/>
+                <div className="flex flex-row justify-around text-[20px] gap-[10vw]">
+                    <Circles text='Ми у Києві' redirectionLink='https://maps.app.goo.gl/zP364ukyc7L1FMvE6'/>
+                    <Circles text='Ми у Львові' redirectionLink='https://maps.app.goo.gl/uQMnoJ1caqhsSPQ96'/>
+                    <Circles text='Ми у Харкові' redirectionLink='https://maps.app.goo.gl/TWACtTTQXEMmGsGY7'/>
                 </div>
                 <p className="text-[1vw] text-[#C1C1C1]">Privacy Policy</p>
             </div>
