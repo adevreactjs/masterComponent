@@ -1,10 +1,11 @@
-import { StaticImageData } from "next/image";
+import { StaticImageData } from 'next/image';
 
 export interface Products {
-    products: Product[]
+  products: Product[];
 }
 
 export interface Product {
+  id: number;
   image: StaticImageData;
   title: string;
   price: number;

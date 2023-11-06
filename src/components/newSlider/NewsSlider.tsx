@@ -57,8 +57,9 @@ const NewsSlider: FC<NewsSliderProps> = ({
     };
   }, [currentWidth, currentFont]);
 
-  const products:Product[] = [
+  const products: Product[] = [
     {
+      id: 1,
       image: procImg,
       title: 'Процесор AMD Ryzen 9 1',
       price: 25819,
@@ -73,6 +74,8 @@ const NewsSlider: FC<NewsSliderProps> = ({
       ],
     },
     {
+      id: 2,
+
       image: procImg,
       title: 'Процесор AMD Ryzen 9 2',
       price: 25000,
@@ -87,6 +90,8 @@ const NewsSlider: FC<NewsSliderProps> = ({
       ],
     },
     {
+      id: 3,
+
       image: procImg,
       title: 'Процесор AMD Ryzen 9 3',
       price: 25819,
@@ -101,6 +106,8 @@ const NewsSlider: FC<NewsSliderProps> = ({
       ],
     },
     {
+      id: 4,
+
       image: procImg,
       title: 'Процесор AMD Ryzen 9 4',
       price: 25819,
@@ -115,6 +122,7 @@ const NewsSlider: FC<NewsSliderProps> = ({
       ],
     },
     {
+      id: 5,
       image: procImg,
       title: 'Процесор AMD Ryzen 9 5',
       price: 25819,
@@ -129,6 +137,8 @@ const NewsSlider: FC<NewsSliderProps> = ({
       ],
     },
     {
+      id: 6,
+
       image: procImg,
       title: 'Процесор AMD Ryzen 9 6',
       price: 25819,
@@ -156,7 +166,7 @@ const NewsSlider: FC<NewsSliderProps> = ({
         </button>
         <div className={cls.carts} ref={scrollRef}>
           {
-              products.map((product: Product) => (<NewsCart product={product} width={currentWidth} discount={discount} fontSize={currentFont}/>))
+              products.map((product: Product) => (<NewsCart key={product.id} product={product} width={currentWidth} discount={discount} fontSize={currentFont}/>))
           }
         
         </div>
