@@ -1,8 +1,9 @@
 import Link from "next/link";
-
+import styles from './borderSpin.module.css'
+import Circles from "./Circles";
 export default function Footer() {
     return(
-        <div className="bg-[#262626] text-[#FBFBFB] w-full rounded-t-3xl pl-[5vw] pr-[3vw] pt-[8vw] pb-[4vw]  min-[550px]:h-[101vw]  min-[895px]:h-[62vw] min-[1120px]:h-[58vw] min-[1200px]:h-[50vw] min-[1120px]:pt-[2vw]">
+        <div className="bg-[#262626] text-[#FBFBFB] w-full rounded-t-3xl pl-[5vw] pr-[3vw] pt-[8vw] pb-[4vw]  min-[550px]:h-[101vw]  min-[895px]:h-[62vw] min-[1120px]:h-[58vw] min-[1200px]:h-[55vw] min-[1120px]:pt-[2vw]">
             <div className="min-[550px]:flex flex-row justify-between">
                 <h2 className="text-[8vw] leading-tight tracking-[0.1vw] min-[280px]:w-[90vw] min-[550px]:text-[4.5vw] min-[550px]:w-[37vw]">Підпишись та отримай знижку</h2>
                 <div className="flex flex-col items-center justify-center mb-[8vw] min-[280px]:items-start min-[1200px]:items-end">
@@ -19,25 +20,25 @@ export default function Footer() {
             </div>
 
             <div className="min-[895px]:hidden min-[280px]:block">
-                <div className="flex flex-row justify-around text-[4vw] mt-[20vw] mb-[20vw] min-[1499px]:text-[27px]">
-                    <Link href='/' className="bg-transparent ">Ми в Києві</Link>
-                    <Link href='/' className="bg-transparent ">Ми у Львові</Link>
-                    <Link href='/' className="bg-transparent ">Ми у Харкові</Link>
+                <div className="flex flex-row justify-around text-[3.5vw] mt-[20vw] mb-[20vw] min-[1499px]:text-[27px]">
+                    <Circles text='Ми у Києві'/>
+                    <Circles text='Ми у Львові'/>
+                    <Circles text='Ми у Харкові'/>
                 </div>
                 <div className="flex flex-row justify-between">
-                    <p className="text-[4vw] text-[#C1C1C1]">© mastercomponent 2023</p>
-                    <p className="text-[4vw] text-[#C1C1C1]">Privacy Policy</p>
+                    <p className="text-[3vw] text-[#C1C1C1]">© mastercomponent 2023</p>
+                    <p className="text-[3vw] text-[#C1C1C1]">Privacy Policy</p>
                 </div>
             </div>
 
             <div className="min-[280px]:hidden min-[895px]:flex flex-row items-center justify-between mt-[15vw] min-[1200px]:mt-[13vw]">
-                <p className="text-[2vw] text-[#C1C1C1]">© mastercomponent 2023</p>
+                <p className="text-[1vw] text-[#C1C1C1]">© mastercomponent 2023</p>
                 <div className="flex flex-row justify-around text-[20px] gap-[20px] min-[1000px]:gap-[70px] min-[895px]:text-[2vw]">
-                    <Link href='/' className="bg-transparent">Ми в Києві</Link>
-                    <Link href='/' className="bg-transparent">Ми у Львові</Link>
-                    <Link href='/' className="bg-transparent">Ми у Харкові</Link>
+                    <Circles text='Ми у Києві'/>
+                    <Circles text='Ми у Львові'/>
+                    <Circles text='Ми у Харкові'/>
                 </div>
-                <p className="text-[2vw] text-[#C1C1C1]">Privacy Policy</p>
+                <p className="text-[1vw] text-[#C1C1C1]">Privacy Policy</p>
             </div>
         </div>
     )
