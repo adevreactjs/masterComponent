@@ -6,7 +6,7 @@ import leftArrow from '../../assets/leftArrow.svg';
 import rightArrow from '../../assets/leftArr.svg';
 import Image from 'next/image';
 import procImg from '../../assets/procIcon.jpg';
-import { Product, Products } from '@/types/type';
+import { Product } from '@/types/type';
 
 interface NewsSliderProps {
   title?: string;
@@ -26,8 +26,6 @@ const NewsSlider: FC<NewsSliderProps> = ({
   showDots,
 }) => {
   const [activeBreakLine, setActiveBreakLine] = useState(true);
-  const [currentWidth, setCurrentWidth] = useState(width);
-  const [currentFont, setCurrentFont] = useState(fontSize);
 
   const scrollRef = useRef<HTMLInputElement | null | any>(null);
 
@@ -43,19 +41,6 @@ const NewsSlider: FC<NewsSliderProps> = ({
     scroll(+1390);
     setActiveBreakLine(false);
   };
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 600) {
-        setCurrentWidth(328);
-      }
-      setCurrentFont(window.innerWidth < 600 ? 18 : 22);
-    };
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [currentWidth, currentFont]);
 
   const products: Product[] = [
     {
@@ -165,10 +150,15 @@ const NewsSlider: FC<NewsSliderProps> = ({
           <Image src={rightArrow} width={22} height={22} alt='rightArrow' />
         </button>
         <div className={cls.carts} ref={scrollRef}>
-          {
-              products.map((product: Product) => (<NewsCart key={product.id} product={product} width={currentWidth} discount={discount} fontSize={currentFont}/>))
-          }
-        
+          {products.map((product: Product) => (
+            <NewsCart
+              key={product.id}
+              product={product}
+              width={width}
+              discount={discount}
+              fontSize={fontSize}
+            />
+          ))}
         </div>
         {showDots && (
           <div className={cls.breakLines}>
