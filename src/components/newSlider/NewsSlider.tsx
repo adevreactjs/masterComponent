@@ -5,6 +5,8 @@ import cls from './index.module.scss';
 import leftArrow from '../../assets/leftArrow.svg';
 import rightArrow from '../../assets/leftArr.svg';
 import Image from 'next/image';
+import procImg from '../../assets/procIcon.jpg';
+import { Product, Products } from '@/types/type';
 
 interface NewsSliderProps {
   title?: string;
@@ -43,12 +45,10 @@ const NewsSlider: FC<NewsSliderProps> = ({
   };
 
   useEffect(() => {
-    // setCurrentWidth(window.innerWidth < 600 ? 328 : 668);
     const handleResize = () => {
-      if(window.innerWidth < 600) {
+      if (window.innerWidth < 600) {
         setCurrentWidth(328);
       }
-      // setCurrentWidth(window.innerWidth < 600 ? 328 : 450);
       setCurrentFont(window.innerWidth < 600 ? 18 : 22);
     };
     window.addEventListener('resize', handleResize);
@@ -56,6 +56,93 @@ const NewsSlider: FC<NewsSliderProps> = ({
       window.removeEventListener('resize', handleResize);
     };
   }, [currentWidth, currentFont]);
+
+  const products:Product[] = [
+    {
+      image: procImg,
+      title: 'Процесор AMD Ryzen 9 1',
+      price: 25819,
+      bonus: 21,
+      property: [
+        {
+          proc: '16 ядер',
+          frequency: '4.2(5.7)GHz',
+          memory: '128MB',
+          type: 'AM5',
+        },
+      ],
+    },
+    {
+      image: procImg,
+      title: 'Процесор AMD Ryzen 9 2',
+      price: 25000,
+      bonus: 20,
+      property: [
+        {
+          proc: '15 ядер',
+          frequency: '4.2(5.7)GHz',
+          memory: '128MB',
+          type: 'AM5',
+        },
+      ],
+    },
+    {
+      image: procImg,
+      title: 'Процесор AMD Ryzen 9 3',
+      price: 25819,
+      bonus: 19,
+      property: [
+        {
+          proc: '14 ядер',
+          frequency: '4.2(5.7)GHz',
+          memory: '128MB',
+          type: 'AM5',
+        },
+      ],
+    },
+    {
+      image: procImg,
+      title: 'Процесор AMD Ryzen 9 4',
+      price: 25819,
+      bonus: 21,
+      property: [
+        {
+          proc: '16 ядер',
+          frequency: '4.2(5.7)GHz',
+          memory: '128MB',
+          type: 'AM5',
+        },
+      ],
+    },
+    {
+      image: procImg,
+      title: 'Процесор AMD Ryzen 9 5',
+      price: 25819,
+      bonus: 21,
+      property: [
+        {
+          proc: '16 ядер',
+          frequency: '4.2(5.7)GHz',
+          memory: '128MB',
+          type: 'AM5',
+        },
+      ],
+    },
+    {
+      image: procImg,
+      title: 'Процесор AMD Ryzen 9 6',
+      price: 25819,
+      bonus: 21,
+      property: [
+        {
+          proc: '16 ядер',
+          frequency: '4.2(5.7)GHz',
+          memory: '128MB',
+          type: 'AM5',
+        },
+      ],
+    },
+  ];
 
   return (
     <div className={cls.newsSlider}>
@@ -68,10 +155,10 @@ const NewsSlider: FC<NewsSliderProps> = ({
           <Image src={rightArrow} width={22} height={22} alt='rightArrow' />
         </button>
         <div className={cls.carts} ref={scrollRef}>
-          <NewsCart width={currentWidth} discount={discount} fontSize={currentFont} />
-          <NewsCart width={currentWidth} discount={discount} fontSize={currentFont} />
-          <NewsCart width={currentWidth} discount={discount} fontSize={currentFont} />
-          <NewsCart width={currentWidth} discount={discount} fontSize={currentFont} />
+          {
+              products.map((product: Product) => (<NewsCart product={product} width={currentWidth} discount={discount} fontSize={currentFont}/>))
+          }
+        
         </div>
         {showDots && (
           <div className={cls.breakLines}>
