@@ -23,12 +23,16 @@ import helpIcon from '../../assets/helpIcon.svg';
 import menu from '../../assets/menu.png';
 import catalogyIcon from '../../assets/catalogyIcon.svg';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { openRegistrationFormHandler } from '@/app/store/reducers/RegistrationSlice';
 
 const Header = () => {
   const [activeMenu, setActiveMenu] = useState(false);
   const [activeHelpMenu, setHelpActiveMenu] = useState(false);
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
   const [activeCategory, setActiveCategory] = useState(0);
+
+  const dispatch = useDispatch()
 
   const openCategory = () => {
     setActiveMenu(!activeMenu);
@@ -182,7 +186,9 @@ const Header = () => {
             </div>
           </nav>
           <div className={cls.navItems}>
-            <button className={cls.registrationUser}>
+            <button
+              className={cls.registrationUser}
+              onClick={() => dispatch(openRegistrationFormHandler(true))}>
               <Image src={userIcon} width={15} height={20} alt='registrationUser' />
             </button>
             <button className={cls.favUser}>

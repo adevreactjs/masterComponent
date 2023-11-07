@@ -7,9 +7,12 @@ import fillEyeIcon from '../../assets/fillEyeIcon.svg';
 import openEyeIcon from '../../assets/openEyeIcon.svg';
 import Image from 'next/image';
 import { ChangeEvent, Dispatch, FC, SetStateAction, useState, MouseEvent } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { openRegistrationFormHandler } from '@/app/store/reducers/RegistrationSlice';
+
 
 interface RegistrationFormProps {
-  setOpenRegistrationForm: Dispatch<SetStateAction<boolean>>;
+  setOpenRegistrationForm?: Dispatch<SetStateAction<boolean>>;
 }
 
 const RegistrationForm: FC<RegistrationFormProps> = ({ setOpenRegistrationForm }) => {
@@ -21,6 +24,8 @@ const RegistrationForm: FC<RegistrationFormProps> = ({ setOpenRegistrationForm }
   const [passwordApplyInput, setPasswordApplyInput] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showApplyPassword, setApplyPassword] = useState(false);
+
+  const dispatch = useDispatch();
 
   const emailHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setEmailInput(e.target.value);
@@ -49,12 +54,12 @@ const RegistrationForm: FC<RegistrationFormProps> = ({ setOpenRegistrationForm }
   };
   const closeRegistrationForm = (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
     e.stopPropagation();
-    setOpenRegistrationForm(false);
+    dispatch(openRegistrationFormHandler(false));
   };
   const closeForm = (e: MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
     if (e.target === e.currentTarget) {
-      setOpenRegistrationForm(false);
+    dispatch(openRegistrationFormHandler(false));
     }
   };
 

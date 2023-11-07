@@ -5,11 +5,17 @@ import OurBenefits from '../components/ourBenefits/OurBenefits';
 import NewsSlider from '@/components/newSlider/NewsSlider';
 import PopularRequests from '@/components/popularRequests/PopularRequests';
 import RegistrationForm from '@/components/registrationForm/RegistrationForm';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from './store/store';
 
 export default function Home() {
   const [currentWidth, setCurrentWidth] = useState(450);
   const [currentFont, setCurrentFont] = useState(22);
   const [openRegistrationForm, setOpenRegistrationForm] = useState(false);
+
+  const isOpenRegistrationForm = useSelector(
+    (state: RootState) => state.registration.isOpenRegistrationForm,
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -40,9 +46,7 @@ export default function Home() {
       />
       <OurBenefits />
       <FAQ />
-      {openRegistrationForm && (
-        <RegistrationForm setOpenRegistrationForm={setOpenRegistrationForm} />
-      )}
+      {isOpenRegistrationForm && <RegistrationForm />}
     </main>
   );
 }
