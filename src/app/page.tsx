@@ -4,10 +4,12 @@ import FAQ from '../components/faq/FAQ';
 import OurBenefits from '../components/ourBenefits/OurBenefits';
 import NewsSlider from '@/components/newSlider/NewsSlider';
 import PopularRequests from '@/components/popularRequests/PopularRequests';
+import RegistrationForm from '@/components/registrationForm/RegistrationForm';
 
 export default function Home() {
   const [currentWidth, setCurrentWidth] = useState(450);
   const [currentFont, setCurrentFont] = useState(22);
+  const [openRegistrationForm, setOpenRegistrationForm] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
@@ -38,6 +40,9 @@ export default function Home() {
       />
       <OurBenefits />
       <FAQ />
+      {openRegistrationForm && (
+        <RegistrationForm setOpenRegistrationForm={setOpenRegistrationForm} />
+      )}
     </main>
   );
 }

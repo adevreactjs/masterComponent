@@ -1,0 +1,138 @@
+.registrationForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 6;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(18, 18, 18, 0.5);
+  position: fixed;
+}
+.wrapper {
+  position: relative;
+  width: 556px;
+  padding: 33px;
+  border-radius: 50px;
+  background: var(---900, #fbfbfb);
+}
+.closeBtn {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 9px;
+}
+.container {
+  width: 346px;
+  margin: 0 auto;
+  p {
+    width: 100%;
+    text-align: center;
+    color: var(---800, #262626);
+    font-family: var(--font-exo_2);
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 38px;
+  }
+}
+.registrationBtns {
+  width: 100%;
+  display: flex;
+  padding: 6px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 42px;
+  button {
+    padding: 10px 38px 12px 38px;
+    color: var(---600, #6c6c6c);
+    font-family: var(--font-exo_2);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border-radius: 30px;
+  }
+}
+.activeRegBtn {
+  background: var(---, #b9ff61);
+  color: var(---800, #262626);
+  transition: all 0.5s;
+}
+.textFields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 38px;
+}
+.textField {
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 30px;
+  border: 1px solid #dadada;
+  display: flex;
+  justify-content: space-between;
+  input {
+    width: 100%;
+    display: block;
+    background: var(---900, #fbfbfb);
+    font-family: var(--font-exo_2);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    outline: none;
+  }
+  &::placeholder {
+    color: var(---600, #6c6c6c);
+    font-family: var(--font-exo_2);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+  }
+}
+
+.googleBtn {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 16px 20px;
+  border-radius: 30px;
+  background: var(---800, #f1f1f1);
+  font-family: var(--font-exo_2);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  margin-bottom: 69px;
+}
+.enterBtn {
+  width: 100%;
+  padding: 12px 36px;
+  text-align: center;
+  border-radius: 11px;
+  background: var(---500, #c1c1c1);
+}
+.fillEyeIcon {
+  width: 24px;
+  height: 24px;
+  padding: 4px 3px;
+}
+.closeEyeIcon {
+  width: 24px;
+  height: 24px;
+}
+.forgetTitle {
+  color: var(---600, #6c6c6c);
+  font-family: var(--font-exo_2);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-align: center;
+  cursor: pointer;
+}
