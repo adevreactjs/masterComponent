@@ -9,7 +9,7 @@ import RegistrationForm from '@/components/registrationForm/RegistrationForm';
 export default function Home() {
   const [currentWidth, setCurrentWidth] = useState(450);
   const [currentFont, setCurrentFont] = useState(22);
-  const [openRegistrationForm, setOpenRegistrationForm] = useState(true);
+  const [openRegistrationForm, setOpenRegistrationForm] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
