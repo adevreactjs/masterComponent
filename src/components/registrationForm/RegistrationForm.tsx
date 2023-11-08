@@ -6,16 +6,20 @@ import googleIcon from '../../assets/googleIcon.svg';
 import fillEyeIcon from '../../assets/fillEyeIcon.svg';
 import openEyeIcon from '../../assets/openEyeIcon.svg';
 import Image from 'next/image';
-import { ChangeEvent, Dispatch, FC, SetStateAction, useState, MouseEvent } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { ChangeEvent, FC, useState, MouseEvent } from 'react';
+import { useDispatch } from 'react-redux';
 import { openRegistrationFormHandler } from '@/app/store/reducers/RegistrationSlice';
+import { Formik, FormikHelpers, FormikProps, Form, Field, FieldProps, ErrorMessage } from 'formik';
 
-
-interface RegistrationFormProps {
-  setOpenRegistrationForm?: Dispatch<SetStateAction<boolean>>;
+interface MyFormValues {
+  email: string;
+  password: string;
 }
-
-const RegistrationForm: FC<RegistrationFormProps> = ({ setOpenRegistrationForm }) => {
+interface Values {
+  email: string;
+  password: string;
+}
+const RegistrationForm: FC = () => {
   const [activeRegBtn, setActiveRegBtn] = useState(false);
   const [activeEye, setActiveEye] = useState(false);
   const [activeEyeApply, setActiveEyeApply] = useState(false);
@@ -59,10 +63,9 @@ const RegistrationForm: FC<RegistrationFormProps> = ({ setOpenRegistrationForm }
   const closeForm = (e: MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
     if (e.target === e.currentTarget) {
-    dispatch(openRegistrationFormHandler(false));
+      dispatch(openRegistrationFormHandler(false));
     }
   };
-
   const signUpHandler = () => {
     setActiveRegBtn(true);
   };
@@ -96,68 +99,85 @@ const RegistrationForm: FC<RegistrationFormProps> = ({ setOpenRegistrationForm }
               Реєстрація
             </button>
           </div>
-          <div className={cls.textFields}>
-            <div className={cls.textField}>
-              <input
-                type='text'
-                placeholder='E-mail або телефон'
-                value={emailInput}
-                onChange={e => emailHandler(e)}
-              />
-            </div>
-            <div className={cls.textField}>
-              <input
-                type={showPassword ? 'text' : 'password'}
-                placeholder='Пароль'
-                value={passwordInput}
-                onChange={e => passwordHandler(e)}
-              />
-              {activeEye ? (
-                <div className={cls.fillEyeIcon} onClick={handleTogglePassword}>
-                  {showPassword ? (
-                    <Image src={openEyeIcon} width={24} height={24} alt='openEyeIcon' />
+          <Formik
+            initialValues={{
+              email: '',
+              password: '',
+            }}
+            onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
+              setTimeout(() => {
+                alert(JSON.stringify(values, null, 2));
+                setSubmitting(false);
+              }, 500);
+            }}>
+            {({ errors, touched }) => (
+              <Form className={cls.textFields}>
+                <div className={cls.textField}>
+                  <Field
+                    type='email'
+                    placeholder='E-mail або телефон'
+                    value={emailInput}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => emailHandler(e)}
+                  />
+                </div>
+
+                <div className={cls.textField}>
+                  <Field
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder='Пароль'
+                    value={passwordInput}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => passwordHandler(e)}
+                  />
+                  {activeEye ? (
+                    <div className={cls.fillEyeIcon} onClick={handleTogglePassword}>
+                      {showPassword ? (
+                        <Image src={openEyeIcon} width={24} height={24} alt='openEyeIcon' />
+                      ) : (
+                        <Image src={fillEyeIcon} width={18} height={16} alt='fillEyeIcon' />
+                      )}
+                    </div>
                   ) : (
-                    <Image src={fillEyeIcon} width={18} height={16} alt='fillEyeIcon' />
+                    <div className={cls.closeEyeIcon}>
+                      <Image src={closeEyeIcon} width={24} height={24} alt='closeEyeIcon' />
+                    </div>
                   )}
                 </div>
-              ) : (
-                <div className={cls.closeEyeIcon}>
-                  <Image src={closeEyeIcon} width={24} height={24} alt='closeEyeIcon' />
-                </div>
-              )}
-            </div>
-            {activeRegBtn && <span className={cls.forgetTitle}>Забув пароль</span>}
-            {!activeRegBtn && (
-              <div className={cls.textField}>
-                <input
-                  type={showApplyPassword ? 'text' : 'password'}
-                  placeholder='Підтвердження пароля'
-                  value={passwordApplyInput}
-                  onChange={e => passwordApplyHandler(e)}
-                />
-                {activeEyeApply ? (
-                  <div className={cls.fillEyeIcon} onClick={handleToggleApplyPassword}>
-                    {showApplyPassword ? (
-                      <Image src={openEyeIcon} width={24} height={24} alt='openEyeIcon' />
+                {activeRegBtn && <span className={cls.forgetTitle}>Забув пароль</span>}
+                {!activeRegBtn && (
+                  <div className={cls.textField}>
+                    <Field
+                      type={showApplyPassword ? 'text' : 'password'}
+                      placeholder='Підтвердження пароля'
+                      value={passwordApplyInput}
+                      onChange={(e: ChangeEvent<HTMLInputElement>) => passwordApplyHandler(e)}
+                    />
+                    {activeEyeApply ? (
+                      <div className={cls.fillEyeIcon} onClick={handleToggleApplyPassword}>
+                        {showApplyPassword ? (
+                          <Image src={openEyeIcon} width={24} height={24} alt='openEyeIcon' />
+                        ) : (
+                          <Image src={fillEyeIcon} width={18} height={16} alt='fillEyeIcon' />
+                        )}
+                      </div>
                     ) : (
-                      <Image src={fillEyeIcon} width={18} height={16} alt='fillEyeIcon' />
+                      <div className={cls.closeEyeIcon}>
+                        <Image src={closeEyeIcon} width={24} height={24} alt='closeEyeIcon' />
+                      </div>
                     )}
                   </div>
-                ) : (
-                  <div className={cls.closeEyeIcon}>
-                    <Image src={closeEyeIcon} width={24} height={24} alt='closeEyeIcon' />
-                  </div>
                 )}
-              </div>
-            )}
-          </div>
 
-          <p>або</p>
-          <button className={cls.googleBtn}>
-            <Image src={googleIcon} width={26} height={26} alt='googleIcon' /> Зареєструватися з
-            Google
-          </button>
-          <button className={cls.enterBtn}>Увійти</button>
+                <p>або</p>
+                <button className={cls.googleBtn}>
+                  <Image src={googleIcon} width={26} height={26} alt='googleIcon' /> Зареєструватися
+                  з Google
+                </button>
+                <button type='submit' className={cls.enterBtn}>
+                  Увійти
+                </button>
+              </Form>
+            )}
+          </Formik>
         </div>
       </div>
     </div>
