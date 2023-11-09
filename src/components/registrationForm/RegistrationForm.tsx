@@ -75,7 +75,13 @@ const RegistrationForm: FC = () => {
       <div className={cls.wrapper}>
         <div className={cls.closeBtn}>
           <button onClick={closeRegistrationForm}>
-            <Image src={closeIcon} width={18} height={18} alt='closeIcon' />
+            <Image
+              className={cls.closeBtnIcon}
+              src={closeIcon}
+              width={18}
+              height={18}
+              alt='closeIcon'
+            />
           </button>
         </div>
         <div className={cls.container}>

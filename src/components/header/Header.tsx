@@ -32,7 +32,7 @@ const Header = () => {
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
   const [activeCategory, setActiveCategory] = useState(0);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const openCategory = () => {
     setActiveMenu(!activeMenu);
@@ -42,6 +42,12 @@ const Header = () => {
   const openHelpMenu = () => {
     setHelpActiveMenu(!activeHelpMenu);
     setActiveMenu(false);
+  };
+
+  const registrationFormHandler = () => {
+    setActiveMobileMenu(false);
+    dispatch(openRegistrationFormHandler(true));
+
   };
 
   return (
@@ -121,7 +127,7 @@ const Header = () => {
             </li>
             <li>
               <Image src={exitIcon} width={21} height={20} alt='img' />
-              <div className={cls.mobileMenuContent}>
+              <div className={cls.mobileMenuContent} onClick={registrationFormHandler}>
                 Вийти
                 <Image src={rightArrow} width={11} height={7} alt='img' />
               </div>
