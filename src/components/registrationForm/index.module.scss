@@ -136,3 +136,45 @@
   text-align: center;
   cursor: pointer;
 }
+@media (max-width: 785px) {
+  .registrationForm {
+    width: 100%;
+    position: absolute;
+    background: #fbfbfb;
+    height: auto;
+    top: 80px;
+  }
+  .wrapper {
+    width: 100%;
+    padding: 10px;
+    border-radius: 0;
+  }
+  .closeBtnIcon {
+    width: 14px;
+    height: 14px;
+  }
+}
+@media (max-width: 660px) {
+  .wrapper {
+    width: 360px;
+  }
+  .registrationBtns {
+    gap: 80px;
+    margin-bottom: 72px;
+    button {
+      padding: 9px 20px 11px 20px;
+    }
+  }
+  .registrationBtn {
+    font-size: 18px;
+  }
+  .registrationForm {
+    gap: 14px;
+    p {
+      margin-top: 47px;
+    }
+  }
+  .googleBtn {
+    margin-bottom: 135px;
+  }
+}
