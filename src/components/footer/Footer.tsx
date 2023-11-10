@@ -1,6 +1,5 @@
-import Link from "next/link";
-import styles from './borderSpin.module.css'
 import Circles from "./Circles";
+import RegistrationBtn from "./RegistrationBtn";
 export default function Footer() {
     return(
         <div className="bg-[#262626] text-[#FBFBFB] w-full rounded-t-3xl pl-[5vw] pr-[3vw] pt-[8vw] pb-[4vw]  min-[550px]:h-[101vw]  min-[895px]:h-[62vw] min-[1120px]:h-[58vw] min-[1200px]:h-[55vw] min-[1120px]:pt-[2vw]">
@@ -16,7 +15,7 @@ export default function Footer() {
             </div>
             <div className="flex flex-row justify-between items-end gap-[3vw] min-[500px]:gap-[1vw] min-[1200px]:mt-[7vw]">
                 <input type="email" placeholder="Email" className="min-[280px]:h-[12vw] min-[550px]:h-[5vw] bg-transparent border-b border-[#FBFBFB] text-[3.4vw] w-[58vw] placeholder:text-[3vw] focus:text-[3.5vw] focus:text-[#B9F072] min-[1200px]:w-[70vw]"/>
-                <button className="pl-[10px] pr-[10px] rounded-[3vw] bg-[#B9F072] font-[500] text-[#262626] text-[4vw] h-[8vw] min-[550px]:text-[3vw] min-[500px]:text-[3vw] min-[965px]:h-[6.5vw] min-[1200px]:h-[5vw] min-[1200px]:text-[2vw] min-[280px]:before:content-['Надіслати'] min-[400px]:before:content-['Зареєструватися']"></button>
+                <RegistrationBtn />
             </div>
 
             <div className="min-[895px]:hidden min-[280px]:block">

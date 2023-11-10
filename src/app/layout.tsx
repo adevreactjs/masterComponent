@@ -5,7 +5,7 @@ import Header from '@/components/header/Header';
 import Footer from '../components/footer/Footer';
 import { Providers } from './store/provider';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
- const exo = Exo_2({ subsets: ['latin'], variable: '--font-exo_2' });
+const exo = Exo_2({ subsets: ['latin'], variable: '--font-exo_2' });
 
 
 export const metadata: Metadata = {
