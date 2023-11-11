@@ -31,7 +31,6 @@ const NewsCart: FC<NewsCartProps> = ({ width, discount, fontSize, product }) => 
           placeholder='blur'
           alt='img'
           loading='lazy'
-         
         />
         <div className={cls.bonusLabel}>+{product.bonus} бонуси</div>
         <Image className={cls.favIcon} src={favIcon} width={30} height={30} alt='img' />

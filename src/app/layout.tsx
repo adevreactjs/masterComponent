@@ -4,9 +4,9 @@ import './globals.css';
 import Header from '@/components/header/Header';
 import Footer from '../components/footer/Footer';
 import { Providers } from './store/provider';
+import { ProvidersAuth } from '@/app/api/auth/Providers';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const exo = Exo_2({ subsets: ['latin'], variable: '--font-exo_2' });
-
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,9 +18,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang='en'>
       <body className={`${inter.variable} ${exo.variable} bg-[#FBFBFB]`}>
         <Providers>
-          <Header />
-          {children}
-          <Footer />
+          <ProvidersAuth>
+            <Header />
+            {children}
+            <Footer />
+          </ProvidersAuth>
         </Providers>
       </body>
     </html>

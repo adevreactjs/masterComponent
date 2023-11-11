@@ -281,7 +281,7 @@
   flex-wrap: wrap;
 }
 .peripheryItem {
-  width: 242px;
+  max-width: 242px;
   display: flex;
   flex-direction: column;
   gap: 16px;

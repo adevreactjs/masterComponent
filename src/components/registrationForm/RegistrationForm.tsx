@@ -10,6 +10,7 @@ import { ChangeEvent, FC, useState, MouseEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import { openRegistrationFormHandler } from '@/app/store/reducers/RegistrationSlice';
 import { Formik, FormikHelpers, FormikProps, Form, Field, FieldProps, ErrorMessage } from 'formik';
+import { useSession, signOut, signIn } from 'next-auth/react';
 
 interface MyFormValues {
   email: string;
@@ -30,6 +31,8 @@ const RegistrationForm: FC = () => {
   const [showApplyPassword, setApplyPassword] = useState(false);
 
   const dispatch = useDispatch();
+  const session = useSession();
+  console.log(session);
 
   const emailHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setEmailInput(e.target.value);
@@ -68,6 +71,21 @@ const RegistrationForm: FC = () => {
   };
   const signUpHandler = () => {
     setActiveRegBtn(true);
+  };
+
+  const signInHandler = () => {
+    if (session.data && session.data?.user) {
+      return (
+        <button onClick={() => signOut({ callbackUrl: '/' })} className={cls.googleBtn}>
+          <Image src={googleIcon} width={26} height={26} alt='googleIcon' /> Покинути з Google
+        </button>
+      );
+    }
+    return (
+      <button onClick={() => signIn('google')} className={cls.googleBtn}>
+        <Image src={googleIcon} width={26} height={26} alt='googleIcon' /> Зареєструватися з Google
+      </button>
+    );
   };
 
   return (
@@ -111,10 +129,10 @@ const RegistrationForm: FC = () => {
               password: '',
             }}
             onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                setSubmitting(false);
-              }, 500);
+              //   setTimeout(() => {
+              //     alert(JSON.stringify(values, null, 2));
+              //     setSubmitting(false);
+              //   }, 500);
             }}>
             {({ errors, touched }) => (
               <Form className={cls.textFields}>
@@ -174,13 +192,8 @@ const RegistrationForm: FC = () => {
                 )}
 
                 <p>або</p>
-                <button className={cls.googleBtn}>
-                  <Image src={googleIcon} width={26} height={26} alt='googleIcon' /> Зареєструватися
-                  з Google
-                </button>
-                <button type='submit' className={cls.enterBtn}>
-                  Увійти
-                </button>
+                {signInHandler()}
+                <button className={cls.enterBtn}>Увійти</button>
               </Form>
             )}
           </Formik>
