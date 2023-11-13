@@ -34,18 +34,20 @@ export default function RegistrationBtn() {
     min-[1200px]:w-[70vw]
     `
 //form functionality
-    const form = useRef();
-    const sendEmail = (event) => {
+    const form = useRef<HTMLFormElement | null>(null);
+    const sendEmail = (event: React.FormEvent) => {
       event.preventDefault();
   
-      emailjs.sendForm('service_l1t80ks', 'template_jnbgz4q', form.current, 'LshIBIke_3b6JtcS9')
+      emailjs.sendForm('service_l1t80ks', 'template_jnbgz4q', form.current as HTMLFormElement, 'LshIBIke_3b6JtcS9')
         .then((result) => {
             handleClickBtn()
         }, (error) => {
             console.log(error.text);
         });
 
-        event.target.reset()
+        if (form.current) {
+            form.current.reset();
+        }
     };
 //states
     const [sended, setSend] = useState(false)
