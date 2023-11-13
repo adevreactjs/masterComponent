@@ -14,7 +14,6 @@ export default function Footer() {
                 </div>
             </div>
             <div className="flex flex-row justify-between items-end gap-[3vw] min-[500px]:gap-[1vw] min-[1200px]:mt-[7vw]">
-                <input type="email" placeholder="Email" className="min-[280px]:h-[12vw] min-[550px]:h-[5vw] bg-transparent border-b border-[#FBFBFB] text-[3.4vw] w-[58vw] placeholder:text-[3vw] focus:text-[3.5vw] focus:text-[#B9F072] min-[1200px]:w-[70vw]"/>
                 <RegistrationBtn />
             </div>
 
