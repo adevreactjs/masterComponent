@@ -1,9 +1,10 @@
-'use client'
+'use client';
+
 import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 export default function RegistrationBtn() {
-//styles
-    const buttonStyles = `
+  //styles
+  const buttonStyles = `
     pl-[10px]
     pr-[10px]
     rounded-[3vw] 
@@ -19,8 +20,8 @@ export default function RegistrationBtn() {
     min-[1200px]:text-[2vw]
     min-[280px]:before:content-['Надіслати']
     min-[400px]:before:content-['Зареєструватися']
-`
-    const inputStyle = `
+`;
+  const inputStyle = `
     min-[280px]:h-[12vw]
     min-[550px]:h-[5vw]
     bg-transparent
@@ -32,45 +33,53 @@ export default function RegistrationBtn() {
     focus:text-[3.5vw]
     focus:text-[#B9F072]
     min-[1200px]:w-[70vw]
-    `
-//form functionality
-    const form = useRef<HTMLFormElement | null>(null);
-    const sendEmail = (event: React.FormEvent) => {
-      event.preventDefault();
-  
-      emailjs.sendForm('service_l1t80ks', 'template_jnbgz4q', form.current as HTMLFormElement, 'LshIBIke_3b6JtcS9')
-        .then((result) => {
-            handleClickBtn()
-        }, (error) => {
-            console.log(error.text);
-        });
+    `;
+  //form functionality
+  const form = useRef<HTMLFormElement | null>(null);
+  const sendEmail = (event: React.FormEvent) => {
+    event.preventDefault();
 
-        if (form.current) {
-            form.current.reset();
-        }
-    };
-//states
-    const [sended, setSend] = useState(false)
-    function handleClickBtn() {
-        setSend(true);
-        setTimeout(() => {
-            setSend(false);
-        }, 2000);
-        
+    emailjs
+      .sendForm(
+        'service_l1t80ks',
+        'template_jnbgz4q',
+        form.current as HTMLFormElement,
+        'LshIBIke_3b6JtcS9',
+      )
+      .then(
+        result => {
+          handleClickBtn();
+        },
+        error => {
+          console.log(error.text);
+        },
+      );
+
+    if (form.current) {
+      form.current.reset();
     }
+  };
+  //states
+  const [sended, setSend] = useState(false);
+  function handleClickBtn() {
+    setSend(true);
+    setTimeout(() => {
+      setSend(false);
+    }, 2000);
+  }
 
-
-    return (
-        <form ref={form} onSubmit={sendEmail}>
-            <input type="email" placeholder="Email" className={inputStyle} id='email' name='user_email' required/>
-            <button className={buttonStyles} type='submit'></button>
-            {sended ? 
-                (<p className='text-green-500 min-[1200px]:text-[28px]'>Check Gmail</p>)
-                 : 
-
-                ''
-            }
-        </form>
-        
-    )
-};
+  return (
+    <form ref={form} onSubmit={sendEmail}>
+      <input
+        type='email'
+        placeholder='Email'
+        className={inputStyle}
+        id='email'
+        name='user_email'
+        required
+      />
+      <button className={buttonStyles} type='submit'></button>
+      {sended ? <p className='text-green-500 min-[1200px]:text-[28px]'>Check Gmail</p> : ''}
+    </form>
+  );
+}
