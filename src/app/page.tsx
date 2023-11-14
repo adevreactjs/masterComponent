@@ -36,8 +36,8 @@ export default function Home() {
   }, [currentWidth, currentFont]);
   return (
     <main>
-      {/* <ProductCart/> */}
-      <NewsSlider title={'Новинки'} showDots={true} />
+      <ProductCart/>
+      {/* <NewsSlider title={'Новинки'} showDots={true} />
       <PopularRequests />
       <NewsSlider
         title={'Знижки'}
@@ -48,7 +48,7 @@ export default function Home() {
       />
       <OurBenefits />
       <FAQ />
-      {isOpenRegistrationForm && <RegistrationForm />}
+      {isOpenRegistrationForm && <RegistrationForm />} */}
     </main>
   );
 }

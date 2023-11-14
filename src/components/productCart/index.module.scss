@@ -1,3 +1,6 @@
+.productCart {
+  width: 100%;
+}
 .container {
   max-width: 1392px;
   margin: 0 auto;
@@ -22,8 +25,13 @@
   }
 }
 .cartGallery {
+  width: 563px;
+
+  position: relative;
   display: flex;
-  align-items:center;
+  align-items: center;
+  margin-bottom: 24px;
+  width: 100%;
 }
 #activeCategoryBtn {
   background: var(---, #b9ff61);
@@ -55,5 +63,104 @@
   width: 396px;
   height: 333px;
   padding: 18px 15px;
+}
+.favIcon {
+  position: absolute;
+  top: 7.5px;
+  right: 20px;
+  z-index: 1;
+}
+.cartDescription {
+  p {
+    span {
+      font-weight: 600;
+    }
+    font-family: var(--font-exo_2);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+  }
+}
+.readMore {
+  display: flex;
+  justify-content: flex-end;
 
+  button {
+    color: var(---600, #6c6c6c);
+    font-family: var(--font-exo_2);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px; /* 146.667% */
+    text-decoration-line: underline;
+  }
+}
+.info {
+  width: 563px;
+}
+.product {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+}
+.price {
+  width: 798px;
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  h1 {
+    font-family: var(--font-exo_2);
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+.inStock {
+  display: flex;
+  align-items: center;
+  padding: 6px 8px;
+  gap: 8px;
+  border-radius: 10px;
+  background: #f6ffea;
+  font-family: var(--font-exo_2);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 15px;
+}
+.rating {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  margin-bottom: 30px;
+  span {
+    font-family: var(--font-exo_2);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 23px;
+  }
+}
+.stars {
+  display: flex;
+  gap: 3px;
+}
+.characteristic {
+  display: flex;
+  gap: 16px;
+
+  li {
+    padding: 7px 16px 8px 16px;
+    font-family: var(--font-exo_2);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border-radius: 20px;
+    background: var(---800, #f1f1f1);
+  }
 }
