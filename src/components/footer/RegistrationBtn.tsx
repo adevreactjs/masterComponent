@@ -65,7 +65,7 @@ export default function RegistrationBtn() {
     setSend(true);
     setTimeout(() => {
       setSend(false);
-    }, 2000);
+    }, 1000);
   }
 
   return (

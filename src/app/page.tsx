@@ -8,6 +8,11 @@ import RegistrationForm from '@/components/registrationForm/RegistrationForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './store/store';
 import ProductCart from '@/components/productCart/ProductCart';
+import Script from 'next/script';
+
+
+
+
 
 export default function Home() {
   const [currentWidth, setCurrentWidth] = useState(450);
@@ -49,6 +54,14 @@ export default function Home() {
       <OurBenefits />
       <FAQ />
       {isOpenRegistrationForm && <RegistrationForm />}
+      <Script strategy='afterInteractive' src="https://www.googletagmanager.com/gtag/js?id=G-2H9ZNSWLMN"/>
+      <Script id='google-analytics' strategy='afterInteractive'>{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-2H9ZNSWLMN');
+      `}</Script>
     </main>
   );
 }
