@@ -5,6 +5,23 @@ import mathBordImg from '../../assets/mathBordImg.jpg';
 import mathImg from '../../assets/mathImg.jpg';
 import favIcon from '../../assets/favIcon.svg';
 import starIcon from '../../assets/starIcon.svg';
+import infoIcon from '../../assets/infoIcon.svg';
+import cardIcon from '../../assets/cardIcon.png';
+import privateIcon from '../../assets/privateIcon.png';
+import monoIcon from '../../assets/monoIcon.png';
+import alphaIcon from '../../assets/alphaIcon.png';
+import novaIcon from '../../assets/novaIcon.png';
+import ukrIcon from '../../assets/ukrIcon.png';
+import visaIcon from '../../assets/visaIcon.png';
+import masterIcon from '../../assets/masterIcon.png';
+import gPayIcon from '../../assets/gPayIncon.png';
+import apPayIcon from '../../assets/apPayIcon.png';
+import privPayIcon from '../../assets/24PayIcon.png';
+import arrowIcon from '../../assets/btnArrow.svg';
+import partIcon from '../../assets/partIcon.svg';
+import shopIcon from '../../assets/shopIcon.svg';
+import moneyIcon from '../../assets/moneyIcon.svg';
+import fileIcon from '../../assets/fileIcon.svg';
 import Image from 'next/image';
 
 const ProductCart = () => {
@@ -104,11 +121,142 @@ const ProductCart = () => {
               <span>5/5</span>
             </div>
             <ul className={cls.characteristic}>
-                <li>(WIFI) D4</li>
-                <li>DDR4 для ПК</li>
-                <li>LGA1700</li>
-                <li>ATX</li>
+              <li>(WIFI) D4</li>
+              <li>DDR4 для ПК</li>
+              <li>LGA1700</li>
+              <li>ATX</li>
             </ul>
+
+            <div className={cls.buyNow}>
+              <div className={cls.buyNowItems}>
+                <div className={cls.priceLabels}>
+                  <p>9 485</p>
+                  <span>+15 бонусів</span>
+                  <div className={cls.sells}>10 579</div>
+                </div>
+                <button className={cls.buyBtn}>
+                  <Image src={cardIcon} width={20} height={20} alt='cardIcon' />
+                  Купуй одним платежем
+                </button>
+              </div>
+              <div className={cls.separateLine}></div>
+              <div className={cls.creditInfo}>
+                <div className={cls.creditTime}>
+                  <p>
+                    Розстрочка та кредит
+                    <Image src={infoIcon} width={16} height={16} alt='infoIcon' />
+                  </p>
+                  <span>Від 1 200 грн/міс</span>
+                </div>
+                <div className={cls.bankItems}>
+                  <div className={cls.bankItem}>
+                    <div>
+                      <Image src={privateIcon} width={20} height={20} alt='privateIcon' />
+                    </div>
+                    10 міс
+                  </div>
+                  <div className={cls.bankItem}>
+                    <div>
+                      <Image src={monoIcon} width={22} height={21} alt='monoIcon' />
+                    </div>
+                    6 міс
+                  </div>
+                  <div className={cls.bankItem}>
+                    <div>
+                      <Image src={alphaIcon} width={16} height={21} alt='alphaIcon' />
+                    </div>
+                    6 міс
+                  </div>
+                </div>
+                <button className={cls.buyInCreditBtn}>
+                  <Image src={cardIcon} width={20} height={20} alt='cardIcon' />
+                  Купуй в кредит
+                </button>
+              </div>
+            </div>
+            <div className={cls.separateLine}></div>
+            <div className={cls.delivery}>
+              <p className={cls.deliveryTitle}>
+                Доставка: Оберіть Ваше місто{' '}
+                <div>
+                  <Image src={arrowIcon} width={20} height={20} alt='arrowIcon' />
+                </div>
+              </p>
+              <div className={cls.deliveryListWrapper}>
+                <ul className={cls.deliveryList}>
+                  <li>
+                    <Image src={shopIcon} width={20} height={20} alt='shopIcon' />
+                    Самовивіз з магазину
+                  </li>
+                  <li>
+                    <Image src={novaIcon} width={20} height={20} alt='shopIcon' />
+                    Доставка у відділення{' '}
+                  </li>
+                  <li>
+                    <Image src={novaIcon} width={20} height={20} alt='shopIcon' />
+                    Кур’єрська доставка{' '}
+                  </li>
+                  <li>
+                    <Image src={ukrIcon} width={20} height={20} alt='shopIcon' />
+                    Доставка у відділення{' '}
+                  </li>
+                </ul>
+                <div className={cls.deliveryInfo}>
+                  <p>Безкоштовно</p>
+                  <div className={cls.deliveryInfoWrapper}>
+                    <ul className={cls.deliveryInfoPrice}>
+                      <li>За тарифом Нової Пошти</li>
+                      <li>За тарифом Нової Пошти</li>
+                      <li>За тарифом Укрпошти</li>
+                    </ul>
+                    <ul className={cls.deliveryInfoDay}>
+                      <li>Відправимо завтра</li>
+                      <li>Відправимо завтра</li>
+                      <li>Відправимо завтра</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={cls.separateLine}></div>
+
+            <div className={cls.payments}>
+              <p>
+                Оплата
+                <Image src={infoIcon} width={12} height={12} alt='infoIcon' />
+              </p>
+              <ul>
+                <li>
+                  <Image src={visaIcon} width={43} height={14} alt='visaIcon' />
+                </li>
+                <li>
+                  <Image src={masterIcon} width={30} height={17} alt='masterIcon' />
+                </li>
+                <li>
+                  <Image src={monoIcon} width={21} height={20} alt='monoIcon' />
+                </li>
+                <li>
+                  <Image src={gPayIcon} width={42} height={20} alt='gPayIcon' />
+                </li>
+                <li>
+                  <Image src={apPayIcon} width={43} height={18} alt='apPayIcon' />
+                </li>
+                <li>
+                  <Image src={privPayIcon} width={43} height={20} alt='apPayIcon' />
+                </li>
+                <li>
+                  <Image src={partIcon} width={20} height={20} alt='apPayIcon' />
+                </li>
+                <li>
+                  <Image src={moneyIcon} width={22} height={21} alt='apPayIcon' />
+                  Готівкою
+                </li>
+                <li>
+                  <Image src={fileIcon} width={22} height={21} alt='apPayIcon' />
+                  Безготівковий рахунок
+                </li>
+              </ul>
+            </div>
           </section>
         </div>
       </div>
