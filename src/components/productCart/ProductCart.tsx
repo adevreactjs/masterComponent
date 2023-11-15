@@ -42,11 +42,11 @@ const ProductCart = () => {
         <section className={cls.cartGallery}>
           <div className={cls.smallImageGallery}>
             {galleryImages.map((img, ind) => (
-              <div
+              <div key={ind} 
                 id={`${activeImageGallery === ind && cls.activeBorder}`}
                 className={cls.smallImage}
                 onClick={() => changeActiveBorder(ind)}>
-                <Image key={ind} src={img} width={90} height={71} alt='img' />
+                <Image src={img} width={90} height={71} alt='img' />
               </div>
             ))}
           </div>
