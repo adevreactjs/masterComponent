@@ -1,3 +1,7 @@
+.productCart {
+  width: 100%;
+  margin-bottom: 70px;
+}
 .container {
   max-width: 1392px;
   margin: 0 auto;
@@ -22,8 +26,12 @@
   }
 }
 .cartGallery {
+  width: 563px;
+  position: relative;
   display: flex;
-  align-items:center;
+  align-items: center;
+  margin-bottom: 24px;
+  width: 100%;
 }
 #activeCategoryBtn {
   background: var(---, #b9ff61);
@@ -55,5 +63,313 @@
   width: 396px;
   height: 333px;
   padding: 18px 15px;
+}
+.favIcon {
+  position: absolute;
+  top: 7.5px;
+  right: 20px;
+  z-index: 1;
+}
+.cartDescription {
+  p {
+    span {
+      font-weight: 600;
+    }
+    font-family: var(--font-exo_2);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+  }
+}
+.readMore {
+  display: flex;
+  justify-content: flex-end;
 
+  button {
+    color: var(---600, #6c6c6c);
+    font-family: var(--font-exo_2);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px; /* 146.667% */
+    text-decoration-line: underline;
+  }
+}
+.info {
+  width: 563px;
+}
+.product {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+}
+.price {
+  width: 798px;
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  h1 {
+    font-family: var(--font-exo_2);
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+.inStock {
+  display: flex;
+  align-items: center;
+  padding: 6px 8px;
+  gap: 8px;
+  border-radius: 10px;
+  background: #f6ffea;
+  font-family: var(--font-exo_2);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 15px;
+}
+.rating {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  margin-bottom: 30px;
+  span {
+    font-family: var(--font-exo_2);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 23px;
+  }
+}
+.stars {
+  display: flex;
+  gap: 3px;
+}
+.characteristic {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 52px;
+
+  li {
+    padding: 7px 16px 8px 16px;
+    font-family: var(--font-exo_2);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border-radius: 20px;
+    background: var(---800, #f1f1f1);
+  }
+}
+.buyNow {
+  padding: 24px 28px 34px 28px;
+  border-radius: 30px;
+  background: var(---800, #f1f1f1);
+  margin-bottom: 33px;
+}
+.buyNowItems {
+  display: flex;
+  justify-content: space-between;
+  p {
+    font-family: var(--font-exo_2);
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  span {
+    color: var(---700, #4e4e4e);
+    font-family: var(--font-exo_2);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+}
+.priceLabels {
+  position: relative;
+  width: 152px;
+}
+.sells {
+  position: absolute;
+  right: 0;
+  top: 11px;
+  z-index: 1;
+  color: var(---500, #c1c1c1);
+  font-family: var(--font-exo_2);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px; /* 150% */
+  text-decoration: line-through;
+}
+.buyBtn {
+  padding: 11px 24px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-family: var(--font-exo_2);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
+  border-radius: 200px;
+  background: var(---, #b9ff61);
+}
+.separateLine {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 1.4px;
+  background: #dadada;
+}
+.creditInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.creditTime {
+  p {
+    display: flex;
+    gap: 5px;
+    font-family: var(--font-exo_2);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+  }
+  span {
+    font-family: var(--font-exo_2);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+.bankItems {
+  display: flex;
+  gap: 15px;
+}
+.bankItem {
+  display: flex;
+  gap: 5px;
+}
+.buyInCreditBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(---700, #4e4e4e);
+  font-family: var(--font-exo_2);
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+}
+.delivery {
+  margin-bottom: 36px;
+}
+.deliveryTitle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 26px;
+  font-family: var(--font-exo_2);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 15px;
+}
+.deliveryList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(---800, #262626);
+    font-family: var(--font-exo_2);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+.deliveryInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  p {
+    font-family: var(--font-exo_2);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+.deliveryInfoPrice {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  li {
+    font-family: var(--font-exo_2);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+.deliveryInfoDay {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  li {
+    color: var(---600, #6c6c6c);
+    font-family: var(--font-exo_2);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+.deliveryInfoWrapper {
+  display: flex;
+  gap: 71px;
+}
+.deliveryListWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.payments {
+  p {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 22px;
+    font-family: var(--font-exo_2);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 15px;
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    li {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      font-family: var(--font-exo_2);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
 }

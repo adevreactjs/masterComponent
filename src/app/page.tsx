@@ -39,6 +39,7 @@ export default function Home() {
       window.removeEventListener('resize', handleResize);
     };
   }, [currentWidth, currentFont]);
+
   return (
     <main>
       {/* <ProductCart/> */}
