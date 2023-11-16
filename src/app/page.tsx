@@ -34,13 +34,14 @@ export default function Home() {
       window.removeEventListener('resize', handleResize);
     };
   }, [currentWidth, currentFont]);
+
   return (
     <main>
       {/* <ProductCart/> */}
       <NewsSlider title={'Новинки'} showDots={true} />
       <PopularRequests />
       <NewsSlider
-        title={'Знижки
+        title={'Знижки'}
         width={currentWidth}
         discount={2244}
         showMoreBtn={true}
@@ -48,7 +49,10 @@ export default function Home() {
       />
       <OurBenefits />
       <FAQ />
-      {isOpenRegistrationForm && <RegistrationForm />}
+      {
+      isOpenRegistrationForm && <RegistrationForm />
+
+      }
     </main>
   );
 }
