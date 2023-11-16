@@ -49,10 +49,7 @@ export default function Home() {
       />
       <OurBenefits />
       <FAQ />
-      {
-      isOpenRegistrationForm && <RegistrationForm />
-
-      }
+      {isOpenRegistrationForm && <RegistrationForm />}
     </main>
   );
 }
