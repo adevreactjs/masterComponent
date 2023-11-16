@@ -55,14 +55,7 @@ export default function Home() {
       <OurBenefits />
       <FAQ />
       {isOpenRegistrationForm && <RegistrationForm />}
-      <Script strategy='afterInteractive' src="https://www.googletagmanager.com/gtag/js?id=G-2H9ZNSWLMN"/>
-      <Script id='google-analytics' strategy='afterInteractive'>{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
 
-          gtag('config', 'G-2H9ZNSWLMN');
-      `}</Script>
     </main>
   );
 }
