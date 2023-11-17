@@ -47,7 +47,6 @@ const Header = () => {
   const registrationFormHandler = () => {
     setActiveMobileMenu(false);
     dispatch(openRegistrationFormHandler(true));
-
   };
 
   return (

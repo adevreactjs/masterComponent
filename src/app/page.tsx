@@ -10,14 +10,9 @@ import { RootState } from './store/store';
 import ProductCart from '@/components/productCart/ProductCart';
 import Script from 'next/script';
 
-
-
-
-
 export default function Home() {
   const [currentWidth, setCurrentWidth] = useState(450);
   const [currentFont, setCurrentFont] = useState(22);
-  const [openRegistrationForm, setOpenRegistrationForm] = useState(false);
 
   const isOpenRegistrationForm = useSelector(
     (state: RootState) => state.registration.isOpenRegistrationForm,
@@ -42,8 +37,9 @@ export default function Home() {
 
   return (
     <main>
-      {/* <ProductCart/> */}
-      <NewsSlider title={'Новинки'} showDots={true} />
+      <ProductCart/>
+
+      {/* <NewsSlider title={'Новинки'} showDots={true} />
       <PopularRequests />
       <NewsSlider
         title={'Знижки'}
@@ -53,9 +49,8 @@ export default function Home() {
         fontSize={currentFont}
       />
       <OurBenefits />
-      <FAQ />
+      <FAQ /> */}
       {isOpenRegistrationForm && <RegistrationForm />}
-
     </main>
   );
 }
