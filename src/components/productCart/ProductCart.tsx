@@ -50,115 +50,115 @@ const ProductCart = () => {
   };
   const chooseImage = galleryImages[activeImageGallery];
   const products: Product[] = [
-     {
-       id: 1,
-       image: procesIcon,
-       title: 'Процесор AMD Ryzen 9 1',
-       price: 25819,
-       bonus: 21,
-       property: [
-         {
-           proc: '16 ядер',
-           frequency: '4.2(5.7)GHz',
-           memory: '128MB',
-           type: 'AM5',
-         },
-       ],
-     },
-     {
-       id: 2,
+    {
+      id: 1,
+      image: procesIcon,
+      title: 'Процесор AMD Ryzen 9 1',
+      price: 25819,
+      bonus: 21,
+      property: [
+        {
+          proc: '16 ядер',
+          frequency: '4.2(5.7)GHz',
+          memory: '128MB',
+          type: 'AM5',
+        },
+      ],
+    },
+    {
+      id: 2,
 
-       image: procesIcon,
-       title: 'Процесор AMD Ryzen 9 2',
-       price: 25000,
-       bonus: 20,
-       property: [
-         {
-           proc: '15 ядер',
-           frequency: '4.2(5.7)GHz',
-           memory: '128MB',
-           type: 'AM5',
-         },
-       ],
-     },
-     {
-       id: 3,
+      image: procesIcon,
+      title: 'Процесор AMD Ryzen 9 2',
+      price: 25000,
+      bonus: 20,
+      property: [
+        {
+          proc: '15 ядер',
+          frequency: '4.2(5.7)GHz',
+          memory: '128MB',
+          type: 'AM5',
+        },
+      ],
+    },
+    {
+      id: 3,
 
-       image: procesIcon,
-       title: 'Процесор AMD Ryzen 9 3',
-       price: 25819,
-       bonus: 19,
-       property: [
-         {
-           proc: '14 ядер',
-           frequency: '4.2(5.7)GHz',
-           memory: '128MB',
-           type: 'AM5',
-         },
-       ],
-     },
-     {
-       id: 4,
+      image: procesIcon,
+      title: 'Процесор AMD Ryzen 9 3',
+      price: 25819,
+      bonus: 19,
+      property: [
+        {
+          proc: '14 ядер',
+          frequency: '4.2(5.7)GHz',
+          memory: '128MB',
+          type: 'AM5',
+        },
+      ],
+    },
+    {
+      id: 4,
 
-       image: procesIcon,
-       title: 'Процесор AMD Ryzen 9 4',
-       price: 25819,
-       bonus: 21,
-       property: [
-         {
-           proc: '16 ядер',
-           frequency: '4.2(5.7)GHz',
-           memory: '128MB',
-           type: 'AM5',
-         },
-       ],
-     },
-     {
-       id: 5,
-       image: procesIcon,
-       title: 'Процесор AMD Ryzen 9 5',
-       price: 25819,
-       bonus: 21,
-       property: [
-         {
-           proc: '16 ядер',
-           frequency: '4.2(5.7)GHz',
-           memory: '128MB',
-           type: 'AM5',
-         },
-       ],
-     },
-     {
-       id: 6,
-       image: procesIcon,
-       title: 'Процесор AMD Ryzen 9 6',
-       price: 25819,
-       bonus: 21,
-       property: [
-         {
-           proc: '16 ядер',
-           frequency: '4.2(5.7)GHz',
-           memory: '128MB',
-           type: 'AM5',
-         },
-       ],
-     },
-     {
-       id: 7,
-       image: procesIcon,
-       title: 'Процесор AMD Ryzen 9 6',
-       price: 25819,
-       bonus: 21,
-       property: [
-         {
-           proc: '16 ядер',
-           frequency: '4.2(5.7)GHz',
-           memory: '128MB',
-           type: 'AM5',
-         },
-       ],
-     }
-   ];
+      image: procesIcon,
+      title: 'Процесор AMD Ryzen 9 4',
+      price: 25819,
+      bonus: 21,
+      property: [
+        {
+          proc: '16 ядер',
+          frequency: '4.2(5.7)GHz',
+          memory: '128MB',
+          type: 'AM5',
+        },
+      ],
+    },
+    {
+      id: 5,
+      image: procesIcon,
+      title: 'Процесор AMD Ryzen 9 5',
+      price: 25819,
+      bonus: 21,
+      property: [
+        {
+          proc: '16 ядер',
+          frequency: '4.2(5.7)GHz',
+          memory: '128MB',
+          type: 'AM5',
+        },
+      ],
+    },
+    {
+      id: 6,
+      image: procesIcon,
+      title: 'Процесор AMD Ryzen 9 6',
+      price: 25819,
+      bonus: 21,
+      property: [
+        {
+          proc: '16 ядер',
+          frequency: '4.2(5.7)GHz',
+          memory: '128MB',
+          type: 'AM5',
+        },
+      ],
+    },
+    {
+      id: 7,
+      image: procesIcon,
+      title: 'Процесор AMD Ryzen 9 6',
+      price: 25819,
+      bonus: 21,
+      property: [
+        {
+          proc: '16 ядер',
+          frequency: '4.2(5.7)GHz',
+          memory: '128MB',
+          type: 'AM5',
+        },
+      ],
+    },
+  ];
   const scrollRef = useRef<HTMLInputElement | null | any>(null);
 
   const scroll = (scrollOffset: number) => {
@@ -308,7 +308,7 @@ const ProductCart = () => {
               <div className={cls.separateLine}></div>
               <div className={cls.delivery}>
                 <p className={cls.deliveryTitle}>
-                  Доставка: Оберіть Ваше місто{' '}
+                  Доставка: Оберіть Ваше місто
                   <Image src={arrowIcon} width={20} height={20} alt='arrowIcon' />
                 </p>
                 <div className={cls.deliveryListWrapper}>
@@ -319,15 +319,15 @@ const ProductCart = () => {
                     </li>
                     <li>
                       <Image src={novaIcon} width={20} height={20} alt='shopIcon' />
-                      Доставка у відділення{' '}
+                      Доставка у відділення
                     </li>
                     <li>
                       <Image src={novaIcon} width={20} height={20} alt='shopIcon' />
-                      Кур’єрська доставка{' '}
+                      Кур’єрська доставка
                     </li>
                     <li>
                       <Image src={ukrIcon} width={20} height={20} alt='shopIcon' />
-                      Доставка у відділення{' '}
+                      Доставка у відділення
                     </li>
                   </ul>
                   <div className={cls.deliveryInfo}>
@@ -388,11 +388,7 @@ const ProductCart = () => {
             </section>
           </div>
         )}
-        {activeCategory === 1 && (
-          <div className={cls.product}>
-           gggggg
-          </div>
-        )}
+        {activeCategory === 1 && <div className={cls.product}>Hi</div>}
 
         <h2 className={cls.recentlyShowTitle}>Нещодавно переглянуті</h2>
         <div className={cls.recentlyProductsWrapper}>
