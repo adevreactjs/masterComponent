@@ -25,6 +25,7 @@ import catalogyIcon from '../../assets/catalogyIcon.svg';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { openRegistrationFormHandler } from '@/app/store/reducers/RegistrationSlice';
+import Link from 'next/link';
 
 const Header = () => {
   const [activeMenu, setActiveMenu] = useState(false);
@@ -144,7 +145,7 @@ const Header = () => {
             height={24}
             alt='menu'
           />
-          <div className={cls.logo}>MasterComponent</div>
+          <Link href={'/'} className={cls.logo}>MasterComponent</Link>
           <nav className={cls.navBar}>
             <div className={cls.searchBar}>
               <Image src={searchIcon} width={18} height={18} alt='search' />

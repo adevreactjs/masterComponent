@@ -37,9 +37,7 @@ export default function Home() {
 
   return (
     <main>
-      <ProductCart/>
-
-      {/* <NewsSlider title={'Новинки'} showDots={true} />
+      <NewsSlider title={'Новинки'} showDots={true} />
       <PopularRequests />
       <NewsSlider
         title={'Знижки'}
@@ -49,7 +47,7 @@ export default function Home() {
         fontSize={currentFont}
       />
       <OurBenefits />
-      <FAQ /> */}
+      <FAQ />
       {isOpenRegistrationForm && <RegistrationForm />}
     </main>
   );
