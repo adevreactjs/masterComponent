@@ -2,7 +2,7 @@ import Circles from "./Circles";
 import RegistrationBtn from "./RegistrationBtn";
 export default function Footer() {
     return(
-        <div className="bg-[#262626] text-[#FBFBFB] w-full rounded-t-3xl pl-[5vw] pr-[3vw] pt-[8vw] pb-[4vw]  min-[550px]:h-[101vw]  min-[895px]:h-[62vw] min-[1120px]:h-[58vw] min-[1200px]:h-[55vw] min-[1120px]:pt-[2vw]">
+        <div className=" bg-[#262626] text-[#FBFBFB] w-full rounded-t-3xl pl-[5vw] pr-[3vw] pt-[8vw] pb-[4vw]  min-[550px]:h-[101vw]  min-[895px]:h-[62vw] min-[1120px]:h-[58vw] min-[1200px]:h-[55vw] min-[1120px]:pt-[2vw]">
             <div className="min-[550px]:flex flex-row justify-between">
                 <h2 className="text-[8vw] leading-tight tracking-[0.1vw] min-[280px]:w-[90vw] min-[550px]:text-[4.5vw] min-[550px]:w-[37vw]">Підпишись та отримай знижку</h2>
                 <div className="flex flex-col items-center justify-center mb-[8vw] min-[280px]:items-start min-[1200px]:items-end">
@@ -13,7 +13,7 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-row justify-between items-end gap-[3vw] min-[500px]:gap-[1vw] min-[1200px]:mt-[7vw]">
+            <div className="flex w-full min-[1200px]:mt-[7vw]">
                 <RegistrationBtn />
             </div>
 
