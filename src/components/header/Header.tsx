@@ -1,4 +1,5 @@
 'use client';
+
 import cls from './index.module.scss';
 import Image from 'next/image';
 import searchIcon from '../../assets/searchIcon.svg';

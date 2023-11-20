@@ -29,6 +29,7 @@ import rightArrow from '../../assets/leftArr.svg';
 import Image from 'next/image';
 import RecentlyShowCart from '../recentlyShowCart/RecentlyShowCart';
 import { Product } from '@/types/type';
+import Characteristics from './Сharacteristics';
 
 const ProductCart = () => {
   const [activeCategory, setActiveCategory] = useState(0);
@@ -386,7 +387,7 @@ const ProductCart = () => {
             </section>
           </div>
         )}
-        {activeCategory === 1 && <div className={cls.product}>Hi</div>}
+        {activeCategory === 1 && <Characteristics/>}
 
         <h2 className={cls.recentlyShowTitle}>Нещодавно переглянуті</h2>
         <div className={cls.recentlyProductsWrapper}>
