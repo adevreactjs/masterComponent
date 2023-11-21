@@ -1,4 +1,7 @@
 import cls from './index.module.scss';
+import Image from 'next/image';
+import favIcon from '@/assets/favIcon.svg';
+import productImg from '@/assets/mathCart.jpg';
 
 const Characteristics = () => {
   return (
@@ -77,6 +80,34 @@ const Characteristics = () => {
               <div className={cls.characteristicsTitle}>Модуль Bluetooth:</div>
               <div className={cls.characteristicsInfo}>5.2</div>
             </div>
+          </div>
+        </div>
+        <div>
+          <div className={cls.productItem}>
+            <div className={cls.productImage}>
+              <Image
+                className={cls.productImg}
+                src={productImg}
+                width={542}
+                height={312}
+                alt='productImg'
+              />
+              <div className={cls.bonus}>+15 бонусів</div>
+              <button className={cls.favBtn}>
+                <Image src={favIcon} width={30} height={26} alt='favIcon' />
+              </button>
+            </div>
+            <div className={cls.description}>
+              <h2>Материнська плата Asus PRIME Z790-P</h2>
+              <div className={cls.price}>9 485 ₴</div>
+              <div className={cls.sale}>10 579 ₴</div>
+            </div>
+            <ul>
+              <li>(WIFI) D4</li>
+              <li>DDR4 для ПК</li>
+              <li>LGA1700</li>
+              <li>ATX</li>
+            </ul>
           </div>
         </div>
       </div>
