@@ -1,9 +1,11 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import cls from './index.module.scss';
 import Image from 'next/image';
 import procIcon from '../../assets/procIcon.jpg';
 import favIcon from '../../assets/favIcon.svg';
+import heartGreen from '../../assets/heartGreen.svg'
 import { Product } from '@/types/type';
+import Heart from './Heart';
 
 
 interface NewsCartProps {
@@ -20,6 +22,7 @@ const NewsCart: FC<NewsCartProps> = ({ width, discount, fontSize, product }) => 
   const fontStyles = {
     fontSize: `${fontSize}px`,
   };
+
   return (
     <div style={styles} className={cls.cart}>
       <div className={cls.cartImage}>
@@ -33,7 +36,7 @@ const NewsCart: FC<NewsCartProps> = ({ width, discount, fontSize, product }) => 
           loading='lazy'
         />
         <div className={cls.bonusLabel}>+{product.bonus} бонуси</div>
-        <Image className={cls.favIcon} src={favIcon} width={30} height={30} alt='img' />
+        <Heart favIcon={favIcon} heartGreen={heartGreen}/>
       </div>
       <div className={cls.cartCharacteristic}>
         <h1 style={fontStyles} className={cls.cartTitle}>
