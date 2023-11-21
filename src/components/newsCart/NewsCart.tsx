@@ -12,10 +12,11 @@ interface NewsCartProps {
   width?: number;
   discount?: number;
   fontSize?: number;
-  product: Product
+  product: Product;
+  id: number;
 }
 
-const NewsCart: FC<NewsCartProps> = ({ width, discount, fontSize, product }) => {
+const NewsCart: FC<NewsCartProps> = ({ width, discount, fontSize, product, id }) => {
   const styles = {
     width: `${width}px`,
   };
@@ -36,7 +37,7 @@ const NewsCart: FC<NewsCartProps> = ({ width, discount, fontSize, product }) => 
           loading='lazy'
         />
         <div className={cls.bonusLabel}>+{product.bonus} бонуси</div>
-        <Heart favIcon={favIcon} heartGreen={heartGreen}/>
+        <Heart favIcon={favIcon} heartGreen={heartGreen} id={id}/>
       </div>
       <div className={cls.cartCharacteristic}>
         <h1 style={fontStyles} className={cls.cartTitle}>

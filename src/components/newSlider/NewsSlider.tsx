@@ -153,6 +153,7 @@ const NewsSlider: FC<NewsSliderProps> = ({
           {products.map((product: Product) => (
             <NewsCart
               key={product.id}
+              id={product.id}
               product={product}
               width={width}
               discount={discount}
