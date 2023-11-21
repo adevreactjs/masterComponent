@@ -36,7 +36,7 @@ export default function RegistrationBtn() {
     min-[1000px]:pl-[26px]
     min-[1000px]:pr-[26px]
 
-    min-[1400px]:h-[4.2vw]
+    min-[1400px]:h-[3.7vw]
     min-[1400px]:rounded-[1.2vw]
     min-[1400px]:text-[1.5vw]
 
