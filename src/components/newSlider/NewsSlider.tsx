@@ -139,9 +139,7 @@ const NewsSlider: FC<NewsSliderProps> = ({
       ],
     },
   ];
-  const massiveIDSlides = useSelector((state: RootState) => state.pushItem.id);
-  console.log(...massiveIDSlides)
-  // i will create another component to render cards bcs many re-renders here
+
   return (
     <div className={cls.newsSlider}>
       <h1 className={cls.title}>{title}</h1>
