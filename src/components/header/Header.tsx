@@ -27,13 +27,14 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { openRegistrationFormHandler } from '@/app/store/reducers/RegistrationSlice';
 import Link from 'next/link';
+import LikedItems from './LikedItems';
 
 const Header = () => {
   const [activeMenu, setActiveMenu] = useState(false);
   const [activeHelpMenu, setHelpActiveMenu] = useState(false);
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
   const [activeCategory, setActiveCategory] = useState(0);
-
+  const [openLiked, setOpenLiked] = useState(false)
   const dispatch = useDispatch();
 
   const openCategory = () => {
@@ -198,14 +199,26 @@ const Header = () => {
               onClick={() => dispatch(openRegistrationFormHandler(true))}>
               <Image src={userIcon} width={15} height={20} alt='registrationUser' />
             </button>
-            <button className={cls.favUser}>
+
+
+
+
+
+
+
+            <button className={cls.favUser} onClick={()=>setOpenLiked(!openLiked)}>
               <Image src={favoriteIcon} width={20} height={17} alt='registrationUser' />
             </button>
+
+
+
+
+
+
             <button className={cls.cart}>
               <Image src={cartIcon} width={19} height={20} alt='registrationUser' />
             </button>
           </div>
-
           {activeMenu && (
             <section id={cls.mainMenu}>
               <ul className={cls.mainMenuItems}>
@@ -557,6 +570,7 @@ const Header = () => {
           )}
         </div>
       </div>
+      {openLiked && <LikedItems />}
     </header>
   );
 };

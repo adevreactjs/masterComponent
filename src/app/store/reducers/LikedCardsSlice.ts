@@ -1,6 +1,7 @@
 'use client';
 
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { RootState } from '../store';
 
 interface LikedCards {
     likedObjs: string[],
@@ -29,17 +30,14 @@ export const LikedCards = createSlice({
       },
       pushID: (state, id: PayloadAction<number>) => {
         state.id.push(id.payload)
-        console.log(...state.id)
         state.id = state.id.filter((num, id, massive) => massive.indexOf(num) === id)
-        console.log(...state.id)
       },
       deleteID: (state, deleteId: PayloadAction<number>) => {
         state.id = state.id.filter(num => num !== deleteId.payload)
-        console.log(...state.id)
       },
     },
 });
 
 export const { pushElement, pushStyles, pushID, deleteID } = LikedCards.actions;
-
+export const massiveID = (state: RootState) => state.pushItem.id
 export default LikedCards.reducer;
