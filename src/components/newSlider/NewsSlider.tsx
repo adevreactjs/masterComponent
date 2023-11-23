@@ -7,6 +7,8 @@ import rightArrow from '../../assets/leftArr.svg';
 import Image from 'next/image';
 import procImg from '../../assets/procIcon.jpg';
 import { Product } from '@/types/type';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '@/app/store/store';
 
 interface NewsSliderProps {
   title?: string;
@@ -16,7 +18,6 @@ interface NewsSliderProps {
   showMoreBtn?: boolean;
   showDots?: boolean;
 }
-
 const NewsSlider: FC<NewsSliderProps> = ({
   title,
   width,
