@@ -30,6 +30,7 @@ import Image from 'next/image';
 import RecentlyShowCart from '../recentlyShowCart/RecentlyShowCart';
 import { Product } from '@/types/type';
 import Characteristics from './Сharacteristics';
+import PhotoVideo from './PhotoVideo';
 
 const ProductCart = () => {
   const [activeCategory, setActiveCategory] = useState(0);
@@ -387,6 +388,7 @@ const ProductCart = () => {
           </div>
         )}
         {activeCategory === 1 && <Characteristics/>}
+        {activeCategory === 4 && <PhotoVideo/>}
 
         <h2 className={cls.recentlyShowTitle}>Нещодавно переглянуті</h2>
         <div className={cls.recentlyProductsWrapper}>
