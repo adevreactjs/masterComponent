@@ -1,6 +1,7 @@
 .productCart {
   width: 100%;
   padding: 0 60px;
+ 
 }
 .container {
   max-width: 1392px;
@@ -563,6 +564,24 @@
   text-decoration: line-through;
 }
 // Photo
+.photoVideo {
+  display: flex;
+  justify-content: space-between;
+}
+.photoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .mainPhoto {
-  position: relative;
+  img {
+    border-radius: 40px;
+  }
+}
+.smallPhotos {
+  display: flex;
+  gap: 29px;
+  img {
+    border-radius: 20px;
+  }
 }
