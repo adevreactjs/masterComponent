@@ -1,8 +1,8 @@
 'use client';
 import React, { useRef, useState } from 'react';
 import cls from './index.module.scss';
-import mathBordImg from '../../assets/mathBordImg.jpg';
-import mathImg from '../../assets/mathImg.jpg';
+import mathBordImg from '../../assets/productCard/mathBordImg.jpg';
+import mathImg from '../../assets/productCard/mathImg.jpg';
 import favIcon from '../../assets/favIcon.svg';
 import starIcon from '../../assets/starIcon.svg';
 import infoIcon from '../../assets/infoIcon.svg';
@@ -30,6 +30,7 @@ import Image from 'next/image';
 import RecentlyShowCart from '../recentlyShowCart/RecentlyShowCart';
 import { Product } from '@/types/type';
 import Characteristics from './Сharacteristics';
+import Comments from './Comments';
 
 const ProductCart = () => {
   const [activeCategory, setActiveCategory] = useState(0);
@@ -186,6 +187,7 @@ const ProductCart = () => {
           </ul>
         </div>
         {activeCategory === 0 && (
+        <>
           <div className={cls.product}>
             <div className={cls.info}>
               <section className={cls.cartGallery}>
@@ -385,23 +387,25 @@ const ProductCart = () => {
               </div>
             </section>
           </div>
+          <h2 className={cls.recentlyShowTitle}>Нещодавно переглянуті</h2>
+          <div className={cls.recentlyProductsWrapper}>
+            <div className={cls.recentlyProducts} ref={scrollRef}>
+              {products.map(product => (
+                <RecentlyShowCart key={product.id} />
+              ))}
+            </div>
+            <button className={cls.leftArrow} onClick={breakLineHandlerFirst}>
+              <Image src={leftArrow} width={22} height={22} alt='shopIcon' />
+            </button>
+            <button className={cls.rightArrow} onClick={breakLineHandlerSecond}>
+              <Image src={rightArrow} width={22} height={22} alt='shopIcon' />
+            </button>
+          </div>
+          </>
         )}
         {activeCategory === 1 && <Characteristics/>}
+        {activeCategory === 2 && <Comments />}
 
-        <h2 className={cls.recentlyShowTitle}>Нещодавно переглянуті</h2>
-        <div className={cls.recentlyProductsWrapper}>
-          <div className={cls.recentlyProducts} ref={scrollRef}>
-            {products.map(product => (
-              <RecentlyShowCart key={product.id} />
-            ))}
-          </div>
-          <button className={cls.leftArrow} onClick={breakLineHandlerFirst}>
-            <Image src={leftArrow} width={22} height={22} alt='shopIcon' />
-          </button>
-          <button className={cls.rightArrow} onClick={breakLineHandlerSecond}>
-            <Image src={rightArrow} width={22} height={22} alt='shopIcon' />
-          </button>
-        </div>
       </div>
     </div>
   );

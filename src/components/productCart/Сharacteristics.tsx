@@ -1,7 +1,7 @@
 import cls from './index.module.scss';
 import Image from 'next/image';
 import favIcon from '@/assets/favIcon.svg';
-import productImg from '@/assets/mathCart.jpg';
+import productImg from '@/assets/productCard/mathCart.jpg';
 
 const Characteristics = () => {
   return (
