@@ -31,6 +31,7 @@ import RecentlyShowCart from '../recentlyShowCart/RecentlyShowCart';
 import { Product } from '@/types/type';
 import Characteristics from './Сharacteristics';
 import PhotoVideo from './PhotoVideo';
+import ProductQuestions from './ProductQuestions';
 
 const ProductCart = () => {
   const [activeCategory, setActiveCategory] = useState(0);
@@ -404,6 +405,7 @@ const ProductCart = () => {
           </>
         )}
         {activeCategory === 1 && <Characteristics />}
+        {activeCategory === 3 && <ProductQuestions/>}
         {activeCategory === 4 && <PhotoVideo />}
       </div>
     </div>
