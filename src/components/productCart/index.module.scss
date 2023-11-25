@@ -588,12 +588,14 @@
 
 //ProductQuestions
 .productQuestions {
-  margin-bottom: 60px;
+  display: flex;
+  justify-content: space-between;
 }
 .productQuestionsField {
   display: flex;
-  // align-items: center;
   gap: 24px;
+    margin-bottom: 60px;
+
 }
 .questionsField {
   width: 581px;
@@ -637,6 +639,7 @@
   line-height: 23px; /* 143.75% */
 }
 .message {
+  width: 711px;
   padding-bottom: 15px;
   margin-bottom: 15px;
   border-bottom: 1px solid #F1F1F1;
