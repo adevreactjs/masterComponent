@@ -1,15 +1,17 @@
-'use client'
+'use client';
 import Image from 'next/image';
 import cls from './index.module.scss';
 import clipIcon from '@/assets/clip.svg';
-import { FC, ChangeEvent, useState } from 'react';
+import avatarIcon from '@/assets/avatar.svg';
+import commentIcon from '@/assets/comment.svg';
+import { FC, ChangeEvent, useState, ReactNode } from 'react';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import { Message } from '@/types/type';
 
 const ProductQuestions: FC = () => {
   const [image, setImage] = useState<string | StaticImport>('');
   const [message, setMessage] = useState<string>('');
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState<Message[]>([]);
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -23,11 +25,19 @@ const ProductQuestions: FC = () => {
   };
 
   const sendQuestion = () => {
-    const mess = {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1;
+    let dd = today.getDate();
+
+    const formattedToday = dd + '.' + mm + '.' + yyyy;
+    const mess: Message = {
       message: message,
       file: image,
+      date: formattedToday,
     };
     setMessages(prev => [...prev, mess]);
+    setImage('');
     console.log(messages);
   };
 
@@ -53,12 +63,28 @@ const ProductQuestions: FC = () => {
         </div>
       </div>
       <div>
-        {messages.map((msg, i) => (
-          <h1 key={i}>{msg}</h1>
+        {messages.map((el, ind) => (
+          <div key={ind} className={cls.message}>
+            <div className={cls.avatar}>
+              <Image src={avatarIcon} width={30} height={30} alt='avatarIcon' />
+              <p>Степан</p>
+            </div>
+            <p className={cls.textMessage}>{el.message}</p>
+            {el.file != '' && <Image src={el.file} width={300} height={100} alt='image' />}
+            <div className={cls.infoMessage}>
+              <div className={cls.date}>{el.date}</div>
+              <div className={cls.comments}>
+                <div className={cls.commentsCount}>
+                  <Image src={commentIcon} width={15} height={15} alt='avatarIcon' />
+                  Коментарі: 1
+                </div>
+                <div className={cls.commentsCount}>Відповісти </div>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </>
-    //   {image && <Image src={image} width={300} height={100} alt='image' />}
   );
 };
 
