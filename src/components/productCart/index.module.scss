@@ -1,6 +1,7 @@
 .productCart {
   width: 100%;
   padding: 0 60px;
+ 
 }
 .container {
   max-width: 1392px;
@@ -561,4 +562,26 @@
   font-weight: 500;
   line-height: normal;
   text-decoration: line-through;
+}
+// Photo
+.photoVideo {
+  display: flex;
+  justify-content: space-between;
+}
+.photoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.mainPhoto {
+  img {
+    border-radius: 40px;
+  }
+}
+.smallPhotos {
+  display: flex;
+  gap: 29px;
+  img {
+    border-radius: 20px;
+  }
 }
