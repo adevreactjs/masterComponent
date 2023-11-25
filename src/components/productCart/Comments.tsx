@@ -21,23 +21,35 @@ export default function Comments() {
         min-[280px]:text-[4.1vw]
     `
     const responsiveBlockInput = `
+        max-[500px]:hidden
+        min-[500px]:flex
         min-[280px]:w-[750px]
+    `
+    const textareaStyles = `
+        w-full
+        h-full
+        bg-transparent
+        pl-[2vw] pr-[2vw] pt-3
+        font-light
+        placeholder:font-light placeholder:text-[14px]
+        text-[14px] text-[#262626]
+        min-[320px]:h-[75px]
     `
     const { data: session } = useSession()
     return (
         <>
-            <div className="w-full border border-[#C1C1C1] rounded-3xl overflow-hidden">
-                <div className="bg-[#F1F1F1] h-[25px] flex flex-row items-center pl-5 pr-5 justify-between">
+            <div className="w-full border border-[#C1C1C1] rounded-3xl overflow-hidden min-[500px]:hidden">
+                <div className="bg-[#F1F1F1] h-[25px] flex flex-row items-center pl-5 pr-5 justify-between min-[320px]:h-[35px]">
                     <div className="flex flex-row items-center">
                         <div className="bg-black w-8 h-8 rounded-full">{session?.user?.image}</div>
                         <p className="text-[4vw] ml-2">Default_name{session?.user?.name}</p>
                     </div>
                     <div className="flex flex-row items-center">
-                        <Image src={pictureGrey} alt="picture" className="w-5 mr-[10px]"/>
-                        <Image src={clipGrey} alt="clip" className="w-5"/>
+                        <Image src={pictureGrey} alt="picture" className="w-5 mr-[10px] min-[330px]:w-7"/>
+                        <Image src={clipGrey} alt="clip" className="w-5 min-[330px]:w-7"/>
                     </div>
                 </div>
-                <textarea name="comment" rows={5} className="w-full pl-[2vw] pr-[2vw] font-light placeholder:font-light placeholder:text-[14px] text-[14px] text-[#262626]" placeholder="Ваш відгук"></textarea>
+                <textarea name="comment" className={textareaStyles} placeholder="Ваш відгук"></textarea>
             </div>
 
             <div className={`flex flex-row gap-10 ${responsiveBlockInput}`}>
