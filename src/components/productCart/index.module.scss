@@ -1,7 +1,6 @@
 .productCart {
   width: 100%;
   padding: 0 60px;
- 
 }
 .container {
   max-width: 1392px;
@@ -567,6 +566,7 @@
 .photoVideo {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 128px;
 }
 .photoWrapper {
   display: flex;
@@ -584,4 +584,114 @@
   img {
     border-radius: 20px;
   }
+}
+
+//ProductQuestions
+.productQuestions {
+  display: flex;
+  justify-content: space-between;
+}
+.productQuestionsField {
+  display: flex;
+  gap: 24px;
+    margin-bottom: 60px;
+
+}
+.questionsField {
+  width: 581px;
+  display: flex;
+  padding-bottom: 3px;
+  justify-content: space-between;
+  border-bottom: 1px solid #c1c1c1;
+  input {
+    background: var(---900, #fbfbfb);
+    font-family: var(--font-exo_2);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    &::placeholder {
+      color: var(---500, #c1c1c1);
+      font-family: var(--font-exo_2);
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px;
+    }
+  }
+}
+.questionsFieldBtn {
+  display: flex;
+  gap: 15px;
+  cursor: pointer;
+  input[type='file'] {
+    display: none;
+  }
+}
+.questionsSendBtn {
+  padding: 6px 14px 7px 14px;
+  border-radius: 30px;
+  background: var(---, #b9ff61);
+  font-family: var(--font-exo_2);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 23px; /* 143.75% */
+}
+.message {
+  width: 711px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #F1F1F1;
+}
+.avatar {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 8px;
+  p {
+    font-family: var(--font-exo_2);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 125% */
+  }
+}
+.textMessage {
+  color: #000;
+  font-family: var(--font-exo_2);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 23px; /* 164.286% */
+  margin-bottom: 24px;
+}
+.infoMessage {
+  display: flex;
+  justify-content: space-between;
+}
+.date {
+  color: var(---600, #6c6c6c);
+  font-family: var(--font-exo_2);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px; /* 164.286% */
+}
+.comments {
+  display: flex;
+  gap: 30px;
+}
+.commentsCount {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.commentsCount {
+  color: var(---600, #6c6c6c);
+  font-family: var(--font-exo_2);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 23px; /* 164.286% */
 }
