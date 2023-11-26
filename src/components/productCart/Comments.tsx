@@ -1,7 +1,7 @@
 import Image from "next/image";
 import magnifier from '../../assets/productCard/comments/magnifier.svg'
 import clip from '../../assets/productCard/comments/clip.svg'
-import pictureGrey from '../../assets/productCard/comments/PictureGrey.svg'
+import pictureGrey from '../../assets/productCard/comments/pictureGrey.svg'
 import clipGrey from '../../assets/productCard/comments/clipGrey.svg'
 
 import { useSession } from "next-auth/react";
