@@ -4,7 +4,6 @@ import cls from './index.module.scss';
 import clipIcon from '@/assets/clip.svg';
 import avatarIcon from '@/assets/avatar.svg';
 import commentIcon from '@/assets/comment.svg';
-import mathImg from '@/assets/MathBord2.jpg';
 import favIcon from '@/assets/favIcon.svg';
 import productImg from '@/assets/mathCart.jpg';
 import { FC, ChangeEvent, useState, ReactNode } from 'react';
@@ -88,7 +87,6 @@ const ProductQuestions: FC = () => {
             </div>
           ))}
         </div>
-
         <div>
           <div className={cls.productItem}>
             <div className={cls.productImage}>

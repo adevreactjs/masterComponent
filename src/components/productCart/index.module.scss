@@ -1,6 +1,7 @@
 .productCart {
   width: 100%;
   padding: 0 60px;
+  margin-top: 67px;
 }
 .container {
   max-width: 1392px;
@@ -43,6 +44,10 @@
   flex-direction: column;
   gap: 12px;
   margin-right: 21px;
+  img {
+    width: 90px;
+    height: 71px;
+  }
 }
 
 .smallImage {
@@ -305,6 +310,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  text-align: left;
+
   p {
     font-family: var(--font-exo_2);
     font-size: 15px;
@@ -410,8 +417,8 @@
   top: 30%;
   z-index: 1;
   display: flex;
-  width: 102px;
-  height: 102px;
+  width: 90px;
+  height: 90px;
   justify-content: center;
   align-items: center;
   border-radius: 90px;
@@ -424,8 +431,8 @@
   top: 30%;
   z-index: 1;
   display: flex;
-  width: 102px;
-  height: 102px;
+  width: 90px;
+  height: 90px;
   justify-content: center;
   align-items: center;
   border-radius: 90px;
@@ -592,10 +599,10 @@
   justify-content: space-between;
 }
 .productQuestionsField {
+  padding-top: 38px;
   display: flex;
   gap: 24px;
-    margin-bottom: 60px;
-
+  margin-bottom: 60px;
 }
 .questionsField {
   width: 581px;
@@ -642,7 +649,7 @@
   width: 711px;
   padding-bottom: 15px;
   margin-bottom: 15px;
-  border-bottom: 1px solid #F1F1F1;
+  border-bottom: 1px solid #f1f1f1;
 }
 .avatar {
   display: flex;
