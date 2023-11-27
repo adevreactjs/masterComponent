@@ -9,14 +9,14 @@ export default function Comments() {
   const inputStyles = `
         w-full
         border-b-[0.15vw]
+        border-[#C1C1C1]
         bg-transparent
-
-        min-[280px]:text-[4.1vw]
+        placeholder:text-[#C1C1C1]
     `;
   const buttonStyles = `
         bg-[#B9FF61]
-        h-[30px]
-        pl-[2.5vw] pr-[2.5vw]
+        h-[36px]
+        pl-[15px] pr-[15px]
         rounded-[30px]
         text-[16px]
         min-[500px]:
@@ -25,7 +25,8 @@ export default function Comments() {
   const responsiveBlockInput = `
         max-[500px]:hidden
         min-[500px]:flex
-        min-[500px]:w-[750px]
+        min-[500px]:w-full
+        min-[750px]:w-[685px]
     `;
   const textareaStyles = `
         w-full
@@ -54,8 +55,8 @@ export default function Comments() {
         <textarea name='comment' className={textareaStyles} placeholder='Ваш відгук'></textarea>
       </div>
 
-      <div className={`flex flex-row gap-10 ${responsiveBlockInput}`}>
-        <div className={`flex flex-row relative items-center `}>
+      <div className={`flex flex-row gap-10 items-end ${responsiveBlockInput}`}>
+        <div className={`flex flex-row relative items-center w-full`}>
           <input name='comment' type='text' className={inputStyles} placeholder='Написати відгук' />
           <div className='absolute flex flex-row right-1 gap-5'>
             <Image src={magnifier} alt='magnifier' className='w-[18px]' />
