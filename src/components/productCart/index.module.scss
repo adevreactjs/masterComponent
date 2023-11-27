@@ -68,6 +68,9 @@
   width: 396px;
   height: 333px;
   padding: 18px 15px;
+  .bonus {
+    display: none;
+  }
 }
 .favIcon {
   position: absolute;
@@ -213,10 +216,20 @@
   line-height: 30px; /* 150% */
   text-decoration: line-through;
 }
+.buyBtn::before {
+  position: absolute;
+  left: 25px;
+  top: 24px;
+  z-index: 1;
+  content: url('../../assets/cartIcon.svg'); /* with class ModalCarrot ??*/
+}
 .buyBtn {
-  padding: 11px 24px;
+  position: relative;
+}
+.buyBtn::after {
+  content: 'Купуй одним платежем';
+  padding: 11px 24px 11px 56px;
   display: flex;
-  gap: 8px;
   align-items: center;
   font-family: var(--font-exo_2);
   font-size: 18px;
@@ -701,4 +714,170 @@
   font-style: normal;
   font-weight: 500;
   line-height: 23px; /* 164.286% */
+}
+.bonus {
+  position: absolute;
+  padding: 4px 10px;
+  top: 8px;
+  left: 8px;
+  z-index: 1;
+  border-radius: 20px;
+  background: var(--, #b9f072);
+  font-family: var(--font-exo_2);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.characteristicMobile {
+  display: none;
+}
+.inStockMobile {
+  display: none;
+}
+// mobile
+
+@media (max-width: 1300px) {
+  .product {
+    flex-direction: column;
+  }
+  .productCart {
+    margin-top: 0px;
+    padding: 0 16px;
+  }
+  .container {
+    max-width: 328px;
+    margin: 0 auto;
+  }
+  .categoryItems {
+    margin-bottom: 45px;
+    overflow-x: scroll;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .smallImageGallery {
+    display: none;
+  }
+  .mainImage {
+    width: 328px;
+    .bonus {
+      display: block;
+    }
+  }
+  .favIcon {
+    width: 24px;
+    height: 24px;
+  }
+  .info {
+    width: 328px;
+  }
+  .cartDescription {
+    display: none;
+  }
+  .price {
+    width: 328px;
+  }
+  .title {
+    flex-direction: column;
+    margin-bottom: 0;
+    h1 {
+      font-size: 20px;
+      font-weight: 600;
+      text-align: left;
+      margin-bottom: 22px;
+    }
+  }
+  .characteristic {
+    display: none;
+  }
+  .characteristicMobile {
+    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 22px;
+    li {
+      border-radius: 20px;
+      padding: 5px 12px 6px 12px;
+      background: var(---800, #f1f1f1);
+      color: var(---800, #262626);
+      font-family: var(--font-exo_2);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+  .inStock {
+    display: none;
+  }
+  .inStockMobile {
+    display: block;
+    display: flex;
+    padding: 6px;
+    align-items: center;
+    gap: 4px;
+    border-radius: 10px;
+    background: #f6ffea;
+    color: var(---800, #262626);
+    font-family: var(--font-exo_2);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 15px; /* 107.143% */
+  }
+  .ratingMobile {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 22px;
+  }
+  .stars {
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .rating {
+    margin-bottom: 0;
+    span {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 23px;
+    }
+  }
+  .buyNow {
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .priceLabels {
+    width: 101px;
+    p {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 26px;
+    }
+    span {
+      font-size: 12px;
+    }
+  }
+  .sells {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+  }
+  .buyBtn::after {
+    content: 'Купуй';
+    font-size: initial;
+    padding: 7px 18px 7px 48px;
+  }
+  .buyBtn::before {
+    left: 20px;
+    top: 18px;
+  }
 }

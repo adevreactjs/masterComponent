@@ -34,7 +34,6 @@ import PhotoVideo from './PhotoVideo';
 import ProductQuestions from './ProductQuestions';
 import Comments from './Comments';
 
-
 const ProductCart = () => {
   const [activeCategory, setActiveCategory] = useState(0);
   const [activeImageGallery, setActiveImageGallery] = useState(0);
@@ -206,6 +205,7 @@ const ProductCart = () => {
                     ))}
                   </div>
                   <div className={cls.mainImage}>
+                    <p className={cls.bonus}>+15 бонусів</p>
                     <Image placeholder='blur' src={chooseImage} fill={true} alt='img' />
                   </div>
                   <Image className={cls.favIcon} src={favIcon} width={30} height={26} alt='img' />
@@ -237,6 +237,12 @@ const ProductCart = () => {
               <section className={cls.price}>
                 <div className={cls.title}>
                   <h1>Материнська плата Asus PRIME Z790-P </h1>
+                  <ul className={cls.characteristicMobile}>
+                    <li>(WIFI) D4</li>
+                    <li>DDR4 для ПК</li>
+                    <li>LGA1700</li>
+                    <li>ATX</li>
+                  </ul>
                   <p className={cls.inStock}>
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
@@ -249,16 +255,30 @@ const ProductCart = () => {
                     Є в наявності
                   </p>
                 </div>
-                <div className={cls.rating}>
-                  <div className={cls.stars}>
-                    <Image src={starIcon} width={24} height={24} alt='starIcon' />
-                    <Image src={starIcon} width={24} height={24} alt='starIcon' />
-                    <Image src={starIcon} width={24} height={24} alt='starIcon' />
-                    <Image src={starIcon} width={24} height={24} alt='starIcon' />
-                    <Image src={starIcon} width={24} height={24} alt='starIcon' />
+                <div className={cls.ratingMobile}>
+                  <p className={cls.inStockMobile}>
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='7'
+                      height='7'
+                      viewBox='0 0 7 7'
+                      fill='none'>
+                      <circle cx='3.5' cy='3.5' r='3.5' fill='#B9FF61' />
+                    </svg>
+                    Є в наявності
+                  </p>
+                  <div className={cls.rating}>
+                    <div className={cls.stars}>
+                      <Image src={starIcon} width={24} height={24} alt='starIcon' />
+                      <Image src={starIcon} width={24} height={24} alt='starIcon' />
+                      <Image src={starIcon} width={24} height={24} alt='starIcon' />
+                      <Image src={starIcon} width={24} height={24} alt='starIcon' />
+                      <Image src={starIcon} width={24} height={24} alt='starIcon' />
+                    </div>
+                    <span>5/5</span>
                   </div>
-                  <span>5/5</span>
                 </div>
+
                 <ul className={cls.characteristic}>
                   <li>(WIFI) D4</li>
                   <li>DDR4 для ПК</li>
@@ -274,8 +294,7 @@ const ProductCart = () => {
                       <div className={cls.sells}>10 579</div>
                     </div>
                     <button className={cls.buyBtn}>
-                      <Image src={cardIcon} width={20} height={20} alt='cardIcon' />
-                      Купуй одним платежем
+                      {/* <Image src={cardIcon} width={20} height={20} alt='cardIcon' /> */}
                     </button>
                   </div>
                   <div className={cls.separateLine}></div>
