@@ -32,7 +32,7 @@ import { Product } from '@/types/type';
 import Characteristics from './Сharacteristics';
 import PhotoVideo from './PhotoVideo';
 import ProductQuestions from './ProductQuestions';
-import Comments from './Comments';
+import Comments from './commentsSection/Comments';
 
 
 const ProductCart = () => {
