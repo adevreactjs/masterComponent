@@ -58,8 +58,7 @@
   gap: 20px;
   overflow: hidden;
   margin-bottom: 61px;
-  // // overflow-x: scroll;
-  -ms-overflow-style: none; /* IE and Edge */
+  -ms-overflow-style: none; 
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;

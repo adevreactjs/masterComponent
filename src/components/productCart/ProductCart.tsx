@@ -34,7 +34,6 @@ import PhotoVideo from './PhotoVideo';
 import ProductQuestions from './ProductQuestions';
 import Comments from './commentsSection/Comments';
 
-
 const ProductCart = () => {
   const [activeCategory, setActiveCategory] = useState(0);
   const [activeImageGallery, setActiveImageGallery] = useState(0);
@@ -206,6 +205,7 @@ const ProductCart = () => {
                     ))}
                   </div>
                   <div className={cls.mainImage}>
+                    <p className={cls.bonus}>+15 бонусів</p>
                     <Image placeholder='blur' src={chooseImage} fill={true} alt='img' />
                   </div>
                   <Image className={cls.favIcon} src={favIcon} width={30} height={26} alt='img' />
@@ -237,6 +237,12 @@ const ProductCart = () => {
               <section className={cls.price}>
                 <div className={cls.title}>
                   <h1>Материнська плата Asus PRIME Z790-P </h1>
+                  <ul className={cls.characteristicMobile}>
+                    <li>(WIFI) D4</li>
+                    <li>DDR4 для ПК</li>
+                    <li>LGA1700</li>
+                    <li>ATX</li>
+                  </ul>
                   <p className={cls.inStock}>
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
@@ -249,16 +255,30 @@ const ProductCart = () => {
                     Є в наявності
                   </p>
                 </div>
-                <div className={cls.rating}>
-                  <div className={cls.stars}>
-                    <Image src={starIcon} width={24} height={24} alt='starIcon' />
-                    <Image src={starIcon} width={24} height={24} alt='starIcon' />
-                    <Image src={starIcon} width={24} height={24} alt='starIcon' />
-                    <Image src={starIcon} width={24} height={24} alt='starIcon' />
-                    <Image src={starIcon} width={24} height={24} alt='starIcon' />
+                <div className={cls.ratingMobile}>
+                  <p className={cls.inStockMobile}>
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='7'
+                      height='7'
+                      viewBox='0 0 7 7'
+                      fill='none'>
+                      <circle cx='3.5' cy='3.5' r='3.5' fill='#B9FF61' />
+                    </svg>
+                    Є в наявності
+                  </p>
+                  <div className={cls.rating}>
+                    <div className={cls.stars}>
+                      <Image src={starIcon} width={24} height={24} alt='starIcon' />
+                      <Image src={starIcon} width={24} height={24} alt='starIcon' />
+                      <Image src={starIcon} width={24} height={24} alt='starIcon' />
+                      <Image src={starIcon} width={24} height={24} alt='starIcon' />
+                      <Image src={starIcon} width={24} height={24} alt='starIcon' />
+                    </div>
+                    <span>5/5</span>
                   </div>
-                  <span>5/5</span>
                 </div>
+
                 <ul className={cls.characteristic}>
                   <li>(WIFI) D4</li>
                   <li>DDR4 для ПК</li>
@@ -274,8 +294,7 @@ const ProductCart = () => {
                       <div className={cls.sells}>10 579</div>
                     </div>
                     <button className={cls.buyBtn}>
-                      <Image src={cardIcon} width={20} height={20} alt='cardIcon' />
-                      Купуй одним платежем
+                      {/* <Image src={cardIcon} width={20} height={20} alt='cardIcon' /> */}
                     </button>
                   </div>
                   <div className={cls.separateLine}></div>
@@ -307,13 +326,30 @@ const ProductCart = () => {
                         6 міс
                       </div>
                     </div>
-                    <button className={cls.buyInCreditBtn}>
-                      <Image src={cardIcon} width={20} height={20} alt='cardIcon' />
-                      Купуй в кредит
-                    </button>
+                    <button className={cls.buyInCreditBtn}></button>
+                  </div>
+                  <div className={cls.bankItemsMobile}>
+                    <div className={cls.bankItem}>
+                      <div>
+                        <Image src={privateIcon} width={20} height={20} alt='privateIcon' />
+                      </div>
+                      10 міс
+                    </div>
+                    <div className={cls.bankItem}>
+                      <div>
+                        <Image src={monoIcon} width={22} height={21} alt='monoIcon' />
+                      </div>
+                      6 міс
+                    </div>
+                    <div className={cls.bankItem}>
+                      <div>
+                        <Image src={alphaIcon} width={16} height={21} alt='alphaIcon' />
+                      </div>
+                      6 міс
+                    </div>
                   </div>
                 </div>
-                <div className={cls.separateLine}></div>
+                <div className={cls.separateLineDelively}></div>
                 <div className={cls.delivery}>
                   <p className={cls.deliveryTitle}>
                     Доставка: Оберіть Ваше місто
@@ -323,19 +359,15 @@ const ProductCart = () => {
                     <ul className={cls.deliveryList}>
                       <li>
                         <Image src={shopIcon} width={20} height={20} alt='shopIcon' />
-                        Самовивіз з магазину
                       </li>
                       <li>
                         <Image src={novaIcon} width={20} height={20} alt='shopIcon' />
-                        Доставка у відділення
                       </li>
                       <li>
                         <Image src={novaIcon} width={20} height={20} alt='shopIcon' />
-                        Кур’єрська доставка
                       </li>
                       <li>
                         <Image src={ukrIcon} width={20} height={20} alt='shopIcon' />
-                        Доставка у відділення
                       </li>
                     </ul>
                     <div className={cls.deliveryInfo}>
@@ -355,7 +387,7 @@ const ProductCart = () => {
                     </div>
                   </div>
                 </div>
-                <div className={cls.separateLine}></div>
+                <div className={cls.separateLineDelively}></div>
                 <div className={cls.payments}>
                   <p>
                     Оплата
@@ -392,6 +424,31 @@ const ProductCart = () => {
                       Безготівковий рахунок
                     </li>
                   </ul>
+                </div>
+                <div className={cls.separateLineMobile}></div>
+              </section>
+              <section className={cls.cartDescriptionMobile}>
+                <h3>Опис продукту</h3>
+                <p>
+                  <span>Asus PRIME Z790-P WIFI D4</span> – материнська плата форм-фактора ATX.
+                  Оснащена сокетом 1700, підтримує швидкісну память та має широкий набір
+                  інтерфейсів. Дозволяє встановлювати 128 ГБ оперативної памяті, використовуючи 4
+                  слоти для планок. Призначена для процесорів Intel 13-го покоління.
+                  <br />
+                  <br />
+                  Завдяки системі живлення, комплексним рішенням для охолодження та інтелектуальним
+                  параметрам налаштування PRIME Z790-P WIFI D4 надає користувачам розробникам ПК
+                  низку оптимізацій продуктивності за допомогою інтуїтивно зрозумілих функцій
+                  програмного забезпечення та прошивки.
+                  <br />
+                  <br />
+                  Материнська плата PRIME Z790-P WIFI D4 містить гнучкі інструменти для налаштування
+                  кожного аспекту вашої системи, дозволяючи налаштовувати продуктивність так, щоб
+                  вона ідеально відповідала вашому способу роботи. ASUS Intelligent Control робить
+                  ваш...
+                </p>
+                <div className={cls.readMore}>
+                  <button>Читати більше</button>
                 </div>
               </section>
             </div>
