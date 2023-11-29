@@ -26,3 +26,4 @@ export interface Message {
   file: string | StaticImport;
   date: string;
 }
+
