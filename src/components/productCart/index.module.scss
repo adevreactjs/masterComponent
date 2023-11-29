@@ -810,6 +810,10 @@
 .cartDescriptionMobile {
   display: none;
 }
+.productQuestionsMobile {
+  display: none;
+}
+
 // mobile
 
 @media (max-width: 1300px) {
@@ -1113,5 +1117,54 @@
   }
   .characteristicsInfoBlock {
     margin-bottom: 56px;
+  }
+  //productQuestions
+
+  .productQuestions {
+    display: none;
+  }
+  .productQuestionsMobile {
+    display: block;
+  }
+  .productQuestionsForm {
+    background: var(---900, #fbfbfb);
+    border-radius: 12px;
+    border: 1px solid var(---500, #c1c1c1);
+    margin-bottom: 30px;
+  }
+  .headerForm {
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    background: var(---800, #f1f1f1);
+    border-bottom: 1px solid var(---500, #c1c1c1);
+    border-radius: 12px 12px 0px 0px;
+  }
+  .headerName {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .inputFormField {
+    height: 100px;
+    padding: 15px 14px;
+    input {
+      background: var(---900, #fbfbfb);
+      width: 100%;
+    }
+  }
+  .questionsBtnMob {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 45px;
+  }
+  .questionsBtnMobile {
+    padding: 6px 14px 7px 14px;
+    border-radius: 30px;
+    background: #b9f072;
+  }
+  .message {
+    width: 100%;
   }
 }

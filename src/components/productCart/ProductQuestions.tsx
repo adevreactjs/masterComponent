@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import cls from './index.module.scss';
 import clipIcon from '@/assets/clip.svg';
+import clipBlackIcon from '@/assets/clipBlack.svg';
 import avatarIcon from '@/assets/avatar.svg';
 import commentIcon from '@/assets/comment.svg';
 import favIcon from '@/assets/favIcon.svg';
@@ -114,6 +115,55 @@ const ProductQuestions: FC = () => {
               <li>ATX</li>
             </ul>
           </div>
+        </div>
+      </div>
+      <div className={cls.productQuestionsMobile}>
+        <div className={cls.productQuestionsForm}>
+          <div className={cls.headerForm}>
+            <div className={cls.headerName}>
+              <Image src={avatarIcon} width={30} height={30} alt='avatarIcon' />
+              <p>Юрій</p>
+            </div>
+            <label htmlFor='file-upload' className={cls.questionsFieldBtn}>
+              <input id='file-upload' type='file' accept='image/*' onChange={handleImageChange} />
+              <Image src={clipBlackIcon} width={18} height={18} alt='clipIcon' />
+            </label>
+          </div>
+          <div className={cls.inputFormField}>
+            <input
+              type='text'
+              placeholder='Ваше запитання...'
+              value={message}
+              onChange={e => setMessage(e.target.value)}
+            />
+          </div>
+        </div>
+        <div className={cls.questionsBtnMob}>
+          <button className={cls.questionsBtnMobile} onClick={sendQuestion}>
+            Поставити запитання
+          </button>
+        </div>
+        <div>
+          {messages.map((el, ind) => (
+            <div key={ind} className={cls.message}>
+              <div className={cls.avatar}>
+                <Image src={avatarIcon} width={30} height={30} alt='avatarIcon' />
+                <p>Степан</p>
+              </div>
+              <p className={cls.textMessage}>{el.message}</p>
+              {el.file != '' && <Image src={el.file} width={300} height={100} alt='image' />}
+              <div className={cls.infoMessage}>
+                <div className={cls.date}>{el.date}</div>
+                <div className={cls.comments}>
+                  <div className={cls.commentsCount}>
+                    <Image src={commentIcon} width={15} height={15} alt='avatarIcon' />
+                    Коментарі: 1
+                  </div>
+                  <div className={cls.commentsCount}>Відповісти </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </>
