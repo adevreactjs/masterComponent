@@ -1089,4 +1089,29 @@
   .rightArrow {
     display: none;
   }
+  // Characteristics
+
+  .productItem {
+    display: none;
+  }
+  .characteristicsInfoBlock {
+    flex-direction: column;
+    padding-bottom: 8px;
+    padding-top: 8px;
+  }
+  .characteristicsItem {
+    h2 {
+      margin-bottom: 22px;
+    }
+  }
+  .characteristicsTitle {
+    color: var(---600, #6c6c6c);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 23px;
+  }
+  .characteristicsInfoBlock {
+    margin-bottom: 56px;
+  }
 }
