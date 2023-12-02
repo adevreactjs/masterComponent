@@ -4,10 +4,11 @@ import cls from './index.module.scss';
 import clipIcon from '@/assets/clip.svg';
 import clipBlackIcon from '@/assets/clipBlack.svg';
 import avatarIcon from '@/assets/avatar.svg';
+import companyIcon from '@/assets/procIcon.svg';
 import commentIcon from '@/assets/comment.svg';
 import favIcon from '@/assets/favIcon.svg';
 import productImg from '@/assets/mathCart.jpg';
-import { FC, ChangeEvent, useState, ReactNode } from 'react';
+import { FC, ChangeEvent, useState } from 'react';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import { Message } from '@/types/type';
 
@@ -38,6 +39,8 @@ const ProductQuestions: FC = () => {
       message: message,
       file: image,
       date: formattedToday,
+      answer:
+        'Добрий день. Гарантія діє 3 роки. Всю необхідну інформацію Ви можете знайти в розділі “Характеристики”.',
     };
     if (message != '') {
       setMessages(prev => [...prev, mess]);
@@ -67,25 +70,48 @@ const ProductQuestions: FC = () => {
               Надіслати
             </button>
           </div>
-          {messages.map((el, ind) => (
-            <div key={ind} className={cls.message}>
-              <div className={cls.avatar}>
-                <Image src={avatarIcon} width={30} height={30} alt='avatarIcon' />
-                <p>Степан</p>
-              </div>
-              <p className={cls.textMessage}>{el.message}</p>
-              {el.file != '' && <Image src={el.file} width={300} height={100} alt='image' />}
-              <div className={cls.infoMessage}>
-                <div className={cls.date}>{el.date}</div>
-                <div className={cls.comments}>
-                  <div className={cls.commentsCount}>
-                    <Image src={commentIcon} width={15} height={15} alt='avatarIcon' />
-                    Коментарі: 1
+          {messages.toReversed().map((el, ind) => (
+            <>
+              <div key={ind} className={cls.message}>
+                <div className={cls.avatar}>
+                  <Image src={avatarIcon} width={30} height={30} alt='avatarIcon' />
+                  <p>Степан</p>
+                </div>
+                <p className={cls.textMessage}>{el.message}</p>
+                {el.file != '' && <Image src={el.file} width={300} height={100} alt='image' />}
+                <div className={cls.infoMessage}>
+                  <div className={cls.date}>{el.date}</div>
+                  <div className={cls.comments}>
+                    <div className={cls.commentsCount}>
+                      <Image src={commentIcon} width={15} height={15} alt='avatarIcon' />
+                      Коментарі: 1
+                    </div>
+                    <div className={cls.commentsCount}>Відповісти </div>
                   </div>
-                  <div className={cls.commentsCount}>Відповісти </div>
                 </div>
               </div>
-            </div>
+
+              <div className={cls.answerOnQuestion}>
+                <div className={cls.avatarMaster}>
+                  <div className={cls.logoMaster}>
+                    <Image src={companyIcon} width={15} height={15} alt='avatarIcon' />
+                  </div>
+                  <p>MasterComponent</p>
+                </div>
+                <p className={cls.textMessage}>{el.answer}</p>
+                {el.file != '' && <Image src={el.file} width={300} height={100} alt='image' />}
+                <div className={cls.infoMessage}>
+                  <div className={cls.date}>{el.date}</div>
+                  <div className={cls.comments}>
+                    <div className={cls.commentsCount}>
+                      <Image src={commentIcon} width={15} height={15} alt='avatarIcon' />
+                      Коментарі: 1
+                    </div>
+                    <div className={cls.commentsCount}>Відповісти </div>
+                  </div>
+                </div>
+              </div>
+            </>
           ))}
         </div>
         <div>
@@ -144,25 +170,47 @@ const ProductQuestions: FC = () => {
           </button>
         </div>
         <div>
-          {messages.map((el, ind) => (
-            <div key={ind} className={cls.message}>
-              <div className={cls.avatar}>
-                <Image src={avatarIcon} width={30} height={30} alt='avatarIcon' />
-                <p>Степан</p>
-              </div>
-              <p className={cls.textMessage}>{el.message}</p>
-              {el.file != '' && <Image src={el.file} width={300} height={100} alt='image' />}
-              <div className={cls.infoMessage}>
-                <div className={cls.date}>{el.date}</div>
-                <div className={cls.comments}>
-                  <div className={cls.commentsCount}>
-                    <Image src={commentIcon} width={15} height={15} alt='avatarIcon' />
-                    Коментарі: 1
+          {messages.toReversed().map((el, ind) => (
+            <>
+              <div key={ind} className={cls.message}>
+                <div className={cls.avatar}>
+                  <Image src={avatarIcon} width={30} height={30} alt='avatarIcon' />
+                  <p>Степан</p>
+                </div>
+                <p className={cls.textMessage}>{el.message}</p>
+                {el.file != '' && <Image src={el.file} width={300} height={100} alt='image' />}
+                <div className={cls.infoMessage}>
+                  <div className={cls.date}>{el.date}</div>
+                  <div className={cls.comments}>
+                    <div className={cls.commentsCount}>
+                      <Image src={commentIcon} width={15} height={15} alt='avatarIcon' />
+                      Коментарі: 1
+                    </div>
+                    <div className={cls.commentsCount}>Відповісти </div>
                   </div>
-                  <div className={cls.commentsCount}>Відповісти </div>
                 </div>
               </div>
-            </div>
+              <div className={cls.answerOnQuestion}>
+                <div className={cls.avatarMaster}>
+                  <div className={cls.logoMaster}>
+                    <Image src={companyIcon} width={15} height={15} alt='avatarIcon' />
+                  </div>
+                  <p>MasterComponent</p>
+                </div>
+                <p className={cls.textMessage}>{el.answer}</p>
+                {el.file != '' && <Image src={el.file} width={300} height={100} alt='image' />}
+                <div className={cls.infoMessage}>
+                  <div className={cls.date}>{el.date}</div>
+                  <div className={cls.comments}>
+                    <div className={cls.commentsCount}>
+                      <Image src={commentIcon} width={15} height={15} alt='avatarIcon' />
+                      Коментарі: 1
+                    </div>
+                    <div className={cls.commentsCount}>Відповісти </div>
+                  </div>
+                </div>
+              </div>
+            </>
           ))}
         </div>
       </div>
