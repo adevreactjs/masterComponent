@@ -8,7 +8,7 @@ import pictureGrey from '../../../assets/productCard/comments/pictureGrey.svg';
 import clipGrey from '../../../assets/productCard/comments/clipGrey.svg';
 import * as c from './styles'
 import { useSession } from 'next-auth/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Vitaliy from '../../../assets/productCard/comments/Vitaliy.png'
 import Roman from '../../../assets/productCard/comments/Roman.png'
 import Yulia from '../../../assets/productCard/comments/Yulia.png'
@@ -17,7 +17,57 @@ import Sergiy from '../../../assets/productCard/comments/Sergiy.png'
 import CommentsConstruction from './CommentsConstruction';
 import AnswerConstr from './AnswerConstr';
 import avatarIcon from '@/assets/avatar.svg';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/app/store/store';
+
+interface textAndDate {
+  text: string,
+  date: string
+}
+interface commentUser {
+  id: number;
+  image: StaticImageData;
+  name: string;
+  comment: string;
+  date: string;
+  marginRight: number;
+}
+interface commentObj {
+  id: number;
+  name: string;
+  image: StaticImageData;
+  comment: string;
+  date: string;
+  marginRight: number;
+  users : commentUser[];
+}
 export default function Comments() {
+    const [ numCommetns, setNumComments ] = useState('')
+      //redux variables and handle
+  const {  id, name, image, comment, date, marginRight } = useSelector( (state: RootState) => state.addAnswer )
+  useEffect(()=> {
+    if(comment !== '') {
+      const newObject = {
+      id: id,
+      image: image || avatarIcon,
+      name: name || "Степка",
+      comment: comment,
+      date: date,
+      marginRight: marginRight
+    }
+    setComments( prev => {
+      const updateComments = [...prev];
+      const existingUser = updateComments[id - 1].users.find((user) => user.id === id);
+      if(!existingUser) {
+        updateComments[id-1].users.push(newObject)
+        console.log(updateComments)
+      }
+      return updateComments
+    })
+    }
+
+  }, [ comment, date, id, image, marginRight, name ])
+//END
     //massive of all comments-tree, id = уровень вложености
     const allComentators = [
       {
@@ -26,7 +76,6 @@ export default function Comments() {
         name: "Віталій",
         comment: "Задоволений роботою. Швидкість передачі даних інтегрованого Wi-Fi вражає, а підтримка новітніх процесорів дозволяє максимально використовувати їх потужність.",
         date: "01.02.2023",
-        amountComments: "1",
         marginRight: 0,
         users: [{
           id: 2,
@@ -34,9 +83,8 @@ export default function Comments() {
           name: "Роман",
           comment: "На жаль, виявив проблеми з інтегрованим Wi-Fi на материнській платі. Швидкість передачі даних не відповідає заявленим характеристикам, що призвело до нестабільного з'єднання.",
           date: "01.02.2023",
-          amountComments: "",
           marginRight: 20,
-        }]
+        }],
       },
       {
         id: 1,
@@ -44,7 +92,6 @@ export default function Comments() {
         name: "Юлія",
         comment: "Ідеальне поєднання якості та функціональності. Легка у встановленні, має велику кількість роз'ємів для розширення функціоналу комп'ютера. Рекомендую як надійний компонент для збірки потужного ПК.",
         date: "01.02.2023",
-        amountComments: "2",
         marginRight: 0,
         users:[
           {
@@ -53,7 +100,6 @@ export default function Comments() {
             name: "Сергій",
             comment: "Хоча функціональність материнської плати і вражає, але в процесі монтажу зіткнувся з проблемою - деякі роз'єми можуть бути зайняті при встановленні деяких великих компонентів, що ускладнює розширення функціоналу. Для мене це стало певним недоліком у використанні даної моделі",
             date: "01.02.2023",
-            amountComments: "0",
             marginRight: 20,
           },
           {
@@ -62,7 +108,6 @@ export default function Comments() {
             name: "Павло",
             comment: "Повністю підтверджую. Багато роз'ємів і портів дають можливість максимально розширити можливості комп'ютера. Рекомендую як найкращий вибір для створення потужного ПК!",
             date: "01.02.2023",
-            amountComments: "0",
             marginRight: 20,
           }
         ]
@@ -70,30 +115,8 @@ export default function Comments() {
     ]
     // END
     const [ comments, setComments ] = useState(allComentators)
+    
   // states and functions
-  interface textAndDate {
-    text: string,
-    date: string
-  }
-  interface commentUser {
-    id: number;
-    image: StaticImageData;
-    name: string;
-    comment: string;
-    date: string;
-    amountComments: string;
-    marginRight: number;
-  }
-  interface commentObj {
-    id: number;
-    name: string;
-    image: StaticImageData;
-    comment: string;
-    date: string;
-    amountComments: string;
-    marginRight: number;
-    users : commentUser[];
-  }
   const { data: session } = useSession();
   const [inputText, setInputText] = useState('')
   function sendParent(inputText:string) {
@@ -112,7 +135,6 @@ export default function Comments() {
         name: session?.user?.name || "Степка",
         comment: dataText.text,
         date: dataText.date,
-        amountComments: '',
         marginRight: 0,
         users: []
       }
@@ -122,14 +144,13 @@ export default function Comments() {
   }
   // END
 
-
   function renderComments(comments:commentObj[]) {
     return(
       <>
         {comments.map( (item, index) => (
           <>
-            <AnswerConstr item={item} index={index}/>
-            {item.users && <CommentsConstruction item={item.users}/>}
+            <AnswerConstr item={item} index={index} amountComments={item.users.length}/>
+            {item.users && <CommentsConstruction item={item.users} amountComments={item.users.length}/>}
           </>
         ))}
       </>

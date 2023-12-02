@@ -9,21 +9,61 @@ import { useDetectClickOutside } from 'react-detect-click-outside';
 import { useState } from "react";
 import clip from '../../../assets/productCard/comments/clip.svg';
 import clipGrey from '../../../assets/productCard/comments/clipGrey.svg';
+import { addObject } from "../../../app/store/reducers/AnswerParentSlice";
+import { useDispatch } from "react-redux";
+import avatarIcon from '@/assets/avatar.svg';
 interface commentUser {
-    id: number;
-    image: StaticImageData;
-    name: string;
-    comment: string;
-    date: string;
-    amountComments: string;
-    marginRight: number;
-  }
-export default function AnswerConstr({index, item}:{index:number, item:commentUser}) {
+  id: number;
+  image: StaticImageData;
+  name: string;
+  comment: string;
+  date: string;
+  marginRight: number;
+}
+interface commentObj {
+  id: number;
+  name: string;
+  image: StaticImageData;
+  comment: string;
+  date: string;
+  marginRight: number;
+  users : commentUser[];
+}
+interface textAndDate {
+  text: string,
+  date: string
+}
+export default function AnswerConstr({index, item, amountComments}:{index:number, item:commentUser, amountComments:number}) {
+    const dispatch = useDispatch()
     const { data: session } = useSession();
     const [ idInput, setIdInput ] = useState(-1)
     const [inputText, setInputText] = useState('')
     function closeInput() { setIdInput(-1) }
     const ref = useDetectClickOutside({ onTriggered: closeInput })
+
+    function sendObject(inputText:string) {
+      if(inputText != '') {
+        const today = new Date()
+        const date = today.toLocaleDateString('en-US').replace(/\//g, '.')
+  
+        const dataText:textAndDate = {
+          text: inputText,
+          date: date
+        }
+        //data - done, text - done, image - ?, id - ?, name - ?
+        const newParentObject: commentObj = {
+          id: index+1,
+          image: session?.user?.image || avatarIcon,
+          name: session?.user?.name || "Степка",
+          comment: dataText.text,
+          date: dataText.date,
+          marginRight: 0,
+          users: []
+        }
+        dispatch(addObject(newParentObject))
+      }
+      setInputText('')
+    }
     return(
         <>
             <div key={index}>
@@ -49,7 +89,7 @@ export default function AnswerConstr({index, item}:{index:number, item:commentUs
                 <div className="flex flex-row gap-[35px]">
                   <div className='flex flex-row items-center'>
                     <Image src={commentIcon} alt="Comment Icon" className='mr-2'/>
-                    <p className='hover:cursor-default'>Коментарі{item.amountComments}</p>
+                    <p className='hover:cursor-default'>Коментарі{amountComments !== 0 ? amountComments : ''}</p>
                   </div>
                   <span className='hover:cursor-pointer' onClick={()=>setIdInput(index)}>Відповісти</span>
                 </div>
@@ -76,7 +116,7 @@ export default function AnswerConstr({index, item}:{index:number, item:commentUs
                         <Image src={clip} alt='clip' className='w-[18px]' />
                       </div>
                     </div>
-                    <button className={c.buttonStyles}>
+                    <button className={c.buttonStyles} onClick={()=>sendObject(inputText)}>
                         <span>Надіслати</span>
                     </button>
                   </div></>
