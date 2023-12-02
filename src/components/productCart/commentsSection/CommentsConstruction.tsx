@@ -16,10 +16,10 @@ interface commentUser {
         name: string;
         comment: string;
         date: string;
-        amountComments: string;
+
         marginRight: number;
       }
-export default function CommentsConstruction({item}:{item:commentUser[]}) {
+export default function CommentsConstruction({item, amountComments}:{item:commentUser[], amountComments:number}) {
     const { data: session } = useSession();
     const [ idInput, setIdInput ] = useState(-1)
     const [inputText, setInputText] = useState('')
@@ -51,7 +51,7 @@ export default function CommentsConstruction({item}:{item:commentUser[]}) {
                 <div className="flex flex-row gap-[35px]">
                   <div className='flex flex-row items-center'>
                     <Image src={commentIcon} alt="Comment Icon" className='mr-2'/>
-                    <p className='hover:cursor-default'>Коментарі{item.amountComments}</p>
+                    <p className='hover:cursor-default'>Коментарі{amountComments !== 0 ? amountComments : ''}</p>
                   </div>
                   <span className='hover:cursor-pointer' onClick={()=>setIdInput(index)}>Відповісти</span>
                 </div>
