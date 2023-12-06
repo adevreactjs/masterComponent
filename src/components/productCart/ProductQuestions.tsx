@@ -36,6 +36,7 @@ const ProductQuestions: FC = () => {
 
     const formattedToday = dd + '.' + mm + '.' + yyyy;
     const mess: Message = {
+      id: Math.floor(Math.random() * 100),
       message: message,
       file: image,
       date: formattedToday,
@@ -70,9 +71,9 @@ const ProductQuestions: FC = () => {
               Надіслати
             </button>
           </div>
-          {messages.toReversed().map((el, ind) => (
-            <>
-              <div key={ind} className={cls.message}>
+          {messages.toReversed().map((el) => (
+            <div key={el.id}>
+              <div className={cls.message}>
                 <div className={cls.avatar}>
                   <Image src={avatarIcon} width={30} height={30} alt='avatarIcon' />
                   <p>Степан</p>
@@ -90,7 +91,6 @@ const ProductQuestions: FC = () => {
                   </div>
                 </div>
               </div>
-
               <div className={cls.answerOnQuestion}>
                 <div className={cls.avatarMaster}>
                   <div className={cls.logoMaster}>
@@ -111,7 +111,7 @@ const ProductQuestions: FC = () => {
                   </div>
                 </div>
               </div>
-            </>
+            </div>
           ))}
         </div>
         <div>
@@ -171,8 +171,8 @@ const ProductQuestions: FC = () => {
         </div>
         <div>
           {messages.toReversed().map((el, ind) => (
-            <>
-              <div key={ind} className={cls.message}>
+            <div key={el.id}>
+              <div className={cls.message}>
                 <div className={cls.avatar}>
                   <Image src={avatarIcon} width={30} height={30} alt='avatarIcon' />
                   <p>Степан</p>
@@ -210,7 +210,7 @@ const ProductQuestions: FC = () => {
                   </div>
                 </div>
               </div>
-            </>
+            </div>
           ))}
         </div>
       </div>
