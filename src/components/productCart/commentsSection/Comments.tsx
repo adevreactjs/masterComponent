@@ -1,208 +1,154 @@
 'use client';
 
-import Image from 'next/image';
-import type { StaticImageData } from 'next/image';
-import magnifier from '../../../assets/productCard/comments/magnifier.svg';
-import clip from '../../../assets/productCard/comments/clip.svg';
-import pictureGrey from '../../../assets/productCard/comments/pictureGrey.svg';
-import clipGrey from '../../../assets/productCard/comments/clipGrey.svg';
-import * as c from './styles';
+import { ChangeEvent, useRef, useState } from "react";
+import CommentsList from "./CommentsList";
 import { useSession } from 'next-auth/react';
-import { useEffect, useState } from 'react';
-import Vitaliy from '../../../assets/productCard/comments/Vitaliy.png';
-import Roman from '../../../assets/productCard/comments/Roman.png';
-import Yulia from '../../../assets/productCard/comments/Yulia.png';
-import Pavlo from '../../../assets/productCard/comments/Pavlo.png';
-import Sergiy from '../../../assets/productCard/comments/Sergiy.png';
-import CommentsConstruction from './CommentsConstruction';
-import AnswerConstr from './AnswerConstr';
-import avatarIcon from '@/assets/avatar.svg';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/app/store/store';
+import Image, { StaticImageData } from "next/image";
 
-interface textAndDate {
-  text: string;
-  date: string;
-}
-interface commentUser {
-  id: number;
+//imgs
+import Vitaliy from '../../../assets/productCard/comments/Vitaliy.png'
+import Roman from '../../../assets/productCard/comments/Roman.png'
+import Sergiy from '../../../assets/productCard/comments/Sergiy.png'
+import Yuli from '../../../assets/productCard/comments/Yulia.png'
+import Pavlo from '../../../assets/productCard/comments/Pavlo.png'
+import avatarIcon from '../../../assets/avatar.svg';
+import clipGrey from '../../../assets/productCard/comments/clip.svg'
+
+
+// changable
+interface Comment {
+  name: string | null | undefined;
   image: StaticImageData;
-  name: string;
-  comment: string;
+  inputImg: string;
+  commentText: string;
   date: string;
-  marginRight: number;
+  marginB: string;
+  reply: Comment[];
 }
-interface commentObj {
-  id: number;
-  name: string;
-  image: StaticImageData;
-  comment: string;
-  date: string;
-  marginRight: number;
-  users: commentUser[];
-}
+
 export default function Comments() {
-  const [numCommetns, setNumComments] = useState('');
-  //redux variables and handle
-  const { id, name, image, comment, date, marginRight } = useSelector(
-    (state: RootState) => state.addAnswer,
-  );
-  useEffect(() => {
-    if (comment !== '') {
-      const newObject = {
-        id: id,
-        image: image || avatarIcon,
-        name: name || 'Степка',
-        comment: comment,
-        date: date,
-        marginRight: marginRight,
+    // changable
+    const [ imageSrc, setImageSrc ] = useState('') 
+    const [ textComment, setTextComment] = useState('')
+    const { data: session} = useSession();
+    const [comments, setComments] = useState<Comment[]>([
+        {
+          name: "Віталій",
+          image: Vitaliy,
+          commentText: "Задоволений роботою. Швидкість передачі даних інтегрованого Wi-Fi вражає, а підтримка новітніх процесорів дозволяє максимально використовувати їх потужність.",
+          inputImg: '',
+          date: "01.02.2023",
+          marginB: '52',
+          reply: [
+            {
+              name: "Роман",
+              image: Roman,
+              commentText: "На жаль, виявив проблеми з інтегрованим Wi-Fi на материнській платі. Швидкість передачі даних не відповідає заявленим характеристикам, що призвело до нестабільного з'єднання.",
+              inputImg: '',
+              date: "01.02.2023",
+              marginB: '',
+              reply: []
+            },
+          ]
+        },
+        {
+          name: "Юлія",
+          image: Yuli,
+          commentText: "Ідеальне поєднання якості та функціональності. Легка у встановленні, має велику кількість роз'ємів для розширення функціоналу комп'ютера. Рекомендую як надійний компонент для збірки потужного ПК.",
+          inputImg: '',
+          date: "01.02.2023",
+          marginB: '52',
+          reply: [
+            {
+              name: "Сергій",
+              image: Sergiy,
+              commentText: "Хоча функціональність материнської плати і вражає, але в процесі монтажу зіткнувся з проблемою - деякі роз'єми можуть бути зайняті при встановленні деяких великих компонентів, що ускладнює розширення функціоналу. Для мене це стало певним недоліком у використанні даної моделі",
+              inputImg: '',
+              date: "01.02.2023",
+              marginB: '',
+              reply: []
+            },
+            {
+              name: "Павло",
+              image: Pavlo,
+              commentText: "Повністю підтверджую. Багато роз'ємів і портів дають можливість максимально розширити можливості комп'ютера. Рекомендую як найкращий вибір для створення потужного ПК!",
+              inputImg: '',
+              date: "01.02.2023",
+              marginB: '',
+              reply: []
+            }
+          ]
+        },
+      ]);
+
+
+    // changable
+      const handleAddReply = (text: string, parentComment: Comment) => {
+        const formattedDate = new Date().toLocaleDateString('ru-RU').replace(/\./g, '.');
+        const newReply: Comment = {
+          name: session?.user?.name || "Степка",
+          image: session?.user?.image || avatarIcon,
+          commentText: text,
+          inputImg: imageSrc,
+          date: formattedDate,
+          marginB: '52',
+          reply: [],
+        };
+    
+        const updatedComments = [...comments];
+        parentComment.reply.unshift(newReply);
+        setComments(updatedComments);
       };
-      setComments(prev => {
-        const updateComments = [...prev];
-        const existingUser = updateComments[id - 1].users.find(user => user.id === id);
-        if (!existingUser) {
-          updateComments[id - 1].users.push(newObject);
-          console.log(updateComments);
+      const handleAddRoot = (text: string) => {
+        const formattedDate = new Date().toLocaleDateString('ru-RU').replace(/\./g, '.');
+        const newReply: Comment = {
+          name: session?.user?.name || "Степка",
+          image: session?.user?.image || avatarIcon,
+          commentText: text,
+          inputImg: imageSrc,
+          date: formattedDate,
+          marginB: '',
+          reply: [],
+        };
+    
+        const updatedComments = [...comments];
+        updatedComments.unshift(newReply);
+        setComments(updatedComments);
+        setTextComment('')
+        setImageSrc('')
+      };
+
+      const handleRequestFile = (e: ChangeEvent<HTMLInputElement>) => {
+        const files = e.target.files
+        if (files && files.length > 0) {
+          const imgFile = files[0];
+
+          const reader = new FileReader()
+          reader.onload = () => {
+            setImageSrc(reader.result as string)
+          }
+          reader.readAsDataURL(imgFile)
         }
-        return updateComments;
-      });
-    }
-  }, [comment, date, id, image, marginRight, name]);
-  //END
-  //massive of all comments-tree, id = уровень вложености
-  const allComentators = [
-    {
-      id: 1,
-      image: Vitaliy,
-      name: 'Віталій',
-      comment:
-        'Задоволений роботою. Швидкість передачі даних інтегрованого Wi-Fi вражає, а підтримка новітніх процесорів дозволяє максимально використовувати їх потужність.',
-      date: '01.02.2023',
-      marginRight: 0,
-      users: [
-        {
-          id: 2,
-          image: Roman,
-          name: 'Роман',
-          comment:
-            "На жаль, виявив проблеми з інтегрованим Wi-Fi на материнській платі. Швидкість передачі даних не відповідає заявленим характеристикам, що призвело до нестабільного з'єднання.",
-          date: '01.02.2023',
-          marginRight: 20,
-        },
-      ],
-    },
-    {
-      id: 1,
-      image: Yulia,
-      name: 'Юлія',
-      comment:
-        "Ідеальне поєднання якості та функціональності. Легка у встановленні, має велику кількість роз'ємів для розширення функціоналу комп'ютера. Рекомендую як надійний компонент для збірки потужного ПК.",
-      date: '01.02.2023',
-      marginRight: 0,
-      users: [
-        {
-          id: 2,
-          image: Sergiy,
-          name: 'Сергій',
-          comment:
-            "Хоча функціональність материнської плати і вражає, але в процесі монтажу зіткнувся з проблемою - деякі роз'єми можуть бути зайняті при встановленні деяких великих компонентів, що ускладнює розширення функціоналу. Для мене це стало певним недоліком у використанні даної моделі",
-          date: '01.02.2023',
-          marginRight: 20,
-        },
-        {
-          id: 2,
-          image: Pavlo,
-          name: 'Павло',
-          comment:
-            "Повністю підтверджую. Багато роз'ємів і портів дають можливість максимально розширити можливості комп'ютера. Рекомендую як найкращий вибір для створення потужного ПК!",
-          date: '01.02.2023',
-          marginRight: 20,
-        },
-      ],
-    },
-  ];
-  // END
-  const [comments, setComments] = useState(allComentators);
+      }
 
-  // states and functions
-  const { data: session } = useSession();
-  const [inputText, setInputText] = useState('');
-  function sendParent(inputText: string) {
-    if (inputText != '') {
-      const today = new Date();
-      const date = today.toLocaleDateString('en-US').replace(/\//g, '.');
-
-      const dataText: textAndDate = {
-        text: inputText,
-        date: date,
-      };
-      //data - done, text - done, image - ?, id - ?, name - ?
-      const newParentObject = {
-        id: 1,
-        image: session?.user?.image || avatarIcon,
-        name: session?.user?.name || 'Степка',
-        comment: dataText.text,
-        date: dataText.date,
-        marginRight: 0,
-        users: [],
-      };
-      setComments(prev => [newParentObject, ...prev]);
-    }
-    setInputText('');
-  }
-  // END
-
-  function renderComments(comments: commentObj[]) {
+// changable
+      // const [ increaseSize, setIncreaseSize ] = useState(false)
+      // <Image src={imageSrc} alt="test img" width={200} height={200} onClick={()=>setIncreaseSize(!increaseSize)}/>
     return (
-      <>
-        {comments.map((item, index) => (
-          <>
-            <AnswerConstr item={item} index={index} amountComments={item.users.length} />
-            {item.users && (
-              <CommentsConstruction item={item.users} amountComments={item.users.length} />
-            )}
-          </>
-        ))}
-      </>
-    );
-  }
-  return (
-    <>
-      <div className='w-full border border-[#C1C1C1] rounded-3xl overflow-hidden min-[500px]:hidden'>
-        <div className='bg-[#F1F1F1] h-[25px] flex flex-row items-center pl-5 pr-5 justify-between min-[320px]:h-[35px]'>
-          <div className='flex flex-row items-center'>
-            <div className='bg-black w-8 h-8 rounded-full'>{session?.user?.image}</div>
-            <p className='text-[4vw] ml-2'>Default_name{session?.user?.name}</p>
-          </div>
-          <div className='flex flex-row items-center'>
-            <Image src={pictureGrey} alt='picture' className='w-5 mr-[10px] min-[330px]:w-7' />
-            <Image src={clipGrey} alt='clip' className='w-5 min-[330px]:w-7' />
-          </div>
-        </div>
-        <textarea name='comment' className={c.textareaStyles} placeholder='Ваш відгук'></textarea>
-      </div>
-
-      <div className={c.responsiveBlockInput}>
-        <div className='flex flex-row relative items-center w-full'>
-          <input
-            name='comment'
-            type='text'
-            className={c.inputStyles}
-            placeholder='Написати відгук'
-            value={inputText}
-            onChange={e => setInputText(e.target.value)}
-          />
-          <div className='absolute flex flex-row right-1 gap-5'>
-            <Image src={magnifier} alt='magnifier' className='w-[18px]' />
-            <Image src={clip} alt='clip' className='w-[18px]' />
-          </div>
-        </div>
-        <button className={c.buttonStyles} onClick={() => sendParent(inputText)}>
-          <span>Надіслати</span>
-        </button>
-      </div>
-
-      {renderComments(comments)}
-    </>
-  );
-}
+        <>
+            <div className="w-[59%]">
+              <div className="flex flex-row justify-between gap-6 mb-[69px]">
+                <div className="relative w-full flex items-center">
+                  <input id="uploadFile" type="file" className="hidden" accept="image/*, .png, .jpg, .gif, .web" onChange={e => handleRequestFile(e)}/>
+                  <input type="text" placeholder="Написати відгук" className="w-full bg-transparent border-b-[1px] border-[#C1C1C1] pr-[25px]" onChange={e => setTextComment(e.target.value)} value={textComment}/>
+                  <label htmlFor="uploadFile">
+                    <Image src={clipGrey} alt="clipGrey" className="absolute top-[25%] right-0 hover:cursor-pointer"/>
+                  </label>
+                </div>
+                <button className="flex items-center justify-center h-[36px] w-[105px] pt-[6px] pr-[14px] pb-[7px] pl-[14px]  bg-[#B9FF61] rounded-[30px] text-center" onClick={()=>handleAddRoot(textComment)}>Надіслати</button>
+              </div>
+              <CommentsList comments={comments} onAddReply={(text, parentComment) => handleAddReply(text, parentComment)} />
+            </div>
+        </>
+    )
+};
