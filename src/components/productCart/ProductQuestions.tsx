@@ -29,12 +29,7 @@ const ProductQuestions: FC = () => {
   };
 
   const sendQuestion = () => {
-    const today = new Date();
-    const yyyy = today.getFullYear();
-    let mm = today.getMonth() + 1;
-    let dd = today.getDate();
-
-    const formattedToday = dd + '.' + mm + '.' + yyyy;
+    const formattedToday = new Date().toLocaleDateString('ru-RU').replace(/\./g, '.');
     const mess: Message = {
       id: Math.floor(Math.random() * 100),
       message: message,
@@ -71,7 +66,7 @@ const ProductQuestions: FC = () => {
               Надіслати
             </button>
           </div>
-          {messages.toReversed().map((el) => (
+          {messages.toReversed().map(el => (
             <div key={el.id}>
               <div className={cls.message}>
                 <div className={cls.avatar}>
