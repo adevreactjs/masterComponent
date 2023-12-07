@@ -25,5 +25,6 @@ export interface Message {
   message: string;
   file: string | StaticImport;
   date: string;
+  answer?: string;
 }
 

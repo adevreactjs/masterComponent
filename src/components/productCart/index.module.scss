@@ -813,6 +813,28 @@
 .productQuestionsMobile {
   display: none;
 }
+.answerOnQuestion {
+  width: 672px;
+  margin-left: 39px;
+  border-bottom: 1px solid #f1f1f1;
+  padding-bottom: 15px;
+  margin-bottom: 60px;
+}
+.avatarMaster {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 8px;
+  .logoMaster {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    background: var(---, #b9ff61);
+  }
+}
 
 // mobile
 
@@ -1166,5 +1188,13 @@
   }
   .message {
     width: 100%;
+  }
+  .smallPhotos {
+    flex-direction: column;
+  }
+  .answerOnQuestion {
+    width: 100%;
+    margin-bottom: 70px;
+    margin-left: 16px;
   }
 }
