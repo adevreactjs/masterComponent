@@ -22,6 +22,7 @@ export interface Propers {
   type: string;
 }
 export interface Message {
+  id: number;
   message: string;
   file: string | StaticImport;
   date: string;

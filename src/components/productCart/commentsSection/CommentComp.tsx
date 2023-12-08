@@ -1,15 +1,14 @@
-import { ChangeEvent, useState } from "react";
-import Image from 'next/image'
-import { StaticImageData } from "next/image";
-import goldenStar from '../../../assets/productCard/comments/Star 1.svg'
-import messageIcon from "../../../assets/comment.svg"
-import clipGrey from '../../../assets/productCard/comments/clip.svg'
-
+import { ChangeEvent, useState } from 'react';
+import Image from 'next/image';
+import { StaticImageData } from 'next/image';
+import goldenStar from '../../../assets/productCard/comments/Star 1.svg';
+import messageIcon from '../../../assets/comment.svg';
+import clipGrey from '../../../assets/productCard/comments/clip.svg';
 
 // changable
 interface Comment {
-  name: string | null | undefined,
-  image: StaticImageData,
+  name: string | null | undefined;
+  image: StaticImageData;
   commentText: string;
   inputImg: string;
   date: string;
@@ -17,36 +16,40 @@ interface Comment {
   reply: Comment[];
 }
 
+type onAddReplyType = (text: string, parentComment: Comment) => void;
 
- type onAddReplyType = (text: string, parentComment: Comment) => void
+export default function CommentComp({
+  comment,
+  depth = 0,
+  onAddReply,
+}: {
+  comment: Comment;
+  depth: number;
+  onAddReply: onAddReplyType;
+}) {
+  const [replyText, setReplyText] = useState<string>('');
+  const [isReplying, setIsReplying] = useState<boolean>(false);
 
+  const handleAddReply = () => {
+    onAddReply(replyText, comment);
+    setReplyText('');
+    setIsReplying(false);
+  };
 
-export default function CommentComp({ comment, depth = 0, onAddReply }:{ comment:Comment, depth:number, onAddReply:onAddReplyType}) {
+  const handleReplyClick = () => {
+    setIsReplying(true);
+  };
+  const [imageSrc, setImageSrc] = useState('');
+  const handleRequestFile = (e: ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files && files.length > 0) {
+      const imgFile = files[0];
 
-    const [replyText, setReplyText] = useState<string>('');
-    const [isReplying, setIsReplying] = useState<boolean>(false);
-  
-    const handleAddReply = () => {
-      onAddReply(replyText, comment);
-      setReplyText('');
-      setIsReplying(false);
-    };
-  
-    const handleReplyClick = () => {
-      setIsReplying(true);
-    };
-    const [ imageSrc, setImageSrc ] = useState('') 
-    const handleRequestFile = (e: ChangeEvent<HTMLInputElement>) => {
-      const files = e.target.files
-      if (files && files.length > 0) {
-        const imgFile = files[0];
-
-        const reader = new FileReader()
-        reader.onload = () => {
-          setImageSrc(reader.result as string)
-        }
-        reader.readAsDataURL(imgFile)
-      }
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImageSrc(reader.result as string);
+      };
+      reader.readAsDataURL(imgFile);
     }
 // changable
     const styleML = depth+20;
