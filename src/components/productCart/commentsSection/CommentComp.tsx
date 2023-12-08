@@ -18,15 +18,7 @@ interface Comment {
 
 type onAddReplyType = (text: string, parentComment: Comment) => void;
 
-export default function CommentComp({
-  comment,
-  depth = 0,
-  onAddReply,
-}: {
-  comment: Comment;
-  depth: number;
-  onAddReply: onAddReplyType;
-}) {
+export default function CommentComp({ comment, depth = 0, onAddReply, }:{ comment: Comment; depth: number; onAddReply: onAddReplyType; }){
   const [replyText, setReplyText] = useState<string>('');
   const [isReplying, setIsReplying] = useState<boolean>(false);
 
@@ -51,15 +43,13 @@ export default function CommentComp({
       };
       reader.readAsDataURL(imgFile);
     }
+  }
 // changable
     const styleML = depth+20;
     const styleMB = comment.marginB;
     const containerStyle = {
       marginLeft: `${styleML}px`,
       marginBottom: `${styleMB}px`,
-      '@media(max-width:1290px)': { 
-        marginLeft: '0px'
-      }
     };
     return(
         <>
@@ -118,4 +108,4 @@ export default function CommentComp({
           
         </>
     )
-};
+}
