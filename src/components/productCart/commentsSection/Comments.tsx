@@ -137,12 +137,12 @@ export default function Comments() {
     return (
         <>
             <div className="w-[59%]">
-              <div className="flex flex-row justify-between gap-6 mb-[69px]">
+              <div className="flex flex-row justify-between gap-6 mb-[69px] items-end">
                 <div className="relative w-full flex items-center">
                   <input id="uploadFile" type="file" className="hidden" accept="image/*, .png, .jpg, .gif, .web" onChange={e => handleRequestFile(e)}/>
                   <input type="text" placeholder="Написати відгук" className="w-full bg-transparent border-b-[1px] border-[#C1C1C1] pr-[25px]" onChange={e => setTextComment(e.target.value)} value={textComment}/>
                   <label htmlFor="uploadFile">
-                    <Image src={clipGrey} alt="clipGrey" className="absolute top-[25%] right-0 hover:cursor-pointer"/>
+                    <Image src={clipGrey} alt="clipGrey" className="absolute top-[8%] right-0 hover:cursor-pointer"/>
                   </label>
                 </div>
                 <button className="flex items-center justify-center h-[36px] w-[105px] pt-[6px] pr-[14px] pb-[7px] pl-[14px]  bg-[#B9FF61] rounded-[30px] text-center" onClick={()=>handleAddRoot(textComment)}>Надіслати</button>
