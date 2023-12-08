@@ -1,0 +1,40 @@
+.slider {
+  width: 324px;
+  border-radius: 20px;
+  background: var(---800, #f1f1f1);
+  padding: 20px 24px;
+}
+.slider :global .MuiSlider-thumb {
+  border-radius: 10px;
+  color: #262626;
+}
+
+.slider :global .MuiSlider-rail {
+  color: #c1c1c1;
+}
+
+.slider :global .MuiSlider-track {
+  color: #262626;
+}
+
+.sliderTitle {
+  margin-bottom: 18px;
+  p {
+    color: var(---800, #262626);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+  }
+}
+.range {
+  display: flex;
+  justify-content: space-between;
+  color: var(---800, #262626);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.rangeSlider {
+ 
+}
