@@ -1,0 +1,33 @@
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 130px;
+}
+.paginationNumbers {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  button {
+    display: flex;
+    width: 38px;
+    height: 38px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 100px;
+    background: var(---800, #f1f1f1);
+    color: var(---800, #262626);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
+.points {
+  margin: 0 5px;
+}
+.nextArrow {
+  margin-left: 29px;
+}
