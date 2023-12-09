@@ -10,8 +10,10 @@ export default function Circles({
   const sizingCircle = `
         min-[280px]:w-[18vw]
         min-[280px]:h-[18vw]
-        min-[895px]:w-[8vw]
-        min-[895px]:h-[8vw]
+        min-[895px]:w-[120px]
+        min-[895px]:h-[120px]
+        min-[1400px]:w-[150px]
+        min-[1400px]:h-[150px]
     `;
   const sizingText = `
     min-[280px]:text-[2.6vw]
