@@ -1,12 +1,15 @@
+'use client';
 import CategoryCard from '@/components/categoryCart/CategoryCard';
-import React from 'react';
+import RangeSlider from '@/components/rangeSlider/RangeSlider';
+import React, { useState } from 'react';
 
 const page = () => {
+
   return (
     <div className='max-w-[1392px] mx-auto my-0'>
       <div className='flex w-full gap-x-[32px]'>
-        <div>
-          <div className='flex w-[325px] items-center justify-between'>
+        <div className=''>
+          <div className='flex w-[324px] items-center justify-between mb-[20px]'>
             <p className='text-[22px] normal font-semibold leading-normal'>Фільтри</p>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -20,6 +23,7 @@ const page = () => {
               />
             </svg>
           </div>
+          <RangeSlider/>
         </div>
         <div className='w-full'>
           <div className='flex justify-between w-full'>
