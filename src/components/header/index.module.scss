@@ -430,8 +430,11 @@
 // media
 @media (max-width: 1220px) {
   .header {
-    // overflow-x: hidden;
+    margin: 0 auto;
+    width: 360px;
     margin-bottom: 0;
+    padding: 30px 1rem 0px 1rem;
+    padding-bottom: 90px;
   }
   .menu {
     display: block;
@@ -446,31 +449,21 @@
     display: none;
   }
 }
-@media (max-width: 900px) {
-  .logo {
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 500;
-  }
+.logo {
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
 }
-@media (max-width: 785px) {
-  .header {
-    padding: 30px 1rem 80px 1rem;
-  }
-  .navItems {
-    .registrationUser {
-      display: none;
-    }
-    .favUser {
-      display: none;
-    }
-  }
-}
-@media (max-width: 660px) {
-  .header {
-    padding-bottom: 90px;
-  }
 
+.navItems {
+  .registrationUser {
+    display: none;
+  }
+  .favUser {
+    display: none;
+  }
+}
+.header {
   .navBar {
     max-width: 100%;
     width: 100%;
