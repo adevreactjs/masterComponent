@@ -1,0 +1,92 @@
+.paramsFilter {
+  padding: 14px 22px;
+  border-radius: 20px;
+  background: var(---800, #f1f1f1);
+  margin-bottom: 10px;
+}
+.accordion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  color: var(---800, #262626);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+ 
+}
+  .arrow {
+    transform: rotate(180deg);
+    transition: all 0.5s ease-in-out;
+  }
+
+.active {
+  margin-top: 20px;
+  display: block;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 131px;
+ 
+
+  &:-webkit-scrollbar-thumb {
+    color: #262626;
+  }
+  &:-webkit-scrollbar-track-piece {
+    color: white;
+  }
+  &:-webkit-scrollbar-track {
+    background: white;
+  }
+  &:-webkit-scrollbar {
+    background-color: white; /* or add it to the track */
+  }
+}
+
+.panel {
+  display: none;
+  overflow: hidden;
+}
+
+// Custom checkbox styles
+.customCheckbox {
+  display: none;
+}
+
+.customCheckbox + label {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.customCheckbox + label::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border-radius: 4px;
+  border: 1.4px solid var(---700, #4e4e4e);
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+.customCheckbox:checked + label::before {
+  background-size: 15px 14px;
+  background-image: url('../../assets/check.svg');
+}
+
+.customCheckbox:disabled + label::before {
+  background-color: black;
+}

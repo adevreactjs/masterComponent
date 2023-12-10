@@ -1,10 +1,11 @@
 'use client';
 import CategoryCard from '@/components/categoryCart/CategoryCard';
+import PaginationNavigation from '@/components/pagination/PaginationNavigation';
+import ParamsFilter from '@/components/paramsFilter/ParamsFilter';
 import RangeSlider from '@/components/rangeSlider/RangeSlider';
 import React, { useState } from 'react';
 
 const page = () => {
-
   return (
     <div className='max-w-[1392px] mx-auto my-0'>
       <div className='flex w-full gap-x-[32px]'>
@@ -23,7 +24,11 @@ const page = () => {
               />
             </svg>
           </div>
-          <RangeSlider/>
+          <RangeSlider />
+          <ParamsFilter />
+          <ParamsFilter />
+          <ParamsFilter />
+          <ParamsFilter />
         </div>
         <div className='w-full'>
           <div className='flex justify-between w-full'>
@@ -45,7 +50,7 @@ const page = () => {
               </svg>
             </div>
           </div>
-          <div className='flex flex-wrap gap-[7px]'>
+          <div className='flex flex-wrap gap-[7px] mb-[88px]'>
             <CategoryCard />
             <CategoryCard />
             <CategoryCard />
@@ -56,9 +61,12 @@ const page = () => {
             <CategoryCard />
             <CategoryCard />
           </div>
+          <p className='text-grey text-center w-full text-[16px] normal font-semibold leading-normal underline mb-[39px] cursor-pointer'>
+            Показати ще 20/144
+          </p>
+          <PaginationNavigation/>
         </div>
       </div>
-      {/* <CategoryCard /> */}
     </div>
   );
 };

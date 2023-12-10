@@ -3,7 +3,9 @@
   border-radius: 20px;
   background: var(---800, #f1f1f1);
   padding: 20px 24px;
+  margin-bottom: 10px;
 }
+
 .slider :global .MuiSlider-thumb {
   border-radius: 10px;
   color: #262626;
@@ -34,7 +36,4 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-}
-.rangeSlider {
- 
 }
