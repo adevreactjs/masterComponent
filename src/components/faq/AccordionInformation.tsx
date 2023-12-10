@@ -17,13 +17,13 @@ export default function AccordionInformation({
       <>
         {accordionInformation.map((item, id) => (
           <div key={id}>
-            <div className='flex flex-row'>
-              <p className='text-[1.3vw] min-[280px]:text-[4vw] min-[280px]:font-[300] min-[500px]:text-[3vw] min-[1000px]:text-[2.4vw] min-[1000px]:font-[400]'>
-                <span className='pl-[0.7vw] pr-[0.7vw] pt-[0.2vw] pb-[0.2vw] text-center bg-[#B9FF61] rounded-xl mr-2 min-[280px]:mr-[0.3vw]'>
+            <div className='flex flex-row min-[280px]:mb-[10px]'>
+              <div className='flex gap-2'>
+                <span className='bg-[#B9F072] rounded-[10px] min-[280px]:min-h-[26px] min-[280px]:min-w-[29px] min-[900px]:min-h-[28px] min-[900px]:min-w-[31px] flex justify-center items-center'>
                   {item.Num}
                 </span>
-                <b>{item.point}</b>
-              </p>
+                <p className='min-[280px]:text-[18px] min-[900px]:text-[22px] font-semibold leading-[26px]'>{item.point}</p>
+              </div>
             </div>
             <InfoDescrAccord boldText={item.boldText} DescribtionBoldText={item.DescribeBoldText} />
           </div>
