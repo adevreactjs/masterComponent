@@ -32,7 +32,7 @@ const accordionInformationDelivery = [
 const accordionInformationGuarantees = [
     {
         Num: '1',
-        point: 'Графік роботи сервіс-консультанта',
+        point: 'Графік роботи консультанта',
         boldText: ['Пошта:', 'Пн-Пт:', 'Сб-Нд:'],
         DescribeBoldText: [' service@mastercomponent.net', ' 09:00-18:00', ' Вихідний']
     },
@@ -96,22 +96,16 @@ const accordionInformationReturns = [
     }
 ]
 
-//plan:
-{/*
 
-1)даю обьект акордиону
-2)
-
-*/}
 export default function FAQ() {
     return(
         <div className="flex flex-col items-center mb-[18vw]">
-            <h2 className="text-center font-[600] text-[2.5vw] mb-[3vw] min-[280px]:text-[25px] min-[700px]:text-[3.5vw]">FAQ</h2>
-            <div className="flex flex-col gap-[1vw] min-[280px]:gap-[3vw]">
-                <Accordion accordionInformation={accordionInformationDelivery} Openheight="min-[280px]:h-[129vw] min-[500px]:h-[69vw] min-[1000px]:h-[56vw]" Name="Доставка"/>
-                <Accordion accordionInformation={accordionInformationGuarantees} Openheight="min-[280px]:h-[100vw] min-[500px]:h-[56vw] min-[1000px]:h-[47vw]" Name="Гарантійність"/>
-                <Accordion accordionInformation={accordionInformationPayment} Openheight="min-[280px]:h-[170vw] min-[500px]:h-[84vw] min-[1000px]:h-[69vw]" Name="Оплата"/>
-                <Accordion accordionInformation={accordionInformationReturns} Openheight="min-[280px]:h-[101vw] min-[500px]:h-[60vw] min-[1000px]:h-[53vw]" Name="Повернення та обмін"/>
+            <h2 className="text-center font-[600] mb-[3vw] min-[280px]:text-[30px] min-[700px]:text-[40px] min-[1200px]:font-[500] min-[1200px]:text-[50px]">FAQ</h2>
+            <div className="flex flex-col gap-[10px]">
+                <Accordion accordionInformation={accordionInformationDelivery} Openheight="min-[280px]:h-[823px] min-[320px]:h-[723px] min-[360px]:h-[660px] min-[741px]:h-[500px] min-[900px]:h-[575px]" Name="Доставка"/>
+                <Accordion accordionInformation={accordionInformationGuarantees} Openheight="h-[705px] min-[320px]:h-[595px] min-[360px]:h-[533px] min-[741px]:h-[415px] min-[900px]:h-[495px]" Name="Гарантійність"/>
+                <Accordion accordionInformation={accordionInformationPayment} Openheight="min-[280px]:h-[1038px] min-[320px]:h-[871px] min-[360px]:h-[744px] min-[741px]:h-[481px] min-[900px]:h-[667px]" Name="Оплата"/>
+                <Accordion accordionInformation={accordionInformationReturns} Openheight="min-[280px]:h-[816px] min-[320px]:h-[679px] min-[360px]:h-[576px] min-[741px]:h-[417px] min-[900px]:h-[550px]" Name="Повернення та обмін"/>
             </div>
         </div>
     )
