@@ -28,7 +28,7 @@ const page = () => {
     },
   ];
   return (
-    <div className='max-w-[1392px] mx-auto my-0'>
+    <div className={cls.category}>
       <div className='flex w-full gap-x-[32px]'>
         <div className='m:hidden'>
           <div className='flex w-[324px] items-center justify-between mb-[20px]'>
@@ -80,7 +80,7 @@ const page = () => {
               </button>
             </div>
           </div>
-          <div className='flex flex-wrap gap-[7px] mb-[88px]'>
+          <div className={cls.categoryCart}>
             <CategoryCard />
             <CategoryCard />
             <CategoryCard />

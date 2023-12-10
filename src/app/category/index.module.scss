@@ -1,3 +1,7 @@
+.category {
+    max-width:1392px ;
+    margin: 0 auto;
+}
 .sortMenu {
   display: flex;
   justify-content: space-between;
@@ -10,14 +14,28 @@
     display: none;
   }
 }
+.categoryCart {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 88px;
+}
 
 @media (max-width: 1280px) {
+    .category {
+        max-width: 360px;
+    }
   .sortMenu {
     padding: 0 16px;
+    margin-bottom: 35px;
   }
   .filterButtons {
     button {
       display: block;
     }
+  }
+  .categoryCart {
+    gap: 0;
+    margin-bottom: 25px;
   }
 }
