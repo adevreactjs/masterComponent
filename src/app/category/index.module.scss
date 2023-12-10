@@ -1,0 +1,23 @@
+.sortMenu {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.filterButtons {
+  display: flex;
+  gap: 20px;
+  button {
+    display: none;
+  }
+}
+
+@media (max-width: 1280px) {
+  .sortMenu {
+    padding: 0 16px;
+  }
+  .filterButtons {
+    button {
+      display: block;
+    }
+  }
+}

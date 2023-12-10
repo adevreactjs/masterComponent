@@ -32,7 +32,6 @@ const RegistrationForm: FC = () => {
 
   const dispatch = useDispatch();
   const session = useSession();
-  console.log(session);
 
   const emailHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setEmailInput(e.target.value);

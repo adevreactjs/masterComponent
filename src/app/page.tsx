@@ -48,7 +48,6 @@ export default function Home() {
       />
       <OurBenefits />
       <FAQ />
-      {isOpenRegistrationForm && <RegistrationForm />}
     </main>
   );
 }

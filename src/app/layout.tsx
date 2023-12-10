@@ -14,14 +14,15 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+
   return (
     <html lang='en'>
       <body className={`${inter.variable} ${exo.variable} bg-[#FBFBFB]`}>
         <Providers>
           <ProvidersAuth>
-            <Header />
-            {children}
-            <Footer />
+              <Header />
+              {children}
+              <Footer />
           </ProvidersAuth>
         </Providers>
       </body>
