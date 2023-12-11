@@ -19,7 +19,7 @@ const ParamsFilter: FC<ParamsFilterProps> = ({ param }) => {
           <button className={cls.accordion} onClick={() => setToggle(!toggle)}>
             {param.title}
             <svg
-              className={`${toggle ? '' : cls.arrow}`}
+              className={`${toggle ? cls.disabled : cls.arrow}`}
               xmlns='http://www.w3.org/2000/svg'
               width='16'
               height='10'
@@ -33,29 +33,15 @@ const ParamsFilter: FC<ParamsFilterProps> = ({ param }) => {
           </button>
         </div>
         <div className={toggle ? `${cls.panel}` : `${cls.active}`}>
-        {param.params.map((inputValue) => {
-          return (
-            <div key={inputValue}>
-              <input className={cls.customCheckbox} type='checkbox' id={inputValue} />
-              <label htmlFor={inputValue}>{inputValue}</label>
-            </div>
-          );
-        })}
+          {param.params.map(inputValue => {
+            return (
+              <div key={inputValue}>
+                <input className={cls.customCheckbox} type='checkbox' id={inputValue} />
+                <label htmlFor={inputValue}>{inputValue}</label>
+              </div>
+            );
+          })}
         </div>
-        {/* <div className={toggle ? `${cls.panel}` : `${cls.active}`}>
-          <input className={cls.customCheckbox} type='checkbox' id='inputCheckbox' />
-          <label htmlFor='inputCheckbox'>Білий</label>
-          <input className={cls.customCheckbox} type='checkbox' id='inputCheckbox1' />
-          <label htmlFor='inputCheckbox1'>Зелений</label>
-          <input className={cls.customCheckbox} type='checkbox' id='inputCheckbox2' />
-          <label htmlFor='inputCheckbox2'>Коричневий</label>
-          <input className={cls.customCheckbox} type='checkbox' id='inputCheckbox3' />
-          <label htmlFor='inputCheckbox3'>Сірий</label>
-          <input className={cls.customCheckbox} type='checkbox' id='inputCheckbox4' />
-          <label htmlFor='inputCheckbox4'>Синій</label>
-          <input className={cls.customCheckbox} type='checkbox' id='inputCheckbox5' />
-          <label htmlFor='inputCheckbox5'>Червоний</label>
-        </div> */}
       </div>
     </>
   );

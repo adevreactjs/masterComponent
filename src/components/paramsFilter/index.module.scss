@@ -13,27 +13,29 @@
   text-align: left;
   border: none;
   outline: none;
-  transition: 0.4s;
   color: var(---800, #262626);
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
- 
+  transition: transform 0.3s ease-in-out;
 }
-  .arrow {
-    transform: rotate(180deg);
-    transition: all 0.5s ease-in-out;
-  }
-
+.arrow {
+  transform: rotate(180deg);
+  transition: all 0.5s ease-in-out;
+}
+.panel {
+  overflow: hidden;
+  height: 0;
+  transition: all 0.5s ease-in-out;
+}
 .active {
+  transition: all 0.5s ease-in-out;
   margin-top: 20px;
-  display: block;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  height: 134px;
- 
+  height: 139px;
 
   &:-webkit-scrollbar-thumb {
     color: #262626;
@@ -48,10 +50,9 @@
     background-color: white; /* or add it to the track */
   }
 }
-
-.panel {
-  display: none;
-  overflow: hidden;
+.disabled {
+  transform: rotate(0deg);
+  transition: all 0.5s ease-in-out;
 }
 
 // Custom checkbox styles

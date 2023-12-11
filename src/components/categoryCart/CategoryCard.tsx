@@ -1,23 +1,35 @@
-import React from 'react'
-import cls from './index.module.scss'
-import cartImg from '@/assets/mathRog.jpg'
-import starIcon from '@/assets/starIcon.svg'
-import privateIcon from '@/assets/privateIcon.png'
-import monoIcon from '@/assets/monoIcon.png'
+import React, { FC } from 'react';
+import cls from './index.module.scss';
+import cartImg from '@/assets/mathRog.jpg';
+import starIcon from '@/assets/starIcon.svg';
+import privateIcon from '@/assets/privateIcon.png';
+import monoIcon from '@/assets/monoIcon.png';
 import alphaIcon from '@/assets/alphaIcon.png';
 import favIcon from '@/assets/favoriteIcon.svg';
 import cartIcon from '@/assets/cartIcon.svg';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
+interface CategoryCardProps {
+  product: {
+    promotion: boolean;
+    image: StaticImageData;
+    code: number;
+    title: string;
+    price: number;
+    sale: number;
+  };
+}
 
-const CategoryCard = () => {
+const CategoryCard: FC<CategoryCardProps> = ({ product }) => {
   return (
     <div className={cls.cartItem}>
       <div className={cls.cart}>
         <div className={cls.cartWrapper}>
           <div className={cls.cartLabels}>
-            <div className={cls.cartLabel}>Хіт продажу</div>
-            <div className={cls.cartId}>Код:304067</div>
+            <div className={product.promotion ? cls.promote : cls.cartLabel}>
+              {product.promotion ? 'Акція' : 'Хіт продажу'}
+            </div>
+            <div className={cls.cartId}>Код:{product.code}</div>
           </div>
           <div className={cls.cartImage}>
             <Image src={cartImg} width={225} height={174} alt='cartImg' />
@@ -55,7 +67,8 @@ const CategoryCard = () => {
             </div>
           </div>
           <div className={cls.cartPrice}>
-            3 999 ₴
+            {product.promotion && <div className={cls.sales}>{product.price + product.sale} ₴</div>}
+            {product.price} ₴
             <div className={cls.cartBtns}>
               <button className={cls.favoriteBtn}>
                 <Image src={favIcon} width={18} height={16} alt='favIcon' />
@@ -77,6 +90,6 @@ const CategoryCard = () => {
       </div>
     </div>
   );
-}
+};
 
-export default CategoryCard
+export default CategoryCard;

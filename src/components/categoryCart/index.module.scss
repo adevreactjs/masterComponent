@@ -102,12 +102,25 @@
   }
 }
 .cartPrice {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 20px;
   font-weight: 500;
   line-height: normal;
+}
+.sales {
+  position: absolute;
+  left: 0;
+  top: -5px;
+  z-index: 1;
+  color: var(---600, #6c6c6c);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration-line: line-through;
 }
 .favoriteBtn {
   display: flex;
@@ -147,6 +160,12 @@
       background: var(---800, #f1f1f1);
     }
   }
+}
+.promote {
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: var(---800, #262626);
+  color: var(---900, #fbfbfb);
 }
 
 //media
