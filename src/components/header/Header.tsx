@@ -28,14 +28,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { openRegistrationFormHandler } from '@/app/store/reducers/RegistrationSlice';
 import Link from 'next/link';
 import LikedItems from './LikedItems';
+import { RootState } from '@/app/store/store';
+import RegistrationForm from '../registrationForm/RegistrationForm';
 
 const Header = () => {
   const [activeMenu, setActiveMenu] = useState(false);
   const [activeHelpMenu, setHelpActiveMenu] = useState(false);
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
   const [activeCategory, setActiveCategory] = useState(0);
-  const [openLiked, setOpenLiked] = useState(false)
+  const [openLiked, setOpenLiked] = useState(false);
   const dispatch = useDispatch();
+
+  const isOpenRegistrationForm = useSelector(
+    (state: RootState) => state.registration.isOpenRegistrationForm,
+  );
 
   const openCategory = () => {
     setActiveMenu(!activeMenu);
@@ -147,7 +153,9 @@ const Header = () => {
             height={24}
             alt='menu'
           />
-          <Link href={'/'} className={cls.logo}>MasterComponent</Link>
+          <Link href={'/'} className={cls.logo}>
+            MasterComponent
+          </Link>
           <nav className={cls.navBar}>
             <div className={cls.searchBar}>
               <Image src={searchIcon} width={18} height={18} alt='search' />
@@ -200,20 +208,9 @@ const Header = () => {
               <Image src={userIcon} width={15} height={20} alt='registrationUser' />
             </button>
 
-
-
-
-
-
-
-            <button className={cls.favUser} onClick={()=>setOpenLiked(!openLiked)}>
+            <button className={cls.favUser} onClick={() => setOpenLiked(!openLiked)}>
               <Image src={favoriteIcon} width={20} height={17} alt='registrationUser' />
             </button>
-
-
-
-
-
 
             <button className={cls.cart}>
               <Image src={cartIcon} width={19} height={20} alt='registrationUser' />
@@ -571,6 +568,7 @@ const Header = () => {
         </div>
       </div>
       {openLiked && <LikedItems />}
+      {isOpenRegistrationForm && <RegistrationForm />}
     </header>
   );
 };

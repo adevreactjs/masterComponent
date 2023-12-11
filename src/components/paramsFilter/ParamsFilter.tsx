@@ -1,15 +1,23 @@
 'use client';
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import cls from './index.module.scss';
 
-const ParamsFilter = () => {
+interface ParamsFilterProps {
+  param: {
+    id: string;
+    title: string;
+    params: string[];
+  };
+}
+
+const ParamsFilter: FC<ParamsFilterProps> = ({ param }) => {
   const [toggle, setToggle] = useState(true);
   return (
     <>
       <div className={cls.paramsFilter}>
         <div className={cls.paramsLabel}>
           <button className={cls.accordion} onClick={() => setToggle(!toggle)}>
-            Наявність у магазинах
+            {param.title}
             <svg
               className={`${toggle ? '' : cls.arrow}`}
               xmlns='http://www.w3.org/2000/svg'
@@ -25,6 +33,16 @@ const ParamsFilter = () => {
           </button>
         </div>
         <div className={toggle ? `${cls.panel}` : `${cls.active}`}>
+        {param.params.map((inputValue) => {
+          return (
+            <div key={inputValue}>
+              <input className={cls.customCheckbox} type='checkbox' id={inputValue} />
+              <label htmlFor={inputValue}>{inputValue}</label>
+            </div>
+          );
+        })}
+        </div>
+        {/* <div className={toggle ? `${cls.panel}` : `${cls.active}`}>
           <input className={cls.customCheckbox} type='checkbox' id='inputCheckbox' />
           <label htmlFor='inputCheckbox'>Білий</label>
           <input className={cls.customCheckbox} type='checkbox' id='inputCheckbox1' />
@@ -37,7 +55,7 @@ const ParamsFilter = () => {
           <label htmlFor='inputCheckbox4'>Синій</label>
           <input className={cls.customCheckbox} type='checkbox' id='inputCheckbox5' />
           <label htmlFor='inputCheckbox5'>Червоний</label>
-        </div>
+        </div> */}
       </div>
     </>
   );

@@ -3,13 +3,34 @@ import CategoryCard from '@/components/categoryCart/CategoryCard';
 import PaginationNavigation from '@/components/pagination/PaginationNavigation';
 import ParamsFilter from '@/components/paramsFilter/ParamsFilter';
 import RangeSlider from '@/components/rangeSlider/RangeSlider';
+import viewIcon from '@/assets/viewIcon.svg'
+import filterIcon from '@/assets/filterIcon.svg'
 import React, { useState } from 'react';
+import Image from 'next/image';
+import cls from './index.module.scss'
 
 const page = () => {
+  const params = [
+    {
+      id: '1',
+      title: 'Наявність у магазинах',
+      params: ['1', '2', '3', '4', '5', '6'],
+    },
+    {
+      id: '2',
+      title: 'Оплата частинами',
+      params: ['7', '8', '9', '10', '11', '12'],
+    },
+    {
+      id: '3',
+      title: 'Статус материнської плати',
+      params: ['Білий', 'Зелений', 'Коричневий', 'Сірий', 'Синій', 'Зелений'],
+    },
+  ];
   return (
-    <div className='max-w-[1392px] mx-auto my-0'>
+    <div className={cls.category}>
       <div className='flex w-full gap-x-[32px]'>
-        <div className=''>
+        <div className='m:hidden'>
           <div className='flex w-[324px] items-center justify-between mb-[20px]'>
             <p className='text-[22px] normal font-semibold leading-normal'>Фільтри</p>
             <svg
@@ -25,14 +46,15 @@ const page = () => {
             </svg>
           </div>
           <RangeSlider />
-          <ParamsFilter />
-          <ParamsFilter />
-          <ParamsFilter />
-          <ParamsFilter />
+          {params.map(param => (
+            <ParamsFilter key={param.id} param={param} />
+          ))}
         </div>
         <div className='w-full'>
-          <div className='flex justify-between w-full'>
-            <p className='text-[22px] normal font-semibold leading-normal'>Материнські плати</p>
+          <div className={cls.sortMenu}>
+            <p className='text-[22px] normal font-semibold leading-normal m:hidden'>
+              Материнські плати
+            </p>
             <div className='flex items-center gap-x-[6px]'>
               <p className='text-[16px] normal font-medium leading-normal'>
                 Сотувати за: Популярністю
@@ -49,8 +71,20 @@ const page = () => {
                 />
               </svg>
             </div>
+            <div className={cls.filterButtons}>
+              <button className={cls.viewButton}>
+                <Image src={viewIcon} width={18} height={18} alt='viewIcon' />
+              </button>
+              <button className={cls.filterButton}>
+                <Image src={filterIcon} width={18} height={18} alt='filterIcon' />
+              </button>
+            </div>
           </div>
-          <div className='flex flex-wrap gap-[7px] mb-[88px]'>
+          <div className={cls.categoryCart}>
+            <CategoryCard />
+            <CategoryCard />
+            <CategoryCard />
+            <CategoryCard />
             <CategoryCard />
             <CategoryCard />
             <CategoryCard />
@@ -64,7 +98,7 @@ const page = () => {
           <p className='text-grey text-center w-full text-[16px] normal font-semibold leading-normal underline mb-[39px] cursor-pointer'>
             Показати ще 20/144
           </p>
-          <PaginationNavigation/>
+          <PaginationNavigation />
         </div>
       </div>
     </div>

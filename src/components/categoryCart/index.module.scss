@@ -1,6 +1,6 @@
 .cartItem {
   position: relative;
-   width: 253px;
+  width: 253px;
   border-radius: 19px;
   background: var(---900, #fbfbfb);
 }
@@ -146,5 +146,111 @@
       border-radius: 20px;
       background: var(---800, #f1f1f1);
     }
+  }
+}
+
+//media
+
+@media (max-width: 1280px) {
+  .cartItem {
+    border-radius: 0;
+    width: 180px;
+    &:nth-child(2n + 1) {
+      border-top: 1px solid var(---800, #f1f1f1);
+      border-right: 1px solid var(---800, #f1f1f1);
+    }
+    &:nth-child(2n) {
+      border-top: 1px solid var(---800, #f1f1f1);
+    }
+    &:nth-last-child(-n + 2) {
+      border-bottom: 1px solid var(---800, #f1f1f1);
+    }
+  }
+
+  .cart {
+    width: 100%;
+    padding: 15px 10px 15px 16px;
+    border: 0;
+  }
+  .cart {
+    &:hover .characteristic {
+      display: none;
+    }
+    &:hover {
+      pointer-events: none;
+      position: static;
+    }
+  }
+
+  .cartLabel {
+    padding: 4px 6px;
+    color: var(---800, #262626);
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 14px; /* 127.273% */
+  }
+  .cartId {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 17px; /* 170% */
+  }
+  .cartImage {
+    margin-bottom: 6px;
+    img {
+      width: 154px;
+      height: 134px;
+      object-fit: contain;
+    }
+  }
+  .cartTitle {
+    margin-bottom: 9px;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .cartStarCount {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 166.667% */
+  }
+  .cartStars {
+    gap: 0;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  .availability {
+    padding: 2px 6px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 15px; /* 125% */
+  }
+  .banks {
+    gap: 0;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  .bank {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 200% */
+  }
+  .cartPrice {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .cartBtns {
+    gap: 5px;
+  }
+  .favoriteBtn .addToCartBtn {
+    width: 32px;
+    height: 32px;
   }
 }
