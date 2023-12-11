@@ -30,7 +30,7 @@ const page = () => {
   return (
     <div className={cls.category}>
       <div className='flex w-full gap-x-[32px]'>
-        <div className='m:hidden'>
+        <div className={cls.filterMenu}>
           <div className='flex w-[324px] items-center justify-between mb-[20px]'>
             <p className='text-[22px] normal font-semibold leading-normal'>Фільтри</p>
             <svg
@@ -52,7 +52,7 @@ const page = () => {
         </div>
         <div className='w-full'>
           <div className={cls.sortMenu}>
-            <p className='text-[22px] normal font-semibold leading-normal m:hidden'>
+            <p className={cls.categoryTitle}>
               Материнські плати
             </p>
             <div className='flex items-center gap-x-[6px]'>

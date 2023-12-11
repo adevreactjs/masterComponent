@@ -426,6 +426,13 @@
     justify-content: space-between;
   }
 }
+.registrationUser .favUser {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+}
 
 // media
 @media (max-width: 1220px) {
@@ -447,13 +454,18 @@
     display: none;
   }
 }
-  .logo {
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 500;
-  }
+.logo {
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+}
+.header {
+  padding: 30px 1rem 0px 1rem;
+}
+
+@media (max-width: 1220px) {
   .header {
-    padding: 30px 1rem 80px 1rem;
+    padding-bottom: 90px;
   }
   .navItems {
     .registrationUser {
@@ -462,10 +474,6 @@
     .favUser {
       display: none;
     }
-  }
-@media (max-width: 1220px) {
-  .header {
-    padding-bottom: 90px;
   }
 
   .navBar {

@@ -18,6 +18,12 @@
   gap: 7px;
   margin-bottom: 88px;
 }
+.categoryTitle {
+font-size: 22px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
 
 @media (max-width: 1280px) {
   .category {
@@ -26,6 +32,9 @@
   .sortMenu {
     padding: 0 16px;
     margin-bottom: 35px;
+    .categoryTitle {
+        display: none;
+    }
   }
   .filterButtons {
       display: block;
@@ -35,5 +44,8 @@
   .categoryCart {
     gap: 0;
     margin-bottom: 25px;
+  }
+  .filterMenu {
+    display: none;
   }
 }
