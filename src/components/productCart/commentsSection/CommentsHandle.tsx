@@ -41,7 +41,7 @@ export default function CommentsHandle({comment}:{comment:commentParent}) {
                     <Image src={goldStar} alt="golden star" width={18} height={18}/>
                   </div>
                 </div>
-                {comment.inputImg !== '' ? <Image src={comment.inputImg} alt="users img" width={200} height={200}/> : ''}
+                {comment.inputImg !== '' ? <Image src={comment.inputImg} alt="users img" width={200} height={200} className="mt-2"/> : ''}
                 <p className="min-[280px]:leading-[20px] min-[1500px]:leading-[23px] text-[14px] mt-2 mb-[27.5px]">{comment.commentText}</p>
                 <div className="flex flex-row justify-between">
                     <span className="text-[14px] leading-normal text-[#6C6C6C] font-normal">{comment.date}</span>

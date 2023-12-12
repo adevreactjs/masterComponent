@@ -11,6 +11,7 @@ import Yuli from '../../../assets/productCard/comments/Yulia.png'
 import Pavlo from '../../../assets/productCard/comments/Pavlo.png'
 import avatarIcon from '../../../assets/avatar.svg';
 import clip from '../../../assets/productCard/comments/clip.svg'
+import clipGray from "../../../assets/productCard/comments/clipGray.svg"
 import CommentsHandle from "./CommentsHandle"
 import { ChangeEvent, useState } from "react"
 interface commentChild {
@@ -83,7 +84,6 @@ export default function Comments() {
     function importingFile(e: ChangeEvent<HTMLInputElement>) {
         const imgFile = e.target.files?.[0];
         if(imgFile !== undefined) {setFileInput(imgFile)};
-        e.target.value = "";
     }
 
     function parentHandleInputRequest() {
@@ -128,15 +128,31 @@ export default function Comments() {
 
     return(
         <div className="min-[1300px]:max-w-[711px]">
-            <div className="min-[1300px]:flex max-[280px]:hidden mt-[97px] mb-[69px] gap-[34px]">
-                <div className="flex flex-row relative">
-                    <input type="text" placeholder="Написати відгук" value={textInput} onChange={(event)=>setTextInput(event.target.value)} className="border-b-[1px] border-[#C1C1C1] min-w-[581px] placeholder-[#C1C1C1] pb-[9px] bg-transparent"/>
-                    <label htmlFor="file">
-                        <Image src={clip} alt="clip" className="absolute bottom-[9px] right-0"/>
+            <div className=" desktop-input min-[1300px]:flex max-[1300px]:hidden mt-[97px] mb-[69px] gap-[24px] items-end">
+                <div className="flex flex-row relative h-[29px] w-[581px]">
+                    <input type="text" placeholder="Написати відгук" value={textInput} onChange={(event)=>setTextInput(event.target.value)} className="border-b-[1px] border-[#C1C1C1] min-w-[581px] placeholder-[#C1C1C1] h-[29px] bg-transparent pb-[9px]"/>
+                    <label htmlFor="file" className="absolute right-0 h-full flex items-center pb-[9px]">
+                        <Image src={clip} alt="clip"/>
                         <input type="file" id="file" className="hidden" onChange={importingFile}/>
                     </label>
                 </div>
-                <button onClick={parentHandleInputRequest} className="w-[105px] flex justify-center items-center rounded-[30px] pt-[6px] pr-[14px] pb-[7px] pl-[14px] bg-[#B9FF61]">Надіслати</button>
+                <button onClick={parentHandleInputRequest} className="w-[105px] h-[36px] flex justify-center items-center rounded-[30px] pt-[6px] pr-[14px] pb-[7px] pl-[14px] bg-[#B9FF61]">Надіслати</button>
+          </div>
+          <div className="mobile-input min-[280px]:flex min-[1300px]:hidden min-full flex-col items-center gap-[30px] mb-[45px]">
+              <div className="flex-row overflow-hidden border-[1px] border-[#C1C1C1] min-h-[151px] w-full rounded-[12px]">
+                    <div className="user bg-[#F1F1F1] h-[46px] w-full pl-3 pt-2 pb-2 pr-3 flex items-center justify-between">
+                        <div className="flex flex-row items-center">
+                            <Image src={session?.user?.image || defaulIcon} alt="user avatar"/>
+                            <span className="user-name ml-[9px] text-[16px] leading-[20px] font-semibold">{session?.user?.name || "Степка"}</span>
+                        </div>
+                        <label htmlFor="file">
+                            <Image src={clipGray} alt="clip"/>
+                            <input type="file" id="file" className="hidden" onChange={importingFile}/>
+                        </label>
+                    </div>
+                    <textarea value={textInput} onChange={(event)=>setTextInput(event.target.value)} className="w-full h-full bg-[#FBFBFB] pl-[14px] pt-[15px] text-[#6C6C6C] placeholder:text-[#6C6C6C] text-[14px] placeholder:text-[14px]" placeholder="Ваш відгук..."></textarea>
+              </div>
+              <button onClick={parentHandleInputRequest} className="w-[105px] h-[36px] flex justify-center items-center rounded-[30px] pt-[6px] pr-[14px] pb-[7px] pl-[14px] bg-[#B9FF61]">Надіслати</button>
           </div>
             {commentsState.map( (item, index) => (
                 <CommentsHandle key={index} comment={item}/>
