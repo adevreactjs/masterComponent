@@ -26,14 +26,6 @@ export default function CommentsHandle({comment}:{comment:commentParent}) {
     const { data: session } = useSession()
     return(
         <>
-          <div className="min-[1300px]:flex max-[280px]:hidden mt-[97px] mb-[69px]">
-            <div className="flex flex-row relative">
-              <input type="text" placeholder="Написати відгук" className="border-b-[1px] border-[#C1C1C1] min-w-[581px] placeholder-[#C1C1C1]"/>
-              <Image src={clip} alt="clip" className="absolute bottom-[9px] right-0"/>
-            </div>
-          </div>
-
-
             <div className="parent min-[280px]:mb-[12px] min-[1300px]:mb-[54px]">
               <div className="border-b-[1px] border-[#F1F1F1] min-[280px]:pb-[12px] min-[1300px]:pb-[15px]">
                 <div className="flex flex-row justify-between">
@@ -49,6 +41,7 @@ export default function CommentsHandle({comment}:{comment:commentParent}) {
                     <Image src={goldStar} alt="golden star" width={18} height={18}/>
                   </div>
                 </div>
+                {comment.inputImg !== '' ? <Image src={comment.inputImg} alt="users img" width={200} height={200}/> : ''}
                 <p className="min-[280px]:leading-[20px] min-[1500px]:leading-[23px] text-[14px] mt-2 mb-[27.5px]">{comment.commentText}</p>
                 <div className="flex flex-row justify-between">
                     <span className="text-[14px] leading-normal text-[#6C6C6C] font-normal">{comment.date}</span>
