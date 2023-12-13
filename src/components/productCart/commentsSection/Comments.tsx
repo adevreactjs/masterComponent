@@ -84,6 +84,7 @@ export default function Comments() {
     function importingFile(e: ChangeEvent<HTMLInputElement>) {
         const imgFile = e.target.files?.[0];
         if(imgFile !== undefined) {setFileInput(imgFile)};
+        console.log(imgFile + 'Parent')
     }
 
     function parentHandleInputRequest() {
@@ -91,7 +92,7 @@ export default function Comments() {
         const formattedDate = currentDate.toLocaleDateString().replace(/\//g, '.');
       
         const newObj: commentParent = {
-          name: session?.user?.name,
+          name: session?.user?.name || "Степка",
           image: session?.user?.image || defaulIcon,
           inputImg: '',
           commentText: textInput,
@@ -99,7 +100,6 @@ export default function Comments() {
           marginB: '54',
           reply: [],
         };
-      
         if (fileInput) {
           const reader = new FileReader();
           reader.onload = (e) => {
@@ -133,12 +133,13 @@ export default function Comments() {
                     <input type="text" placeholder="Написати відгук" value={textInput} onChange={(event)=>setTextInput(event.target.value)} className="border-b-[1px] border-[#C1C1C1] min-w-[581px] placeholder-[#C1C1C1] h-[29px] bg-transparent pb-[9px]"/>
                     <label htmlFor="file" className="absolute right-0 h-full flex items-center pb-[9px]">
                         <Image src={clip} alt="clip"/>
-                        <input type="file" id="file" className="hidden" onChange={importingFile}/>
+                        <input type="file" id="file" className="hidden" onChange={importingFile} accept="image/*"/>
                     </label>
                 </div>
                 <button onClick={parentHandleInputRequest} className="w-[105px] h-[36px] flex justify-center items-center rounded-[30px] pt-[6px] pr-[14px] pb-[7px] pl-[14px] bg-[#B9FF61]">Надіслати</button>
-          </div>
-          <div className="mobile-input min-[280px]:flex min-[1300px]:hidden min-full flex-col items-center gap-[30px] mb-[45px]">
+            </div>
+
+            <div className="mobile-input min-[280px]:flex min-[1300px]:hidden min-full flex-col items-center gap-[30px] mb-[45px]">
               <div className="flex-row overflow-hidden border-[1px] border-[#C1C1C1] min-h-[151px] w-full rounded-[12px]">
                     <div className="user bg-[#F1F1F1] h-[46px] w-full pl-3 pt-2 pb-2 pr-3 flex items-center justify-between">
                         <div className="flex flex-row items-center">
@@ -153,7 +154,8 @@ export default function Comments() {
                     <textarea value={textInput} onChange={(event)=>setTextInput(event.target.value)} className="w-full h-full bg-[#FBFBFB] pl-[14px] pt-[15px] text-[#6C6C6C] placeholder:text-[#6C6C6C] text-[14px] placeholder:text-[14px]" placeholder="Ваш відгук..."></textarea>
               </div>
               <button onClick={parentHandleInputRequest} className="w-[105px] h-[36px] flex justify-center items-center rounded-[30px] pt-[6px] pr-[14px] pb-[7px] pl-[14px] bg-[#B9FF61]">Надіслати</button>
-          </div>
+            </div>
+
             {commentsState.map( (item, index) => (
                 <CommentsHandle key={index} comment={item}/>
             ))}
