@@ -1,7 +1,6 @@
 import React, { FC, useState } from 'react';
 import cls from './index.module.scss';
 import Image from 'next/image';
-import procIcon from '../../assets/procIcon.jpg';
 import favIcon from '../../assets/favIcon.svg';
 import heartGreen from '../../assets/heartGreen.svg'
 import { Product } from '@/types/type';

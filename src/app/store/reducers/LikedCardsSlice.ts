@@ -23,7 +23,6 @@ export const LikedCards = createSlice({
     reducers: {
       pushElement: (state, elem: PayloadAction<string>) => {
           state.likedObjs.push(elem.payload)
-          console.log(state.likedObjs)
       },
       pushStyles: (state, style: PayloadAction<string>) => {
         state.stylesObj.push(style.payload)

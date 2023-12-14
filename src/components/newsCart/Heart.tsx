@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import { useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import {pushID, deleteID} from '../../app/store/reducers/LikedCardsSlice'
 
 export default function Heart({favIcon, heartGreen, id}:{favIcon:string, heartGreen:string, id: number}) {
