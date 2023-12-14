@@ -1,5 +1,4 @@
 import { useSession } from "next-auth/react"
-import { useDetectClickOutside } from 'react-detect-click-outside';
 
 import Image, { StaticImageData } from "next/image"
 import clip from '../../../assets/productCard/comments/clip.svg'
@@ -8,6 +7,7 @@ import goldStar from "../../../assets/productCard/comments/Star 1.svg"
 import { ChangeEvent, useState } from "react";
 import clipGray from "../../../assets/productCard/comments/clipGray.svg"
 import defaulIcon from "../../../assets/avatar.svg"
+import ItemChild from "./ItemChild"
 interface commentChild {
     name: string | null | undefined;
     image: StaticImageData;
@@ -68,8 +68,6 @@ export default function CommentsHandle({comment}:{comment:commentParent}) {
       setShowInput(false);
   }
   
-  
-
 
     return(
         <>
@@ -132,29 +130,7 @@ export default function CommentsHandle({comment}:{comment:commentParent}) {
                 </div> : ''}
               </div>
               {comment.reply.map( (item, index) => (
-                <div key={index} className="min-[280px]:mt-[12px] min-[1300px]-mt-[15px] pt-[15px] pb-[15px] border-b-[1px] border-[#F1F1F1] min-[280px]:ml-[16px] min-[1300px]:ml-[39px]">
-                  <div className="flex flex-row justify-between">
-                    <div className="flex flex-row gap-[9px]">
-                      <Image src={item.image} alt="avatar" className="w-[30px] h-[30px]"/>
-                      <span className="text-[16px] font-semibold">{item.name}</span>
-                    </div>
-                    <div className="flex flex-row gap-[1px]">
-                      <Image src={goldStar} alt="golden star" width={18} height={18}/>
-                      <Image src={goldStar} alt="golden star" width={18} height={18}/>
-                      <Image src={goldStar} alt="golden star" width={18} height={18}/>
-                      <Image src={goldStar} alt="golden star" width={18} height={18}/>
-                      <Image src={goldStar} alt="golden star" width={18} height={18}/>
-                    </div>
-                  </div>
-                  {item.inputImg !== '' ? <Image src={item.inputImg} alt="users img" width={200} height={200} className="mt-2"/> : ''}
-                  <p className="min-[280px]:leading-[20px] min-[1500px]:leading-[23px] text-[14px] mt-2 mb-[27.5px]">{item.commentText}</p>
-                  <div className="flex flex-row justify-between">
-                      <span className="text-[14px] leading-normal text-[#6C6C6C] font-normal">{item.date}</span>
-                      <div className="flex flex-row LIKED SYSTEM">
-                        
-                      </div>
-                  </div>
-                </div>
+                <ItemChild replyComment={item} key={index}/>
               ))}
             </div>
         </>

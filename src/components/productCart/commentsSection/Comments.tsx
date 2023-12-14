@@ -13,7 +13,9 @@ import avatarIcon from '../../../assets/avatar.svg';
 import clip from '../../../assets/productCard/comments/clip.svg'
 import clipGray from "../../../assets/productCard/comments/clipGray.svg"
 import CommentsHandle from "./CommentsHandle"
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useEffect, useState } from "react"
+import { useDispatch } from 'react-redux';
+import { increaseAmount } from '@/app/store/reducers/amountComments';
 interface commentChild {
     name: string | null | undefined;
     image: StaticImageData;
@@ -32,7 +34,6 @@ interface commentParent {
 }
 
 export default function Comments() {
-    const { data: session } = useSession()
     const allComments:commentParent[] = [
         {
             name: "Віталій",
@@ -77,7 +78,16 @@ export default function Comments() {
         },
     ]
     const [ commentsState, setCommentsState ] = useState(allComments)
+    const [ finallAmount, setFinallAmount] = useState(2)
+    useEffect(()=> {
+        setFinallAmount(commentsState.length)
+    }, [commentsState])
+    
+    const dispatch = useDispatch()
+    dispatch(increaseAmount(finallAmount))
 
+    const { data: session } = useSession()
+    
     const [ fileInput, setFileInput ] = useState<File>()
     const [ textInput, setTextInput ] = useState('')
 

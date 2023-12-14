@@ -33,14 +33,17 @@ import Characteristics from './Сharacteristics';
 import PhotoVideo from './PhotoVideo';
 import ProductQuestions from './ProductQuestions';
 import Comments from './commentsSection/Comments';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/app/store/store';
 
 const ProductCart = () => {
+  const amountCom = useSelector( (state:RootState) => state.amount)
   const [activeCategory, setActiveCategory] = useState(0);
   const [activeImageGallery, setActiveImageGallery] = useState(0);
   const categories = [
     'Загальні відомості',
     'Характеристики',
-    'Відгуки: 234',
+    `Відгуки: ${amountCom.amountComents}`,
     'Питання',
     'Фото та відео',
   ];
