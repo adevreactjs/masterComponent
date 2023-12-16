@@ -30,6 +30,7 @@ import Link from 'next/link';
 import LikedItems from './LikedItems';
 import { RootState } from '@/app/store/store';
 import RegistrationForm from '../registrationForm/RegistrationForm';
+import ShoppingBasket from '../shoppingBasket/ShoppingBasket';
 
 const Header = () => {
   const [activeMenu, setActiveMenu] = useState(false);
@@ -37,6 +38,7 @@ const Header = () => {
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
   const [activeCategory, setActiveCategory] = useState(0);
   const [openLiked, setOpenLiked] = useState(false);
+  const [openBasket, setOpenBasket] = useState(false)
   const dispatch = useDispatch();
 
   const isOpenRegistrationForm = useSelector(
@@ -212,7 +214,7 @@ const Header = () => {
               <Image src={favoriteIcon} width={20} height={17} alt='registrationUser' />
             </button>
 
-            <button className={cls.cart}>
+            <button className={cls.cart} onClick={()=>setOpenBasket(!openBasket)}>
               <Image src={cartIcon} width={19} height={20} alt='registrationUser' />
             </button>
           </div>
@@ -569,6 +571,7 @@ const Header = () => {
       </div>
       {openLiked && <LikedItems />}
       {isOpenRegistrationForm && <RegistrationForm />}
+      {openBasket && <ShoppingBasket />}
     </header>
   );
 };
