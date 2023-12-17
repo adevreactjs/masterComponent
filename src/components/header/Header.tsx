@@ -31,6 +31,7 @@ import LikedItems from './LikedItems';
 import { RootState } from '@/app/store/store';
 import RegistrationForm from '../registrationForm/RegistrationForm';
 import ShoppingBasket from '../shoppingBasket/ShoppingBasket';
+import { changeOpen } from '@/app/store/reducers/BasketSlice';
 
 const Header = () => {
   const [activeMenu, setActiveMenu] = useState(false);
@@ -38,13 +39,16 @@ const Header = () => {
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
   const [activeCategory, setActiveCategory] = useState(0);
   const [openLiked, setOpenLiked] = useState(false);
-  const [openBasket, setOpenBasket] = useState(false)
+  const openClose = useSelector( (state:RootState) => state.basket.open)
   const dispatch = useDispatch();
 
+  function handleOpenClose() {
+    dispatch(changeOpen(!openClose))
+    console.log(openClose)
+  }
   const isOpenRegistrationForm = useSelector(
     (state: RootState) => state.registration.isOpenRegistrationForm,
   );
-
   const openCategory = () => {
     setActiveMenu(!activeMenu);
     setActiveCategory(0);
@@ -214,7 +218,7 @@ const Header = () => {
               <Image src={favoriteIcon} width={20} height={17} alt='registrationUser' />
             </button>
 
-            <button className={cls.cart} onClick={()=>setOpenBasket(!openBasket)}>
+            <button className={cls.cart} onClick={()=>handleOpenClose()}>
               <Image src={cartIcon} width={19} height={20} alt='registrationUser' />
             </button>
           </div>
@@ -571,7 +575,7 @@ const Header = () => {
       </div>
       {openLiked && <LikedItems />}
       {isOpenRegistrationForm && <RegistrationForm />}
-      {openBasket && <ShoppingBasket />}
+      <ShoppingBasket />
     </header>
   );
 };
