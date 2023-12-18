@@ -39,12 +39,12 @@ const Header = () => {
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
   const [activeCategory, setActiveCategory] = useState(0);
   const [openLiked, setOpenLiked] = useState(false);
-  const openClose = useSelector( (state:RootState) => state.basket.open)
+  const openClose = useSelector((state: RootState) => state.basket.open);
   const dispatch = useDispatch();
 
   function handleOpenClose() {
-    dispatch(changeOpen(!openClose))
-    console.log(openClose)
+    dispatch(changeOpen(!openClose));
+    console.log(openClose);
   }
   const isOpenRegistrationForm = useSelector(
     (state: RootState) => state.registration.isOpenRegistrationForm,
@@ -218,7 +218,7 @@ const Header = () => {
               <Image src={favoriteIcon} width={20} height={17} alt='registrationUser' />
             </button>
 
-            <button className={cls.cart} onClick={()=>handleOpenClose()}>
+            <button className={cls.cart} onClick={() => handleOpenClose()}>
               <Image src={cartIcon} width={19} height={20} alt='registrationUser' />
             </button>
           </div>
@@ -575,7 +575,7 @@ const Header = () => {
       </div>
       {openLiked && <LikedItems />}
       {isOpenRegistrationForm && <RegistrationForm />}
-      <ShoppingBasket />
+      <ShoppingBasket/>
     </header>
   );
 };

@@ -1,0 +1,102 @@
+.basket {
+  width: 708px;
+  padding: 40px;
+  border-radius: 30px;
+  background: var(--Color-3, #fff);
+}
+.basketWrapper {
+  width: 100%;
+}
+.basketHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.basketTitle {
+  display: flex;
+  align-items: center;
+  h1 {
+    margin-right: 23px;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+}
+.basketCount {
+  color: var(---600, #6c6c6c);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.basketTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.basketTotalBonus {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.basketTotalValues {
+  width: 297px;
+}
+.basketTotalTitle {
+  color: var(---600, #6c6c6c);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.basketTotalValue {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(---600, #6c6c6c);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.procImage {
+  display: flex;
+  width: 18px;
+  height: 18px;
+  justify-content: center;
+  align-items: center;
+  background: var(---, #b9ff61);
+  border-radius: 100px;
+}
+.basketSum {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.basketSumTitle {
+  color: var(---600, #6c6c6c);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.basketSumValue {
+  color: var(---800, #262626);
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.oderBtn {
+  padding: 11px 24px;
+  border-radius: 200px;
+  background: var(---, #b9ff61);
+  color: var(---800, #262626);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 155.556% */
+}

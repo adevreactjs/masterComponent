@@ -14,10 +14,6 @@ export default function Home() {
   const [currentWidth, setCurrentWidth] = useState(450);
   const [currentFont, setCurrentFont] = useState(22);
 
-  const isOpenRegistrationForm = useSelector(
-    (state: RootState) => state.registration.isOpenRegistrationForm,
-  );
-
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 600) {
