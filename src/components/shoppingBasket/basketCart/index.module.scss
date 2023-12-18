@@ -1,0 +1,74 @@
+.basketCart {
+  width: 100%;
+}
+.basketCartWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.basketCartInfo {
+  display: flex;
+  align-items: center;
+}
+.basketCartImage {
+  margin-right: 23px;
+  img {
+    border-radius: 6px;
+    width: 60px;
+    height: 60px;
+    object-fit: fill;
+  }
+}
+.basketCartDescription {
+  width: 282px;
+  color: var(---800, #262626);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 133.333% */
+}
+.basketCartCounter {
+  display: flex;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  border-radius: 20px;
+  border: 1px solid var(---500, #c1c1c1);
+  button {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.basketTotalBonus {
+  margin-left: 83px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(---600, #6c6c6c);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.procImage {
+  display: flex;
+  width: 18px;
+  height: 18px;
+  justify-content: center;
+  align-items: center;
+  background: var(---, #b9ff61);
+  border-radius: 100px;
+}
+.basketCartPrice {
+  text-align: right;
+  width: 100px;
+  color: var(---800, #262626);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}

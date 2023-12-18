@@ -1,10 +1,21 @@
-import React from 'react';
+'use client';
 import cls from './index.module.scss';
 import closeIcon from '@/assets/closeIcon.svg';
 import procIcon from '@/assets/procIcon.svg';
 import Image from 'next/image';
+import BasketCart from './basketCart/BasketCart';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeOpen } from '@/app/store/reducers/BasketSlice';
+import { RootState } from '@/app/store/store';
 
 const ShoppingBasket = () => {
+  const isOpenCart = useSelector((state: RootState) => state.basket.open);
+  const dispatch = useDispatch();
+  
+  const closeBasketHandler = () => {
+    dispatch(changeOpen(false));
+  };
+
   return (
     <section className={cls.basket}>
       <div className={cls.basketWrapper}>
@@ -13,9 +24,16 @@ const ShoppingBasket = () => {
             <h1>Кошик</h1>
             <div className={cls.basketCount}>5 товарів</div>
           </div>
-          <button>
+          <button onClick={closeBasketHandler}>
             <Image src={closeIcon} width={20} height={20} alt='closeIcon' />
           </button>
+        </div>
+        <div className={cls.basketCarts}>
+          {<BasketCart />}
+          {<BasketCart />}
+          {<BasketCart />}
+          {<BasketCart />}
+          {<BasketCart />}
         </div>
         <div className={cls.basketTotal}>
           <div className={cls.basketTotalValues}>
