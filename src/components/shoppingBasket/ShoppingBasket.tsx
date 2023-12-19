@@ -24,7 +24,7 @@ const ShoppingBasket = () => {
             <h1>Кошик</h1>
             <div className={cls.basketCount}>5 товарів</div>
           </div>
-          <button onClick={closeBasketHandler}>
+          <button className={cls.closeBasketBtn} onClick={closeBasketHandler}>
             <Image src={closeIcon} width={20} height={20} alt='closeIcon' />
           </button>
         </div>

@@ -43,6 +43,15 @@
     align-items: center;
   }
 }
+.basketCartCount {
+  width: 21px;
+  color: #4e4e4e;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+}
 .basketTotalBonus {
   margin-left: 83px;
   display: flex;
@@ -64,6 +73,7 @@
   border-radius: 100px;
 }
 .basketCartPrice {
+  position: relative;
   text-align: right;
   width: 100px;
   color: var(---800, #262626);
@@ -71,4 +81,98 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+}
+.basketCartDiscount {
+  position: absolute;
+  top: -10px;
+  left: 31px;
+  z-index: 1;
+  color: var(---600, #6c6c6c);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration-line: line-through;
+}
+.basketCartCounterMobile {
+  display: none;
+}
+@media (max-width: 1280px) {
+  .basketTotalWrapper {
+    position: relative;
+  }
+  .basketCartWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .basketCartImage {
+    margin-right: 10px;
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  .basketCartDescription {
+    width: 195px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+  }
+  .basketCartCounter {
+    display: none;
+  }
+  .basketCartCounterMobile {
+    display: block;
+    width: 70px;
+    padding: 3px 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    margin-left: 49px;
+    margin-top: 12px;
+    border-radius: 20px;
+    border: 1px solid var(---500, #c1c1c1);
+    .basketCartCountMobile {
+      width: 15px;
+      text-align: center;
+      color: #4e4e4e;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+  }
+  .basketCartPrice {
+    width: 70px;
+    color: var(---800, #262626);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .basketCartDiscount {
+    left: 0;
+    right: 0;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  .basketTotalBonus {
+    position: absolute;
+    top: 5px;
+    left: -81px;
+    z-index: 1;
+    font-size: 12px;
+    .procImage {
+      width: 14px;
+      height: 14px;
+      img {
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
 }

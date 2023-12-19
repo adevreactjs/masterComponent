@@ -114,3 +114,57 @@
   gap: 14px;
   margin-bottom: 40px;
 }
+@media (max-width: 1280px) {
+  .basket {
+    z-index: 6;
+  }
+  .basketWrapper {
+    margin: 0px;
+  }
+  .basketCarts {
+    gap: 28px;
+  }
+  .basketWrapper {
+    width: 100%;
+    padding: 20px 16px 40px 16px;
+    border-radius: 8px;
+  }
+  .basketTitle {
+    h1 {
+      font-size: 18px;
+    }
+  }
+  .basketCount {
+    font-size: 14px;
+  }
+  .closeBasketBtn {
+    img {
+      width: 14px;
+      height: 14px;
+      margin: 5px;
+    }
+  }
+  .basketTotal {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .basketTotalTitle {
+    font-size: 14px;
+  }
+  .basketTotalValue {
+    font-size: 14px;
+  }
+  .basketSumTitle {
+    font-size: 16px;
+  }
+  .basketSumValue {
+    font-size: 16px;
+  }
+  .oderBtn {
+    padding: 8px 20px;
+    font-size: 16px;
+  }
+  .basketTotalValues {
+    width: 100%;
+  }
+}
