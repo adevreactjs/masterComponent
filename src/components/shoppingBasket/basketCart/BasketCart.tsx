@@ -39,7 +39,7 @@ const BasketCart = () => {
               height='2'
               viewBox='0 0 11 2'
               fill='none'>
-              <path d='M1 1H10' stroke='#4E4E4E' stroke-width='2' stroke-linecap='round' />
+              <path d='M1 1H10' stroke='#4E4E4E' strokeWidth='2' strokeLinecap='round' />
             </svg>
           </button>
           <div className={cls.basketCartCount}>{count}</div>
@@ -53,8 +53,8 @@ const BasketCart = () => {
               <path
                 d='M1 6H10M5.5 10.5L5.5 1.5'
                 stroke='#4E4E4E'
-                stroke-width='2'
-                stroke-linecap='round'
+                strokeWidth='2'
+                strokeLinecap='round'
               />
             </svg>
           </button>
