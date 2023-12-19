@@ -9,6 +9,9 @@
 .cartImage {
   position: relative;
   margin-bottom: 12px;
+  img {
+    object-fit: cover;
+  }
 }
 .cartImg {
   border-radius: 25px;
