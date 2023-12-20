@@ -112,21 +112,32 @@ const page = () => {
         <div className='w-full'>
           <div className={cls.sortMenu}>
             <p className={cls.categoryTitle}>Материнські плати</p>
-            <div className='flex items-center gap-x-[6px]'>
+            <div className='flex gap-x-[6px] relative items-baseline'>
               <p className='text-[16px] normal font-medium leading-normal'>
                 Сотувати за: Популярністю
               </p>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                width='12'
-                height='7'
-                viewBox='0 0 12 7'
-                fill='none'>
-                <path
-                  d='M2.12461 0.2925L6.00461 4.1725L9.88461 0.2925C10.2746 -0.0975 10.9046 -0.0975 11.2946 0.2925C11.6846 0.6825 11.6846 1.3125 11.2946 1.7025L6.70461 6.2925C6.31461 6.6825 5.68461 6.6825 5.29461 6.2925L0.704609 1.7025C0.314609 1.3125 0.314609 0.6825 0.704609 0.2925C1.09461 -0.0875 1.73461 -0.0975 2.12461 0.2925Z'
-                  fill='#3B3B3B'
-                />
-              </svg>
+              <div className={cls.sortListArrow}>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='12'
+                  height='7'
+                  viewBox='0 0 12 7'
+                  fill='none'>
+                  <path
+                    d='M2.12461 0.2925L6.00461 4.1725L9.88461 0.2925C10.2746 -0.0975 10.9046 -0.0975 11.2946 0.2925C11.6846 0.6825 11.6846 1.3125 11.2946 1.7025L6.70461 6.2925C6.31461 6.6825 5.68461 6.6825 5.29461 6.2925L0.704609 1.7025C0.314609 1.3125 0.314609 0.6825 0.704609 0.2925C1.09461 -0.0875 1.73461 -0.0975 2.12461 0.2925Z'
+                    fill='#3B3B3B'
+                  />
+                </svg>
+              </div>
+
+              <div className={cls.sortList}>
+                <ul>
+                  <li>Популярністю</li>
+                  <li>Рейтингом</li>
+                  <li>Ціною (дорожче)</li>
+                  <li>Ціною (дешевше)</li>
+                </ul>
+              </div>
             </div>
             <div className={cls.filterButtons}>
               <button className={cls.viewButton}>
