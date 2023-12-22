@@ -10,7 +10,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import cls from './index.module.scss';
 
-const page = () => {
+const Page = () => {
   const [openSortMenu, setOpenSortMenu] = useState(false);
   const [sortValue, setSortValue] = useState(0);
   const params = [
@@ -176,4 +176,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
