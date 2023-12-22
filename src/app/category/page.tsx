@@ -127,7 +127,8 @@ const page = () => {
                 onClick={() => setOpenSortMenu(!openSortMenu)}>
                 Сотувати за: {sortMenu[sortValue]}
               </p>
-              <div className={cls.sortListArrow}>
+              <div
+                className={openSortMenu ? `${cls.sortListArrow} ${cls.arrow}` : cls.sortListArrow}>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='12'
