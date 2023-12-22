@@ -11,6 +11,8 @@ import Image from 'next/image';
 import cls from './index.module.scss';
 
 const page = () => {
+  const [openSortMenu, setOpenSortMenu] = useState(false);
+  const [sortValue, setSortValue] = useState(0);
   const params = [
     {
       id: '1',
@@ -86,6 +88,13 @@ const page = () => {
       sale: 200,
     },
   ];
+  const sortMenu = ['Популярністю', 'Рейтингом', 'Ціною (дорожче)', 'Ціною (дешевше)'];
+
+  const changeSortValue = (ind: number) => {
+    setSortValue(ind);
+    setOpenSortMenu(false);
+  };
+
   return (
     <div className={cls.category}>
       <div className='flex w-full gap-x-[32px]'>
@@ -113,8 +122,10 @@ const page = () => {
           <div className={cls.sortMenu}>
             <p className={cls.categoryTitle}>Материнські плати</p>
             <div className='flex gap-x-[6px] relative items-baseline'>
-              <p className='text-[16px] normal font-medium leading-normal'>
-                Сотувати за: Популярністю
+              <p
+                className='text-[16px] normal font-medium leading-normal'
+                onClick={() => setOpenSortMenu(!openSortMenu)}>
+                Сотувати за: {sortMenu[sortValue]}
               </p>
               <div className={cls.sortListArrow}>
                 <svg
@@ -130,12 +141,13 @@ const page = () => {
                 </svg>
               </div>
 
-              <div className={cls.sortList}>
+              <div className={openSortMenu ? cls.sortList : cls.closeSortMenu}>
                 <ul>
-                  <li>Популярністю</li>
-                  <li>Рейтингом</li>
-                  <li>Ціною (дорожче)</li>
-                  <li>Ціною (дешевше)</li>
+                  {sortMenu.map((value, ind) => (
+                    <li key={ind} onClick={() => changeSortValue(ind)}>
+                      {value}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
