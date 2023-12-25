@@ -1,0 +1,22 @@
+.formInput {
+  padding: 15px 20px;
+  border-radius: 30px;
+  border: 1px solid #dadada;
+  input {
+    width: 100%;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+      background: var(---900, #fbfbfb);
+
+
+    &::placeholder {
+      color: var(---600, #6c6c6c);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 18px; /* 112.5% */
+    }
+  }
+}

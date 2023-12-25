@@ -1,0 +1,62 @@
+.container {
+  max-width: 1392px;
+  margin: 0 auto;
+}
+.checkOutWrapper {
+  width: 681px;
+}
+.checkOutTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  h2 {
+    color: #000;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  span {
+    color: var(---600, #6c6c6c);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
+.checkOutForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  p {
+    margin-left: 20px;
+    color: var(---600, #6c6c6c);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; /* 150% */
+  }
+}
+.mask {
+  padding: 15px 20px;
+  border-radius: 30px;
+  border: 1px solid #dadada;
+  input {
+    word-spacing: 1px;
+    width: 100%;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    background: var(---900, #fbfbfb);
+
+    &::placeholder {
+      color: var(---600, #6c6c6c);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 18px; /* 112.5% */
+    }
+  }
+}
