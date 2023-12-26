@@ -1,8 +1,15 @@
-.container {
+.checkOut {
+  display: flex;
+  flex-direction: column;
+  gap: 67px;
   max-width: 1392px;
   margin: 0 auto;
 }
+
 .checkOutWrapper {
+  width: 681px;
+}
+.checkOutDelivery {
   width: 681px;
 }
 .checkOutTitle {
@@ -43,7 +50,7 @@
   border-radius: 30px;
   border: 1px solid #dadada;
   input {
-    word-spacing: 1px;
+    word-spacing: -1px;
     width: 100%;
     font-size: 16px;
     font-style: normal;
@@ -59,4 +66,63 @@
       line-height: 18px; /* 112.5% */
     }
   }
+}
+.comments {
+  width: 681px;
+
+  textarea {
+    height: 156px;
+    padding: 14px;
+    border-radius: 10px;
+    border: 2px solid var(---800, #f1f1f1);
+    width: 100%;
+    margin-bottom: 40px;
+    background: inherit;
+    &::placeholder {
+      color: var(---800, #262626);
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+  p {
+    text-align: center;
+    color: var(---600, #6c6c6c);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    span {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      text-decoration-line: underline;
+    }
+  }
+}
+.submit {
+  width: 681px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 130px;
+}
+.submitBtn {
+  display: flex;
+  height: 54px;
+  padding: 15px 36px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+  border-radius: 13px;
+  background: var(---, #b9ff61);
+  color: var(---800, #262626);
+  font-family: Exo 2;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  text-align: center;
 }

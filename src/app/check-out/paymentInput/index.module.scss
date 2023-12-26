@@ -1,0 +1,38 @@
+.payment {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.customCheckbox {
+  display: none;
+}
+.title {
+  color: var(---800, #262626);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.customCheckbox + label {
+  display: flex;
+  align-items: center;
+}
+.customCheckbox + label::before {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  margin-right: 20px;
+  border-radius: 50%;
+  border: 1.3px solid var(---700, #6c6c6c);
+  cursor: pointer;
+}
+.customCheckbox:checked + label::before {
+  background-color: #b9ff61;
+  border: none;
+}
+.payImg {
+    margin-right: 10px;
+}

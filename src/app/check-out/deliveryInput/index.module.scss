@@ -1,0 +1,58 @@
+.deliveryInputs {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.title {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.subTitle {
+  display: block;
+  color: var(---600, #6c6c6c);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.mainLabel {
+  display: flex;
+  align-items: center;
+}
+.customCheckbox {
+  display: none;
+}
+.mainLabel {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.customCheckbox + .mainLabel::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  margin-right: 20px;
+  border-radius: 50%;
+  border: 1.3px solid var(---700, #6c6c6c);
+  cursor: pointer;
+  text-align: center;
+}
+.customCheckbox:checked + .mainLabel::before {
+  background-color: #b9ff61;
+  border: none;
+  .mainLabelList {
+    label {
+      background-color: #b9ff61;
+      border: none;
+    }
+  }
+}
