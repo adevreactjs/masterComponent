@@ -1,9 +1,13 @@
 .checkOut {
   display: flex;
-  flex-direction: column;
-  gap: 67px;
+  gap: 83px;
   max-width: 1392px;
   margin: 0 auto;
+}
+.checkOutContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 67px;
 }
 
 .checkOutWrapper {
@@ -125,4 +129,143 @@
   font-weight: 500;
   line-height: 22px;
   text-align: center;
+}
+.cart {
+  width: 100%;
+}
+.cartTitle {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 23px;
+  margin-bottom: 40px;
+  h2 {
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  span {
+    color: var(---600, #6c6c6c);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
+.basketCarts {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 40px;
+}
+.basketCartsSum {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  li {
+    display: flex;
+    justify-content: space-between;
+    color: var(---600, #6c6c6c);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    &:last-child {
+      color: var(---800, #262626);
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      span {
+        color: var(---800, #262626);
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+    }
+    span {
+      display: block;
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      color: var(---600, #6c6c6c);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+}
+
+.proc {
+  display: flex;
+  width: 18px;
+  height: 18px;
+  justify-content: center;
+  align-items: center;
+  background: var(---, #b9ff61);
+  border-radius: 50%;
+}
+@media (max-width: 1220px) {
+  .checkOut {
+    width: 360px;
+    padding: 0 16px;
+    flex-direction: column-reverse;
+    gap: 50px;
+  }
+  .checkOutContainer {
+    gap: 50px;
+  }
+  .cartTitle {
+    margin-bottom: 35px;
+    h2,
+    span {
+      font-size: 16px;
+    }
+  }
+  .checkOutTitle {
+    h2,
+    span {
+      font-size: 16px;
+    }
+    margin-bottom: 25px;
+  }
+  .checkOutWrapper {
+    width: 100%;
+  }
+  .checkOutForm {
+    gap: 20px;
+  }
+
+  .checkOutDelivery {
+    width: 100%;
+  }
+
+  .basketCarts {
+    gap: 25px;
+    margin-bottom: 35px;
+  }
+  .basketCartsSum {
+    gap: 10px;
+    li {
+      font-size: 14px;
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+  .comments {
+    display: none;
+  }
+  .submit {
+    width: 100%;
+  }
+  .submit {
+    margin-bottom: 60px;
+  }
+  .submitBtn {
+    font-size: 16px;
+    padding: 15px 28px;
+  }
 }

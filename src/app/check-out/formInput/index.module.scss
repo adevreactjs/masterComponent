@@ -8,8 +8,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: 18px;
-      background: var(---900, #fbfbfb);
-
+    background: var(---900, #fbfbfb);
 
     &::placeholder {
       color: var(---600, #6c6c6c);
@@ -17,6 +16,16 @@
       font-style: normal;
       font-weight: 500;
       line-height: 18px; /* 112.5% */
+    }
+  }
+}
+@media (max-width: 1220px) {
+  .formInput {
+    input {
+      font-size: 14px;
+      &::placeholder {
+        font-size: 14px;
+      }
     }
   }
 }
