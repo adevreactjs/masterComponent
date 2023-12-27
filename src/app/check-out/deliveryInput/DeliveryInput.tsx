@@ -12,7 +12,6 @@ const DeliveryInput = () => {
           name='dev'
           value='delivery'
         />
-
         <label className={cls.mainLabel} htmlFor='deliveryInput'>
           <div className={cls.mainLabelList}>
             <label className={cls.title} htmlFor='deliveryInput'>

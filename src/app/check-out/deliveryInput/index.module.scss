@@ -32,8 +32,11 @@
   -ms-user-select: none;
   user-select: none;
 }
+.mainLabelList {
+  cursor: pointer;
+}
 
-.customCheckbox + .mainLabel::before {
+.customCheckbox + label::before {
   content: '';
   display: inline-block;
   width: 18px;
@@ -46,16 +49,11 @@
   cursor: pointer;
   text-align: center;
 }
-.customCheckbox:checked + .mainLabel::before {
+.customCheckbox:checked + label::before {
   background-color: #b9ff61;
   border: none;
-  .mainLabelList {
-    label {
-      background-color: #b9ff61;
-      border: none;
-    }
-  }
 }
+
 @media (max-width: 1220px) {
   .deliveryInputs {
     margin-top: 25px;
@@ -72,5 +70,15 @@
     width: 15px;
     height: 15px;
     margin-right: 15px;
+  }
+  .customCheckbox:checked + .mainLabel::before {
+    background-color: #b9ff61;
+    border: none;
+    .mainLabelList {
+      label {
+        background-color: #b9ff61;
+        border: none;
+      }
+    }
   }
 }
