@@ -49,6 +49,7 @@
   cursor: pointer;
   text-align: center;
 }
+
 .customCheckbox:checked + label::before {
   background-color: #b9ff61;
   border: none;
