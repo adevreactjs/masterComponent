@@ -6,6 +6,7 @@ import RangeSlider from '@/components/rangeSlider/RangeSlider';
 import viewIcon from '@/assets/viewIcon.svg';
 import filterIcon from '@/assets/filterIcon.svg';
 import cartImg from '@/assets/mathRog.jpg';
+import closeIcon from '@/assets/closeIcon.svg';
 import React, { useState } from 'react';
 import Image from 'next/image';
 import cls from './index.module.scss';
@@ -13,6 +14,7 @@ import cls from './index.module.scss';
 const Page = () => {
   const [openSortMenu, setOpenSortMenu] = useState(false);
   const [sortValue, setSortValue] = useState(0);
+  const [activeMobileMenu, setActiveMobileMenu] = useState(false);
   const params = [
     {
       id: '1',
@@ -170,6 +172,22 @@ const Page = () => {
             Показати ще 20/144
           </p>
           <PaginationNavigation />
+        </div>
+      </div>
+      <div className={cls.filterMobileMenu}>
+        <div className={cls.filterMobileMenuWrapper}>
+          <div className={cls.filterMobileMenuBtns}>
+            <button className={cls.resetBtn}>Скинути всі фільтри</button>
+            <button className={cls.closeBtn}>
+              <Image src={closeIcon} width={14} height={14} alt='closeIcon' />
+            </button>
+          </div>
+          <RangeSlider />
+          <div className={cls.paramsFilter}>
+            {params.map(param => (
+              <ParamsFilter key={param.id} param={param} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

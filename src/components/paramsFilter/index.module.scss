@@ -91,3 +91,17 @@
 .customCheckbox:disabled + label::before {
   background-color: black;
 }
+@media (max-width: 1280px) {
+  .paramsFilter {
+    background: var(---900, #fbfbfb);
+    margin-bottom: 5px;
+    padding: 7px 12px 7px 16px;
+  }
+  .accordion {
+    font-size: 14px;
+    svg {
+      width: 11.175px;
+      height: 6.585px;
+    }
+  }
+}
