@@ -174,7 +174,7 @@ const Page = () => {
           <PaginationNavigation />
         </div>
       </div>
-      <div className={cls.filterMobileMenu}>
+      {/* <div className={cls.filterMobileMenu}>
         <div className={cls.filterMobileMenuWrapper}>
           <div className={cls.filterMobileMenuBtns}>
             <button className={cls.resetBtn}>Скинути всі фільтри</button>
@@ -189,7 +189,7 @@ const Page = () => {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
