@@ -3,7 +3,6 @@ import cls from './index.module.scss';
 import Image from 'next/image';
 import { Product } from '@/types/type';
 
-
 interface CardNoHeardProps {
   width?: number;
   discount?: number;
