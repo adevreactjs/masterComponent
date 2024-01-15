@@ -32,6 +32,7 @@ import { RootState } from '@/app/store/store';
 import RegistrationForm from '../registrationForm/RegistrationForm';
 import ShoppingBasket from '../shoppingBasket/ShoppingBasket';
 import { changeOpen } from '@/app/store/reducers/BasketSlice';
+import MobileProductFilter from '../mobileProductFilter/MobileProductFilter';
 
 const Header = () => {
   const [activeMenu, setActiveMenu] = useState(false);
@@ -40,6 +41,7 @@ const Header = () => {
   const [activeCategory, setActiveCategory] = useState(0);
   const [openLiked, setOpenLiked] = useState(false);
   const isOpenCart = useSelector((state: RootState) => state.basket.open);
+  const isOpenMobileFilter = useSelector((state: RootState) => state.mobileFilter.isOpenMobileFilter);
   const dispatch = useDispatch();
 
   const openBasketHandler = () => {
@@ -572,6 +574,8 @@ const Header = () => {
             </section>
           )}
         </div>
+              {isOpenMobileFilter && <MobileProductFilter />}
+
       </div>
       {openLiked && <LikedItems />}
       {isOpenRegistrationForm && <RegistrationForm />}

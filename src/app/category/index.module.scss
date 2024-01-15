@@ -73,7 +73,7 @@
   flex-direction: column;
   gap: 15px;
   border-radius: 16px 0px 0px 16px;
-  background: var(---800, #F1F1F1);
+  background: var(---800, #f1f1f1);
 }
 .filterMobileMenuBtns {
   display: flex;
@@ -112,5 +112,14 @@
   }
   .filterMenu {
     display: none;
+  }
+  .category {
+    position: relative;
+  }
+  .filterMobileMenu {
+    position: absolute;
+    top: 98px;
+    right: 0;
+    z-index: 5;
   }
 }

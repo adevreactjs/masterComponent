@@ -20,9 +20,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${inter.variable} ${exo.variable} bg-[#FBFBFB]`}>
         <Providers>
           <ProvidersAuth>
-              <Header />
-              {children}
-              <Footer />
+            <Header />
+            {children}
+            <Footer />
           </ProvidersAuth>
         </Providers>
       </body>

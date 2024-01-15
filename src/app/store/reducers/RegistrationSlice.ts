@@ -19,22 +19,8 @@ export const registrationForm = createSlice({
   initialState,
   reducers: {
     openRegistrationFormHandler: (state, action) => {
-        state.isOpenRegistrationForm = action.payload
-      //   const filterCart = state.pizzasData.filter(piz => piz.id === action.payload);
-      //   state.pizza = filterCart;
+      state.isOpenRegistrationForm = action.payload;
     },
-    // addToCartItem: (state, action) => {
-    //   let addPizza = state.pizzasData.filter(item => {
-    //     return item.id === action.payload;
-    //   });
-    //   state.cartItems.push(...addPizza);
-    // },
-    // removeCartItem: (state, action) => {
-    //   state.cartItems = action.payload;
-    // },
-    // addToCartWithOptions: (state, action) => {
-    //   state.cartItems.push(...action.payload);
-    // },
   },
 });
 

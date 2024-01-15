@@ -10,11 +10,18 @@ import closeIcon from '@/assets/closeIcon.svg';
 import React, { useState } from 'react';
 import Image from 'next/image';
 import cls from './index.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/app/store/store';
+import { openMobileFilterHandler } from '@/app/store/reducers/MobileFilterSlice';
 
 const Page = () => {
   const [openSortMenu, setOpenSortMenu] = useState(false);
   const [sortValue, setSortValue] = useState(0);
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
+  const dispatch = useDispatch();
+  const isOpenMobileFilter = useSelector(
+    (state: RootState) => state.mobileFilter.isOpenMobileFilter,
+  );
   const params = [
     {
       id: '1',
@@ -96,6 +103,9 @@ const Page = () => {
     setSortValue(ind);
     setOpenSortMenu(false);
   };
+  const openFilterMenu = () => {
+    dispatch(openMobileFilterHandler(!isOpenMobileFilter));
+  };
 
   return (
     <div className={cls.category}>
@@ -158,7 +168,7 @@ const Page = () => {
               <button className={cls.viewButton}>
                 <Image src={viewIcon} width={18} height={18} alt='viewIcon' />
               </button>
-              <button className={cls.filterButton}>
+              <button className={cls.filterButton} onClick={openFilterMenu}>
                 <Image src={filterIcon} width={18} height={18} alt='filterIcon' />
               </button>
             </div>
@@ -174,22 +184,6 @@ const Page = () => {
           <PaginationNavigation />
         </div>
       </div>
-      {/* <div className={cls.filterMobileMenu}>
-        <div className={cls.filterMobileMenuWrapper}>
-          <div className={cls.filterMobileMenuBtns}>
-            <button className={cls.resetBtn}>Скинути всі фільтри</button>
-            <button className={cls.closeBtn}>
-              <Image src={closeIcon} width={14} height={14} alt='closeIcon' />
-            </button>
-          </div>
-          <RangeSlider />
-          <div className={cls.paramsFilter}>
-            {params.map(param => (
-              <ParamsFilter key={param.id} param={param} />
-            ))}
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };

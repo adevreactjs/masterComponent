@@ -1,0 +1,65 @@
+@media (max-width: 1280px) {
+   .filterMobilePosition {
+    position: relative;
+  }
+  .filterMobileMenuWrapper {
+    position: absolute;
+    top: 80px;
+    right: 246px;
+    z-index: 5;
+    width: 316px;
+    display: flex;
+    padding: 20px 16px 20px 20px;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 16px 0px 0px 16px;
+    background: var(---800, #f1f1f1);
+  }
+  .filterMobileMenuBtns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .resetBtn {
+    padding: 5px 12px 6px 12px;
+    border-radius: 20px;
+    background: var(---500, #c1c1c1);
+    color: var(---800, #262626);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .sortMenu {
+    padding: 0 16px;
+    margin-bottom: 35px;
+    .categoryTitle {
+      display: none;
+    }
+  }
+  .filterButtons {
+    display: block;
+    display: flex;
+    gap: 25px;
+  }
+  .categoryCart {
+    gap: 0;
+    margin-bottom: 25px;
+  }
+  .filterMenu {
+    display: none;
+  }
+
+  .filterMobileMenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.25);
+    position: fixed;
+  }
+ 
+}
