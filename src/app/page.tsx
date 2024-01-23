@@ -4,11 +4,6 @@ import FAQ from '../components/faq/FAQ';
 import OurBenefits from '../components/ourBenefits/OurBenefits';
 import NewsSlider from '@/components/newSlider/NewsSlider';
 import PopularRequests from '@/components/popularRequests/PopularRequests';
-import RegistrationForm from '@/components/registrationForm/RegistrationForm';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from './store/store';
-import ProductCart from '@/components/productCart/ProductCart';
-import Script from 'next/script';
 
 export default function Home() {
   const [currentWidth, setCurrentWidth] = useState(450);
