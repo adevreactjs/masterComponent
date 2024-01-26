@@ -1,0 +1,41 @@
+.container {
+  max-width: 1392px;
+  margin: 0 auto;
+}
+.favoriteTitle {
+  display: flex;
+  align-items: flex-end;
+  gap: 23px;
+  margin-bottom: 40px;
+  h1 {
+    color: #000;
+    font-family: var(--font-exo_2);
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  p {
+    color: var(---600, #6c6c6c);
+    font-family: var(--font-exo_2);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
+.favoriteProducts {
+  width: 100%;
+  display: flex;
+  gap: 32px;
+  margin-bottom: 88px;
+}
+.favoriteFilter {
+  width: 324px;
+  flex-shrink: 0;
+}
+.favoriteItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
