@@ -3,6 +3,9 @@ import cls from './index.module.scss';
 import CategoryCard from '@/components/categoryCart/CategoryCard';
 import cartImg from '@/assets/mathRog.jpg';
 import PaginationNavigation from '@/components/pagination/PaginationNavigation';
+import viewIcon from '@/assets/viewIcon.svg';
+import filterIcon from '@/assets/filterIcon.svg';
+import Image from 'next/image';
 
 const Page = () => {
   const params = [
@@ -91,6 +94,14 @@ const Page = () => {
         <div className={cls.favoriteTitle}>
           <h1>Товари, що сподобалися</h1>
           <p>16 товарів</p>
+          <div className={cls.filterButtons}>
+            <button className={cls.viewButton}>
+              <Image src={viewIcon} width={18} height={18} alt='viewIcon' />
+            </button>
+            <button className={cls.filterButton}>
+              <Image src={filterIcon} width={18} height={18} alt='filterIcon' />
+            </button>
+          </div>
         </div>
         <div className={cls.favoriteProducts}>
           <div className={cls.favoriteFilter}>
