@@ -184,6 +184,7 @@
       line-height: normal;
     }
   }
+
   button {
     display: flex;
     color: var(---800, #262626);
@@ -212,13 +213,11 @@
   border-radius: 16px;
   border: 1.4px solid var(---500, #c1c1c1);
   color: var(---800, #262626);
-
-  /* H7 */
   font-family: var(--font-exo_2);
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
-  line-height: 22px; /* 110% */
+  line-height: 22px; 
 }
 .monitorsItems {
   display: flex;
