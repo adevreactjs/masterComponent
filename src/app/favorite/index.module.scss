@@ -39,6 +39,10 @@
   flex-wrap: wrap;
   gap: 8px;
 }
+.filterButtons {
+  display: none;
+}
+
 @media (max-width: 1280px) {
   .favoriteTitle {
     padding: 0 16px;
@@ -57,11 +61,17 @@
   .favoriteFilter {
     display: none;
   }
+ 
   .favoriteItems {
     gap: 0;
   }
   .filterButtons {
     display: flex;
     gap: 19px;
+  }
+  .favorite {
+    max-width: 360px;
+    margin: 0 auto
+    ;
   }
 }

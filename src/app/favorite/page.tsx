@@ -1,3 +1,5 @@
+'use client';
+
 import ParamsFilter from '@/components/paramsFilter/ParamsFilter';
 import cls from './index.module.scss';
 import CategoryCard from '@/components/categoryCart/CategoryCard';
@@ -6,8 +8,17 @@ import PaginationNavigation from '@/components/pagination/PaginationNavigation';
 import viewIcon from '@/assets/viewIcon.svg';
 import filterIcon from '@/assets/filterIcon.svg';
 import Image from 'next/image';
+import MobileProductFilter from '@/components/mobileProductFilter/MobileProductFilter';
+import { Provider, useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../store/store';
+import { openMobileFilterHandler } from '../store/reducers/MobileFilterSlice';
 
 const Page = () => {
+  const isOpenMobileFilter = useSelector(
+    (state: RootState) => state.mobileFilter.isOpenMobileFilter,
+  );
+  const dispatch = useDispatch();
+
   const params = [
     {
       id: '1',
@@ -88,6 +99,9 @@ const Page = () => {
       sale: 200,
     },
   ];
+  const openFilterMenu = () => {
+    dispatch(openMobileFilterHandler(!isOpenMobileFilter));
+  };
   return (
     <div className={cls.favorite}>
       <div className={cls.container}>
@@ -98,7 +112,7 @@ const Page = () => {
             <button className={cls.viewButton}>
               <Image src={viewIcon} width={18} height={18} alt='viewIcon' />
             </button>
-            <button className={cls.filterButton}>
+            <button className={cls.filterButton} onClick={openFilterMenu}>
               <Image src={filterIcon} width={18} height={18} alt='filterIcon' />
             </button>
           </div>
@@ -118,6 +132,7 @@ const Page = () => {
         <p className='text-grey text-center w-full text-[16px] normal font-semibold leading-normal underline mb-[39px] cursor-pointer'>
           Показати ще 20/144
         </p>
+
         <PaginationNavigation />
       </div>
     </div>
