@@ -8,8 +8,7 @@ import PaginationNavigation from '@/components/pagination/PaginationNavigation';
 import viewIcon from '@/assets/viewIcon.svg';
 import filterIcon from '@/assets/filterIcon.svg';
 import Image from 'next/image';
-import MobileProductFilter from '@/components/mobileProductFilter/MobileProductFilter';
-import { Provider, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 import { openMobileFilterHandler } from '../store/reducers/MobileFilterSlice';
 
