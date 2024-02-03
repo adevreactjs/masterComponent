@@ -1,5 +1,4 @@
 'use client';
-
 import ParamsFilter from '@/components/paramsFilter/ParamsFilter';
 import cls from './index.module.scss';
 import CategoryCard from '@/components/categoryCart/CategoryCard';
