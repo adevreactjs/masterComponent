@@ -1,0 +1,200 @@
+.container {
+  max-width: 1372px;
+  margin: 0 auto;
+}
+
+.smallBlock{
+  // min-width: 229px;
+  // width: 100%;
+  height: 236px;
+  padding: 16px 20px 20px 20px;
+  border: 1px solid var(---500, #C1C1C1);
+  border-radius: 16px;
+}
+
+.button{
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(---800, #262626);
+  color: var(---600, #6C6C6C);
+}
+
+.userFullName {
+  font-size: 16px;
+  line-height: 23px; 
+  font-family: var(---800, #262626);
+  font-weight: 600;
+  color: var(---800, #262626);
+  margin-top: 12px;
+}
+
+.bonuses{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid #F1F1F1;
+}
+
+.bonusesName {
+  font-size: 12px;
+  font-family: var(--font-exo_2);
+  font-weight: 600;
+  color: var(---800, #262626);
+}
+
+.bonusesCount {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-family: var(--font-exo_2);
+  font-weight: 600;
+  color: var(---600, #6C6C6C);
+}
+
+.bonusesImage {
+  @apply w-[16px] h-[16px] bg-[#B9FF61] rounded-full flex justify-center items-center ml-[4px];
+}
+
+.method {
+  font-size: 14px;
+  font-family: var(--font-exo_2);
+  font-weight: 600;
+  color: var(---800, #262626);
+}
+
+.methodBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.methodCard {
+  width: 240px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 9px;
+  border-radius: 7px;
+  border: 1px solid #C1C1C1;
+}
+
+.methodNumber {
+  font-size: 12px;
+  font-family: var(--font-exo_2);
+  font-weight: 400;
+  color: var(---800, #262626);
+}
+
+.methodDate {
+  font-size: 12px;
+  font-family: var(--font-exo_2);
+  font-weight: 400;
+  color: var(---800, #262626);
+}
+
+.blackCircle { 
+  width: 7px;
+  height: 7px;
+  background-color: var(---800, #262626);
+  border-radius: 9999px;
+}
+
+.mediumBlock {
+  padding: 30px 31px;
+  border-radius: 16px;
+  border: 1px solid var(---500, #C1C1C1);
+  margin-top: 20px;
+}
+
+.mediumBlockTitle {
+  width: 66px;
+  font-size: 14px;
+  font-family: var(--font-exo_2);
+  font-weight: 600;
+  color: var(---800, #262626);
+}
+
+.mediumBlockText {
+  font-size: 14px;
+  font-family: var(--font-exo_2);
+  font-weight: 500;
+  color: var(---800, #262626);
+}
+
+.largeBlock {
+  max-width: 798px;
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid var(---500, #C1C1C1);
+  padding: 16px 20px 20px 20px;
+}
+
+.largeTitle {
+  font-family: var(--font-exo_2);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(---800, #262626);
+}
+
+.titles {
+  display: grid;
+  grid-template-columns: 160px 135px 217px 180px 25px;
+  padding: 0 20px;
+}
+
+.largeSort,
+.largeSort button{
+    font-size: 16px;
+    font-family: var(--font-exo_2);
+    font-weight: 500;
+    color: var(---800, #262626);
+}
+
+.tableTitle {
+  font-size: 14px;
+  font-family: var(--font-exo_2);
+  font-weight: 600;
+  color: #000;
+}
+
+.orderBlock {
+  padding: 14px 20px;
+  border-radius: 16px;
+  background-color: var(---800, #F1F1F1);
+  display: grid;
+  grid-template-columns: 160px 135px 217px 180px 25px;
+  cursor: pointer;
+}
+
+.orderBlockInfo {
+  font-size: 16px;;
+  font-family: var(--font-exo_2);
+  font-weight: 500;
+  color: #000;
+}
+
+
+@media (max-width: 1367px) {
+  .titles,
+  .orderBlock {
+    grid-template-columns: 1fr 1fr 1fr 1fr 0.2fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .titles,
+  .orderBlock {
+    grid-template-columns: 1fr 1fr 0.2fr;
+  }
+  .largeTitle {
+    font-size: 16px;
+  }
+
+  .largeSort{
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
