@@ -1,0 +1,51 @@
+.react-select {
+    &__control {
+        border: none;
+        outline: none;
+    }
+
+    &__control{
+        min-width: 110px;
+        cursor: pointer;
+    }
+    
+    &__value-container {
+        font-size: 16px;
+        font-family: var(--font-exo_2);
+        font-weight: 500;
+        color: var(---800, #262626);
+        padding: 0 0 0 3px;
+    }
+    
+    &__indicator{
+        padding: 0;
+        color: #262626;
+        width: 20px;
+        height: 18px;
+    }
+    
+    
+}
+
+@media (max-width: 520px) {
+    .react-select {
+        &__control{
+            min-width: 95px;
+            cursor: pointer;
+        }
+
+        &__value-container {
+            font-size: 14px;
+            font-weight: 600;
+        }
+    
+    }
+}
+
+.react-select__menu {
+    // width: 200px;  
+}
+
+.css-1u9des2-indicatorSeparator {
+    display: none;
+}

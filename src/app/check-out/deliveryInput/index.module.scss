@@ -35,6 +35,7 @@
 .mainLabelList {
   cursor: pointer;
 }
+
 .customCheckbox + label::before {
   content: '';
   display: inline-block;
