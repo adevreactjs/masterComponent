@@ -6,7 +6,6 @@ import componentsImage from '@/assets/componentsImage.svg'
 import visa from '@/assets/visa.png'
 import trash from '@/assets/trash.svg'
 import btnArrow from '@/assets/btnArrow.svg'
-import ReactSelect from 'react-select';
 import Select from '@/components/Select';
 
 const Page = () => {
