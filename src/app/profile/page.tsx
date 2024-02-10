@@ -6,6 +6,7 @@ import componentsImage from '@/assets/componentsImage.svg'
 import visa from '@/assets/visa.png'
 import trash from '@/assets/trash.svg'
 import btnArrow from '@/assets/btnArrow.svg'
+import edit from '@/assets/edit.svg'
 import Select from '@/components/Select';
 
 const Page = () => {
@@ -28,7 +29,7 @@ const Page = () => {
     ]
 
     return ( 
-        <div className={`flex gap-x-[30px] ${cls.container} !mb-32 max-[1367px]:px-[1rem]`}>
+        <div className={`flex gap-x-[30px] ${cls.container} !mb-32 max-[1367px]:px-[1rem] max-[1367px]:flex-col `}>
             <div className="left max-[1367px]:w-full">
                 <div className="flex gap-[20px] max-[600px]:flex-col">
                     <div className={`${cls.smallBlock} w-[229px] max-[1367px]:w-full`}>
@@ -83,7 +84,8 @@ const Page = () => {
                                 )}
                             </div>
                             <div className="ml-auto"></div>
-                            <button className={cls.button}>Змінити</button>
+                            <button className={`${cls.button} block max-[520px]:hidden`}>Змінити</button>
+                            <button className='hidden max-[520px]:block'><Image src={edit} alt='edit'/></button>
                         </div>
                     ))}
                 </div>
