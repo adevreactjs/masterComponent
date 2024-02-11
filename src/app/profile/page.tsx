@@ -22,12 +22,6 @@ const Page = () => {
         {number: '4441 1144 2976 0934', date: '09/27'},
     ]
 
-    const options = [
-        {value: 'in-procces', label: 'В процесі'},
-        {value: 'date', label: 'Датою'},
-        {value: 'cancel', label: 'Скасовано'},
-    ]
-
     return ( 
         <div className={`flex gap-x-[30px] ${cls.container} !mb-32 max-[1367px]:px-[1rem] max-[1367px]:flex-col `}>
             <div className="left max-[1367px]:w-full">
