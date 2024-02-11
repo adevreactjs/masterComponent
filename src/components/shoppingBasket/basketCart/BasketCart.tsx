@@ -5,7 +5,7 @@ import cartImg from '@/assets/mathRog.jpg';
 import procIcon from '@/assets/procIcon.svg';
 import { useState } from 'react';
 
-const BasketCart = () => {
+const BasketCart = ({typeFor}: any) => {
   const [count, setCount] = useState(1);
 
   const calculateInc = () => {
@@ -26,44 +26,48 @@ const BasketCart = () => {
             <Image src={cartImg} width={60} height={60} alt='cartImg' />
           </div>
           <div>
-            <div className={cls.basketCartDescription}>
-              Материнська плата Gigabyte B550M AORUS ELITE (sAM4,...
+            <div className={`${cls.basketCartDescription} ${typeFor === 'profile' && '!w-full'}`}>
+              Материнська плата Gigabyte B550M AORUS ELITE {typeFor === 'profile' ? '' : '(sAM4,...'}
             </div>
           </div>
         </div>
-        <div className={cls.basketCartCounter}>
-          <button onClick={calculateDec} className={cls.minusBtn}>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              width='11'
-              height='2'
-              viewBox='0 0 11 2'
-              fill='none'>
-              <path d='M1 1H10' stroke='#4E4E4E' strokeWidth='2' strokeLinecap='round' />
-            </svg>
-          </button>
+        {typeFor === 'profile' ? (
           <div className={cls.basketCartCount}>{count}</div>
-          <button onClick={calculateInc} className={cls.plusBtn}>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              width='11'
-              height='12'
-              viewBox='0 0 11 12'
-              fill='none'>
-              <path
-                d='M1 6H10M5.5 10.5L5.5 1.5'
-                stroke='#4E4E4E'
-                strokeWidth='2'
-                strokeLinecap='round'
-              />
-            </svg>
-          </button>
-        </div>
+        ) : (
+          <div className={cls.basketCartCounter}>
+            <button onClick={calculateDec} className={cls.minusBtn}>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='11'
+                height='2'
+                viewBox='0 0 11 2'
+                fill='none'>
+                <path d='M1 1H10' stroke='#4E4E4E' strokeWidth='2' strokeLinecap='round' />
+              </svg>
+            </button>
+            <div className={cls.basketCartCount}>{count}</div>
+            <button onClick={calculateInc} className={cls.plusBtn}>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='11'
+                height='12'
+                viewBox='0 0 11 12'
+                fill='none'>
+                <path
+                  d='M1 6H10M5.5 10.5L5.5 1.5'
+                  stroke='#4E4E4E'
+                  strokeWidth='2'
+                  strokeLinecap='round'
+                />
+              </svg>
+            </button>
+          </div>
+        )}
         <div className={cls.basketCartPrice}>
           {9485 * count} ₴<div className={cls.basketCartDiscount}>10 579 ₴</div>
         </div>
       </div>
-      <div className={cls.basketTotalWrapper}>
+      <div className={`${cls.basketTotalWrapper} ${typeFor === 'profile' && 'hidden'}`}>
         <div className={cls.basketTotalBonus}>
           +63
           <div className={cls.procImage}>

@@ -26,6 +26,18 @@
         width: 20px;
         height: 18px;
     }
+
+    &__menu {
+        width: 190px;
+        left: -105px; 
+        top: 30px;
+        border-radius: 0px 0px 10px 10px;
+        background: var(--Color, #F1F1F1);
+        padding: 8px 14px;
+        // animation: scaleIn .35s ease-in-out;
+        animation: scaleIn .5s ease-out;
+    }
+    
     
     
 }
@@ -33,7 +45,6 @@
 @media (max-width: 520px) {
     .react-select {
         &__control{
-            min-width: 95px;
             cursor: pointer;
         }
 
@@ -41,20 +52,14 @@
             font-size: 14px;
             font-weight: 600;
         }
-    
+        
+        &__menu {
+            width: 160px;
+            left: -90px; 
+        }
     }
 }
 
-.react-select__menu {
-    width: 200px;
-    left: -105px; 
-    top: 30px;
-    border-radius: 0px 0px 10px 10px;
-    background: var(--Color, #F1F1F1);
-    padding: 8px 14px;
-    // animation: scaleIn .35s ease-in-out;
-    animation: scaleIn .5s ease-out;
-}
 
 // @keyframes scaleIn {
 //     0%{
