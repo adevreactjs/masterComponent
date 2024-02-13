@@ -1,6 +1,6 @@
-'use client'
-import React, { useState } from 'react'
-import cls from './index.module.scss'
+'use client';
+import React, { useState } from 'react';
+import cls from './index.module.scss';
 import Image from 'next/image';
 import compIcon from '../../assets/compIcon.svg';
 import procIcon from '../../assets/procIcon.svg';
@@ -10,7 +10,7 @@ import wifiIcon from '../../assets/wifiIcon.svg';
 import rightArrow from '../../assets/rightArrow.svg';
 
 const CategoryMenu = () => {
-      const [activeCategory, setActiveCategory] = useState(0);
+  const [activeCategory, setActiveCategory] = useState(0);
 
   return (
     <section id={cls.mainMenu}>
@@ -361,6 +361,6 @@ const CategoryMenu = () => {
       </div>
     </section>
   );
-}
+};
 
-export default CategoryMenu
+export default CategoryMenu;
