@@ -1,0 +1,29 @@
+#mobileMenu {
+  position: absolute;
+  left: 0;
+  top: 77px;
+  z-index: 5;
+  width: 100%;
+  padding: 30px 20px;
+  background: var(---900, #fbfbfb);
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-exo_2);
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+  .mobileMenuContent {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}

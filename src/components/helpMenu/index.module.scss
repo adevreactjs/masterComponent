@@ -1,0 +1,26 @@
+.helpMenu {
+  position: absolute;
+  left: 82px;
+  top: 56px;
+  z-index: 3;
+  padding: 18px;
+  border-radius: 20px;
+  background: var(---800, #f1f1f1);
+  .helpMenuItems {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    .helpMenuItem {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(---800, #262626);
+      font-family: var(--font-exo_2);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 23px;
+      cursor: pointer;
+    }
+  }
+}
