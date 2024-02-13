@@ -27,7 +27,7 @@ const BasketCart = ({typeFor}: any) => {
           </div>
           <div>
             <div className={`${cls.basketCartDescription} ${typeFor === 'profile' && '!w-full'}`}>
-              Материнська плата Gigabyte B550M AORUS ELITE {typeFor === 'profile' ? '' : '(sAM4,...'}
+              Материнська плата Gigabyte B550M AORUS ELITE {typeFor === 'profile' ? '' : '(sAM4,...'} 
             </div>
           </div>
         </div>

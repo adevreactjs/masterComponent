@@ -1,6 +1,7 @@
 'use client'
 
-import visa from '@/assets/visa.png'
+import visa from '@/assets/visa.svg'
+import masterCard from '@/assets/mastercard.svg'
 import trash from '@/assets/trash.svg'
 import Image from 'next/image';
 import cls from './index.module.scss';
@@ -8,9 +9,22 @@ import cls from './index.module.scss';
 const Payment = () => {
     const cards = [
         {number: '4441 1144 2976 0932', date: '09/25'},
-        {number: '4441 1144 2976 0933', date: '09/26'},
+        {number: '5425 2334 3010 9903', date: '09/26'},
         {number: '4441 1144 2976 0934', date: '09/27'},
     ]
+
+    const checkCard = (number: string) => { 
+        const firstDigital = number[0]
+
+        switch(firstDigital) {
+            case '4':
+                return visa
+            case '5':
+                return masterCard
+            default:
+                return masterCard
+        }
+    }
 
     return (
         <>
@@ -22,7 +36,7 @@ const Payment = () => {
                 {cards.map((card, index) => (
                     <div key={index} className={cls.methodBlock}>
                         <div className={`${cls.methodCard} max-[1367px]:!w-[90%]`}>
-                            <Image src={visa} alt='visa' width={28} height={8}/>
+                            <Image src={checkCard(card.number)} alt='visa' width={31} height={9}/>
                             <div className={cls.methodNumber}>{card.number}</div>
                             <div className={cls.methodDate}>{card.date}</div>
                         </div>
