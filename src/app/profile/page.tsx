@@ -1,12 +1,14 @@
 'use client';
 import Image from 'next/image';
-import cls from './index.module.scss';
-import userPhoto from '@/assets/user-photo.png'
-import componentsImage from '@/assets/componentsImage.svg'
-import visa from '@/assets/visa.png'
-import trash from '@/assets/trash.svg'
 import btnArrow from '@/assets/btnArrow.svg'
+import edit from '@/assets/edit.svg'
 import Select from '@/components/Select';
+import {Accordion, AccordionItem, AccordionItemButton, AccordionItemPanel} from 'react-accessible-accordion'
+import BasketCart from '@/components/shoppingBasket/basketCart/BasketCart';
+import Payment from './Payment';
+import cls from './index.module.scss';
+import Avatar from './Avatar';
+
 
 const Page = () => {
     const settings = [
@@ -15,61 +17,16 @@ const Page = () => {
         {title: 'Телефон', text: '+380 632 775 333'},
     ]
 
-    const cards = [
-        {number: '4441 1144 2976 0932', date: '09/25'},
-        {number: '4441 1144 2976 0933', date: '09/26'},
-        {number: '4441 1144 2976 0934', date: '09/27'},
-    ]
-
-    const options = [
-        {value: 'in-procces', label: 'В процесі'},
-        {value: 'date', label: 'Датою'},
-        {value: 'cancel', label: 'Скасовано'},
-    ]
-
     return ( 
-        <div className={`flex gap-x-[30px] ${cls.container} !mb-32 max-[1367px]:px-[1rem]`}>
+        <div className={`flex gap-x-[30px] ${cls.container} !mb-32 max-[1367px]:px-[1rem] max-[1367px]:flex-col `}>
             <div className="left max-[1367px]:w-full">
                 <div className="flex gap-[20px] max-[600px]:flex-col">
                     <div className={`${cls.smallBlock} w-[229px] max-[1367px]:w-full`}>
-                        <div className='flex justify-between'>
-                            <button className={cls.button}>Редагувати</button>
-                            <button className={cls.button}>Вийти</button>
-                        </div>
-                        <div className="mt-[22px] flex flex-col items-center mb-[10px]">
-                            <Image src={userPhoto} alt='user photo' width={85} height={85}/>
-                            <div className={cls.userFullName}>Роман Романович</div>
-                        </div>
-                        <div className={cls.bonuses}>
-                            <div className={cls.bonusesName}>Бонуси</div>
-                            <div className={cls.bonusesCount}>
-                                63 
-                                <div className={cls.bonusesImage}>
-                                    <Image src={componentsImage} alt='' width={10} height={10}/>
-                                </div>
-                            </div>
-                        </div>
+                        <Avatar />
                     </div>
                     <div className={`${cls.smallBlock} w-[315px] max-[1367px]:w-full`}>
-                        <div className="flex justify-between">
-                            <div className={cls.method}>Спосіб оплати</div>
-                            <button className={cls.button}>Додати</button>
-                        </div>
-                        <div className="mt-[25px]">
-                            {cards.map((card, index) => (
-                                <div key={index} className={cls.methodBlock}>
-                                    <div className={`${cls.methodCard} max-[1367px]:!w-[90%]`}>
-                                        <Image src={visa} alt='visa' width={28} height={8}/>
-                                        <div className={cls.methodNumber}>{card.number}</div>
-                                        <div className={cls.methodDate}>{card.date}</div>
-                                    </div>
-                                    <button>
-                                        <Image style={{height: '20px'}} src={trash} alt='delete' width={18} height={20}/>
-                                    </button>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                        <Payment />
+                    </div>  
                 </div>
                 <div className={cls.mediumBlock}>
                     {settings.map((setting, index) => (
@@ -83,7 +40,8 @@ const Page = () => {
                                 )}
                             </div>
                             <div className="ml-auto"></div>
-                            <button className={cls.button}>Змінити</button>
+                            <button className={`${cls.button} block max-[520px]:hidden`}>Змінити</button>
+                            <button className='hidden max-[520px]:block'><Image src={edit} alt='edit'/></button>
                         </div>
                     ))}
                 </div>
@@ -105,13 +63,22 @@ const Page = () => {
                         <div className={cls.tableTitle}>Статус</div>
                     </div>
                     <div className="gap-y-[10px] mt-[14px]">
-                        <div className={cls.orderBlock}>
-                            <div className={`${cls.orderBlockInfo} max-[520px]:hidden`}>114 товарів</div>
-                            <div className={cls.orderBlockInfo}>12/12/23</div>
-                            <div className={cls.orderBlockInfo}>12 000 грн</div>
-                            <div className={`${cls.orderBlockInfo} max-[520px]:hidden`}>В процесі</div>
-                            <div className=""><Image src={btnArrow} alt='' width={24} height={24}/></div>
-                        </div>  
+                        <Accordion allowZeroExpanded className=''>
+                            <AccordionItem> 
+                                <AccordionItemButton>
+                                    <div className={cls.orderBlock}>
+                                        <div className={`${cls.orderBlockInfo} max-[520px]:hidden`}>114 товарів</div>
+                                        <div className={cls.orderBlockInfo}>12/12/23</div>
+                                        <div className={cls.orderBlockInfo}>12 000 грн</div>
+                                        <div className={`${cls.orderBlockInfo} max-[520px]:hidden`}>В процесі</div>
+                                        <div className=""><Image src={btnArrow} alt='' width={24} height={24}/></div>
+                                    </div>  
+                                </AccordionItemButton>
+                                <AccordionItemPanel className={cls.accordionPanel}>
+                                    <BasketCart typeFor='profile'/>
+                                </AccordionItemPanel>
+                            </AccordionItem>
+                        </Accordion>
                     </div>
                 </div>
             </div>
