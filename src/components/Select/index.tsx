@@ -9,6 +9,7 @@ const options = [
     {value: 'cancel', label: 'Скасовано'},
     {value: 'drive', label: 'Їде до Вас'},
 ]
+
 const Select = ({...rest}: any) => {    
     const [value, setValue] = useState('date')
 
@@ -27,8 +28,8 @@ const Select = ({...rest}: any) => {
                 options={options} 
                 value={getValue()} 
                 onChange={onChange} 
+                isSearchable={false}
             />
-   
     );
 }
  
