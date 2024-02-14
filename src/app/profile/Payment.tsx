@@ -19,8 +19,8 @@ const Payment = () => {
         // { issuer: 'americanExpress', prefixes: ['34', '37'] },
         // { issuer: 'discover', prefixes: ['6011', '644', '65'] },
       ];
-
-    const checkCard = (number: string) => { 
+      
+    const checkCard = (number: string): any => { 
         return cardIssuers.find(issuer => issuer.prefixes.some(prefix => number.startsWith(prefix)))
     }
 
