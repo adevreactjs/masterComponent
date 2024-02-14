@@ -37,9 +37,6 @@
         // animation: scaleIn .35s ease-in-out;
         animation: scaleIn .5s ease-out;
     }
-    
-    
-    
 }
 
 @media (max-width: 520px) {
@@ -78,7 +75,7 @@
 @keyframes scaleIn {
     0%{
         opacity: 0;
-        top: -10px;
+        top: 0px;
     }
     50%{
         opacity: 0.3;
