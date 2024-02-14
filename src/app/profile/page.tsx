@@ -64,7 +64,21 @@ const Page = () => {
                     </div>
                     <div className="gap-y-[10px] mt-[14px]">
                         <Accordion allowZeroExpanded className=''>
-                            <AccordionItem> 
+                            <AccordionItem className='mt-4'> 
+                                <AccordionItemButton>
+                                    <div className={cls.orderBlock}>
+                                        <div className={`${cls.orderBlockInfo} max-[520px]:hidden`}>114 товарів</div>
+                                        <div className={cls.orderBlockInfo}>12/12/23</div>
+                                        <div className={cls.orderBlockInfo}>12 000 грн</div>
+                                        <div className={`${cls.orderBlockInfo} max-[520px]:hidden`}>В процесі</div>
+                                        <div className=""><Image src={btnArrow} alt='' width={24} height={24}/></div>
+                                    </div>  
+                                </AccordionItemButton>
+                                <AccordionItemPanel className={cls.accordionPanel}>
+                                    <BasketCart typeFor='profile'/>
+                                </AccordionItemPanel>
+                            </AccordionItem>
+                            <AccordionItem className='mt-3'> 
                                 <AccordionItemButton>
                                     <div className={cls.orderBlock}>
                                         <div className={`${cls.orderBlockInfo} max-[520px]:hidden`}>114 товарів</div>

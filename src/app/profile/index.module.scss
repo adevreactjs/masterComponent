@@ -181,22 +181,21 @@
   animation: scaleIn .5s ease-out;
   padding: 20px 20px 14px 20px;
   background-color: var(---800, #F1F1F1);
-  position: relative;
-  top: -12.5px;
+  margin-top: -12.5px;
   border-radius: 0 0 16px 16px;
 }
 
 @keyframes scaleIn {
   0%{
       opacity: 0;
-      top: -30px;
+      margin-top: -30px;
   }
   50%{
       opacity: 0.3;
   }
   100% {
       opacity: 1;
-      top: -12.5px;
+      margin-top: -12.5px;
   }
 }
 
