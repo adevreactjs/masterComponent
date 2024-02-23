@@ -1,3 +1,4 @@
+'use client'
 import React, { FC } from 'react';
 import cls from './index.module.scss';
 import cartImg from '@/assets/mathRog.jpg';
@@ -8,28 +9,35 @@ import alphaIcon from '@/assets/alphaIcon.png';
 import favIcon from '@/assets/favoriteIcon.svg';
 import cartIcon from '@/assets/cartIcon.svg';
 import Image, { StaticImageData } from 'next/image';
+import { Product } from '@/types/type';
+import { chooseProduct } from '@/app/store/reducers/LoadDataProducts';
+import { RootState } from '@/app/store/store';
+import { useSelector } from 'react-redux';
+import { useRouter } from 'next/navigation';
 
 interface CategoryCardProps {
-  product: {
-    promotion: boolean;
-    image: StaticImageData;
-    code: number;
-    title: string;
-    price: number;
-    sale: number;
-  };
+  product: Product
 }
 
 const CategoryCard: FC<CategoryCardProps> = ({ product }) => {
+    const productsItems = useSelector((state: RootState) => state.productItems.products);
+      const router = useRouter();
+
+
+   const chooseProductCart = () => {
+    //  dispatch(chooseProduct(product.id));
+     router.push(`/category/product`);
+   };
+
   return (
-    <div className={cls.cartItem}>
+    <div className={cls.cartItem} onClick={chooseProductCart}>
       <div className={cls.cart}>
         <div className={cls.cartWrapper}>
           <div className={cls.cartLabels}>
-            <div className={product.promotion ? cls.promote : cls.cartLabel}>
-              {product.promotion ? 'Акція' : 'Хіт продажу'}
+            <div className={productsItems[0].promotion ? cls.promote : cls.cartLabel}>
+              {productsItems[0] ? 'Акція' : 'Хіт продажу'}
             </div>
-            <div className={cls.cartId}>Код:{product.code}</div>
+            <div className={cls.cartId}>Код:{product.id}</div>
           </div>
           <div className={cls.cartImage}>
             <Image src={cartImg} width={225} height={174} alt='cartImg' />
@@ -67,8 +75,10 @@ const CategoryCard: FC<CategoryCardProps> = ({ product }) => {
             </div>
           </div>
           <div className={cls.cartPrice}>
-            {product.promotion && <div className={cls.sales}>{product.price + product.sale} ₴</div>}
-            {product.price} ₴
+            {productsItems[0].promotion && (
+              <div className={cls.sales}>{productsItems[0].price + 100} ₴</div>
+            )}
+            {productsItems[0].price} ₴
             <div className={cls.cartBtns}>
               <button className={cls.favoriteBtn}>
                 <Image src={favIcon} width={18} height={16} alt='favIcon' />
@@ -93,3 +103,7 @@ const CategoryCard: FC<CategoryCardProps> = ({ product }) => {
 };
 
 export default CategoryCard;
+function dispatch(arg0: any) {
+  throw new Error('Function not implemented.');
+}
+

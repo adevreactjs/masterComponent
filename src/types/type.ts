@@ -1,6 +1,5 @@
 import { StaticImageData } from 'next/image';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
-import { ReactNode } from 'react';
 
 export interface Products {
   products: Product[];
@@ -13,6 +12,7 @@ export interface Product {
   price: number;
   bonus: number;
   property: Propers[];
+  promotion?: boolean;
 }
 
 export interface Propers {

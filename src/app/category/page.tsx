@@ -7,12 +7,14 @@ import viewIcon from '@/assets/viewIcon.svg';
 import filterIcon from '@/assets/filterIcon.svg';
 import cartImg from '@/assets/mathRog.jpg';
 import closeIcon from '@/assets/closeIcon.svg';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import cls from './index.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/app/store/store';
 import { openMobileFilterHandler } from '@/app/store/reducers/MobileFilterSlice';
+import { chooseProduct, loadData } from '../store/reducers/LoadDataProducts';
+import { products } from '../api/mockDataProducts';
 
 const Page = () => {
   const [openSortMenu, setOpenSortMenu] = useState(false);
@@ -22,6 +24,8 @@ const Page = () => {
   const isOpenMobileFilter = useSelector(
     (state: RootState) => state.mobileFilter.isOpenMobileFilter,
   );
+  const productsItems = useSelector((state: RootState) => state.productItems.products);
+  console.log(products);
   const params = [
     {
       id: '1',
@@ -39,73 +43,23 @@ const Page = () => {
       params: ['Білий', 'Зелений', 'Коричневий', 'Сірий', 'Синій', 'Червоний'],
     },
   ];
-  const products = [
-    {
-      promotion: true,
-      image: cartImg,
-      code: 1040267,
-      title: 'Материнська плата Asus PRIME Z790-P',
-      price: 3499,
-      sale: 200,
-    },
-    {
-      promotion: true,
-      image: cartImg,
-      code: 3240672,
-      title: 'Материнська плата Asus PRIME Z790-P',
-      price: 3499,
-      sale: 200,
-    },
-    {
-      promotion: true,
-      image: cartImg,
-      code: 3314067,
-      title: 'Материнська плата Asus PRIME Z790-P',
-      price: 3499,
-      sale: 200,
-    },
-    {
-      promotion: false,
-      image: cartImg,
-      code: 3040267,
-      title: 'Материнська плата Asus PRIME Z790-P',
-      price: 3499,
-      sale: 200,
-    },
-    {
-      promotion: false,
-      image: cartImg,
-      code: 3244067,
-      title: 'Материнська плата Asus PRIME Z790-P',
-      price: 3499,
-      sale: 200,
-    },
-    {
-      promotion: false,
-      image: cartImg,
-      code: 3540657,
-      title: 'Материнська плата Asus PRIME Z790-P',
-      price: 3499,
-      sale: 200,
-    },
-    {
-      promotion: false,
-      image: cartImg,
-      code: 3046067,
-      title: 'Материнська плата Asus PRIME Z790-P',
-      price: 3499,
-      sale: 200,
-    },
-  ];
+
   const sortMenu = ['Популярністю', 'Рейтингом', 'Ціною (дорожче)', 'Ціною (дешевше)'];
 
   const changeSortValue = (ind: number) => {
     setSortValue(ind);
     setOpenSortMenu(false);
   };
+  
   const openFilterMenu = () => {
     dispatch(openMobileFilterHandler(!isOpenMobileFilter));
   };
+
+ 
+
+  useEffect(() => {
+    dispatch(loadData(products));
+  }, []);
 
   return (
     <div className={cls.category}>
@@ -174,8 +128,11 @@ const Page = () => {
             </div>
           </div>
           <div className={cls.categoryCart}>
-            {products.map(product => (
-              <CategoryCard key={product.code} product={product} />
+            {productsItems.map(product => (
+              <CategoryCard
+                key={product.id}
+                product={product}
+              />
             ))}
           </div>
           <p className='text-grey text-center w-full text-[16px] normal font-semibold leading-normal underline mb-[39px] cursor-pointer'>
