@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { FC } from 'react';
 import cls from './index.module.scss';
 import cartImg from '@/assets/mathRog.jpg';
@@ -16,18 +16,17 @@ import { useSelector } from 'react-redux';
 import { useRouter } from 'next/navigation';
 
 interface CategoryCardProps {
-  product: Product
+  product: Product;
 }
 
 const CategoryCard: FC<CategoryCardProps> = ({ product }) => {
-    const productsItems = useSelector((state: RootState) => state.productItems.products);
-      const router = useRouter();
+  const productsItems = useSelector((state: RootState) => state.productItems.products);
+  const router = useRouter();
 
-
-   const chooseProductCart = () => {
+  const chooseProductCart = () => {
     //  dispatch(chooseProduct(product.id));
-     router.push(`/category/product`);
-   };
+    router.push(`/category/product`);
+  };
 
   return (
     <div className={cls.cartItem} onClick={chooseProductCart}>
@@ -106,4 +105,3 @@ export default CategoryCard;
 function dispatch(arg0: any) {
   throw new Error('Function not implemented.');
 }
-

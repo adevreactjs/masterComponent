@@ -15,6 +15,7 @@ const Page = () => {
   const isOpenMobileFilter = useSelector(
     (state: RootState) => state.mobileFilter.isOpenMobileFilter,
   );
+  const products = useSelector((state: RootState) => state.productItems.products);
   const dispatch = useDispatch();
 
   const params = [
@@ -39,64 +40,64 @@ const Page = () => {
       params: ['Білий', 'Зелений', 'Коричневий', 'Сірий', 'Синій', 'Червоний'],
     },
   ];
-  const products = [
-    {
-      promotion: true,
-      image: cartImg,
-      code: 1040267,
-      title: 'Материнська плата Asus PRIME Z790-P',
-      price: 3499,
-      sale: 200,
-    },
-    {
-      promotion: true,
-      image: cartImg,
-      code: 3240672,
-      title: 'Материнська плата Asus PRIME Z790-P',
-      price: 3499,
-      sale: 200,
-    },
-    {
-      promotion: true,
-      image: cartImg,
-      code: 3314067,
-      title: 'Материнська плата Asus PRIME Z790-P',
-      price: 3499,
-      sale: 200,
-    },
-    {
-      promotion: false,
-      image: cartImg,
-      code: 3040267,
-      title: 'Материнська плата Asus PRIME Z790-P',
-      price: 3499,
-      sale: 200,
-    },
-    {
-      promotion: false,
-      image: cartImg,
-      code: 3244067,
-      title: 'Материнська плата Asus PRIME Z790-P',
-      price: 3499,
-      sale: 200,
-    },
-    {
-      promotion: false,
-      image: cartImg,
-      code: 3540657,
-      title: 'Материнська плата Asus PRIME Z790-P',
-      price: 3499,
-      sale: 200,
-    },
-    {
-      promotion: false,
-      image: cartImg,
-      code: 3046067,
-      title: 'Материнська плата Asus PRIME Z790-P',
-      price: 3499,
-      sale: 200,
-    },
-  ];
+  // const products = [
+  //   {
+  //     promotion: true,
+  //     image: cartImg,
+  //     code: 1040267,
+  //     title: 'Материнська плата Asus PRIME Z790-P',
+  //     price: 3499,
+  //     sale: 200,
+  //   },
+  //   {
+  //     promotion: true,
+  //     image: cartImg,
+  //     code: 3240672,
+  //     title: 'Материнська плата Asus PRIME Z790-P',
+  //     price: 3499,
+  //     sale: 200,
+  //   },
+  //   {
+  //     promotion: true,
+  //     image: cartImg,
+  //     code: 3314067,
+  //     title: 'Материнська плата Asus PRIME Z790-P',
+  //     price: 3499,
+  //     sale: 200,
+  //   },
+  //   {
+  //     promotion: false,
+  //     image: cartImg,
+  //     code: 3040267,
+  //     title: 'Материнська плата Asus PRIME Z790-P',
+  //     price: 3499,
+  //     sale: 200,
+  //   },
+  //   {
+  //     promotion: false,
+  //     image: cartImg,
+  //     code: 3244067,
+  //     title: 'Материнська плата Asus PRIME Z790-P',
+  //     price: 3499,
+  //     sale: 200,
+  //   },
+  //   {
+  //     promotion: false,
+  //     image: cartImg,
+  //     code: 3540657,
+  //     title: 'Материнська плата Asus PRIME Z790-P',
+  //     price: 3499,
+  //     sale: 200,
+  //   },
+  //   {
+  //     promotion: false,
+  //     image: cartImg,
+  //     code: 3046067,
+  //     title: 'Материнська плата Asus PRIME Z790-P',
+  //     price: 3499,
+  //     sale: 200,
+  //   },
+  // ];
   const openFilterMenu = () => {
     dispatch(openMobileFilterHandler(!isOpenMobileFilter));
   };
@@ -123,7 +124,7 @@ const Page = () => {
           </div>
           <div className={cls.favoriteItems}>
             {products.map(product => (
-              <CategoryCard key={product.code} product={product} />
+              <CategoryCard key={product.id} product={product} />
             ))}
           </div>
         </div>
