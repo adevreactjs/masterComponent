@@ -50,14 +50,14 @@ const NewsSlider: FC<NewsSliderProps> = ({
       title: 'Процесор AMD Ryzen 9 1',
       price: 25819,
       bonus: 21,
-      property: [
+      property: 
         {
           proc: '16 ядер',
           frequency: '4.2(5.7)GHz',
           memory: '128MB',
           type: 'AM5',
         },
-      ],
+      
     },
     {
       id: 2,
@@ -66,14 +66,13 @@ const NewsSlider: FC<NewsSliderProps> = ({
       title: 'Процесор AMD Ryzen 9 2',
       price: 25000,
       bonus: 20,
-      property: [
+      property: 
         {
           proc: '15 ядер',
           frequency: '4.2(5.7)GHz',
           memory: '128MB',
           type: 'AM5',
         },
-      ],
     },
     {
       id: 3,
@@ -82,14 +81,13 @@ const NewsSlider: FC<NewsSliderProps> = ({
       title: 'Процесор AMD Ryzen 9 3',
       price: 25819,
       bonus: 19,
-      property: [
+      property: 
         {
           proc: '14 ядер',
           frequency: '4.2(5.7)GHz',
           memory: '128MB',
           type: 'AM5',
         },
-      ],
     },
     {
       id: 4,
@@ -98,14 +96,13 @@ const NewsSlider: FC<NewsSliderProps> = ({
       title: 'Процесор AMD Ryzen 9 4',
       price: 25819,
       bonus: 21,
-      property: [
+      property: 
         {
           proc: '16 ядер',
           frequency: '4.2(5.7)GHz',
           memory: '128MB',
           type: 'AM5',
         },
-      ],
     },
     {
       id: 5,
@@ -113,14 +110,13 @@ const NewsSlider: FC<NewsSliderProps> = ({
       title: 'Процесор AMD Ryzen 9 5',
       price: 25819,
       bonus: 21,
-      property: [
+      property: 
         {
           proc: '16 ядер',
           frequency: '4.2(5.7)GHz',
           memory: '128MB',
           type: 'AM5',
         },
-      ],
     },
     {
       id: 6,
@@ -129,14 +125,13 @@ const NewsSlider: FC<NewsSliderProps> = ({
       title: 'Процесор AMD Ryzen 9 6',
       price: 25819,
       bonus: 21,
-      property: [
+      property: 
         {
           proc: '16 ядер',
           frequency: '4.2(5.7)GHz',
           memory: '128MB',
           type: 'AM5',
         },
-      ],
     },
   ];
 

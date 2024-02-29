@@ -42,7 +42,7 @@ const CardNoHeard: FC<CardNoHeardProps> = ({ width, discount, fontSize, product 
         {discount && <div className={cls.discount}>{discount} ₴</div>}
       </div>
       <ul className={cls.characteristic}>
-        <li>{product.property[0].proc}</li>
+        <li>{product.property.proc}</li>
         <li>4.2(5.7)GHz</li>
         <li>128MB</li>
         <li>AM5</li>
