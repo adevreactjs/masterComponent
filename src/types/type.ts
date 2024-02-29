@@ -11,7 +11,7 @@ export interface Product {
   title: string;
   price: number;
   bonus: number;
-  property: Propers[];
+  property: Propers;
   promotion?: boolean;
 }
 

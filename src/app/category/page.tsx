@@ -5,8 +5,6 @@ import ParamsFilter from '@/components/paramsFilter/ParamsFilter';
 import RangeSlider from '@/components/rangeSlider/RangeSlider';
 import viewIcon from '@/assets/viewIcon.svg';
 import filterIcon from '@/assets/filterIcon.svg';
-import cartImg from '@/assets/mathRog.jpg';
-import closeIcon from '@/assets/closeIcon.svg';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import cls from './index.module.scss';
@@ -25,7 +23,6 @@ const Page = () => {
     (state: RootState) => state.mobileFilter.isOpenMobileFilter,
   );
   const productsItems = useSelector((state: RootState) => state.productItems.products);
-  console.log(products);
   const params = [
     {
       id: '1',
@@ -50,12 +47,14 @@ const Page = () => {
     setSortValue(ind);
     setOpenSortMenu(false);
   };
-  
+
   const openFilterMenu = () => {
     dispatch(openMobileFilterHandler(!isOpenMobileFilter));
   };
 
- 
+  const sortProductById = (id: number) => {
+    dispatch(chooseProduct(id));
+  };
 
   useEffect(() => {
     dispatch(loadData(products));
@@ -86,7 +85,7 @@ const Page = () => {
         </div>
         <div className='w-full'>
           <div className={cls.sortMenu}>
-            <p className={cls.categoryTitle}>Материнські плати</p>
+            <p className={cls.categoryTitle}></p>
             <div className='flex gap-x-[6px] relative items-baseline'>
               <p
                 className='text-[16px] normal font-medium leading-normal'
@@ -128,11 +127,10 @@ const Page = () => {
             </div>
           </div>
           <div className={cls.categoryCart}>
-            {productsItems.map(product => (
-              <CategoryCard
-                key={product.id}
-                product={product}
-              />
+            {products.map(product => (
+              <div key={product.id} onClick={() => sortProductById(product.id)}>
+                <CategoryCard key={product.id} product={product} />
+              </div>
             ))}
           </div>
           <p className='text-grey text-center w-full text-[16px] normal font-semibold leading-normal underline mb-[39px] cursor-pointer'>

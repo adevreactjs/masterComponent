@@ -6,7 +6,6 @@ import mathImg from '../../assets/mathImg.jpg';
 import favIcon from '../../assets/favIcon.svg';
 import starIcon from '../../assets/starIcon.svg';
 import infoIcon from '../../assets/infoIcon.svg';
-import cardIcon from '../../assets/cardIcon.png';
 import privateIcon from '../../assets/privateIcon.png';
 import monoIcon from '../../assets/monoIcon.png';
 import alphaIcon from '../../assets/alphaIcon.png';
@@ -37,7 +36,8 @@ import { useSelector } from 'react-redux';
 import { RootState } from '@/app/store/store';
 
 const ProductCart = () => {
-  const amountCom = useSelector( (state:RootState) => state.amount)
+  const amountCom = useSelector((state: RootState) => state.amount);
+  const chooseProduct = useSelector((state: RootState) => state.productItems.products);
   const [activeCategory, setActiveCategory] = useState(0);
   const [activeImageGallery, setActiveImageGallery] = useState(0);
   const categories = [
@@ -62,14 +62,12 @@ const ProductCart = () => {
       title: 'Процесор AMD Ryzen 9 1',
       price: 25819,
       bonus: 21,
-      property: [
-        {
-          proc: '16 ядер',
-          frequency: '4.2(5.7)GHz',
-          memory: '128MB',
-          type: 'AM5',
-        },
-      ],
+      property: {
+        proc: '16 ядер',
+        frequency: '4.2(5.7)GHz',
+        memory: '128MB',
+        type: 'AM5',
+      },
     },
     {
       id: 2,
@@ -78,14 +76,12 @@ const ProductCart = () => {
       title: 'Процесор AMD Ryzen 9 2',
       price: 25000,
       bonus: 20,
-      property: [
-        {
-          proc: '15 ядер',
-          frequency: '4.2(5.7)GHz',
-          memory: '128MB',
-          type: 'AM5',
-        },
-      ],
+      property: {
+        proc: '15 ядер',
+        frequency: '4.2(5.7)GHz',
+        memory: '128MB',
+        type: 'AM5',
+      },
     },
     {
       id: 3,
@@ -93,14 +89,12 @@ const ProductCart = () => {
       title: 'Процесор AMD Ryzen 9 3',
       price: 25819,
       bonus: 19,
-      property: [
-        {
-          proc: '14 ядер',
-          frequency: '4.2(5.7)GHz',
-          memory: '128MB',
-          type: 'AM5',
-        },
-      ],
+      property: {
+        proc: '14 ядер',
+        frequency: '4.2(5.7)GHz',
+        memory: '128MB',
+        type: 'AM5',
+      },
     },
     {
       id: 4,
@@ -108,14 +102,12 @@ const ProductCart = () => {
       title: 'Процесор AMD Ryzen 9 4',
       price: 25819,
       bonus: 21,
-      property: [
-        {
-          proc: '16 ядер',
-          frequency: '4.2(5.7)GHz',
-          memory: '128MB',
-          type: 'AM5',
-        },
-      ],
+      property: {
+        proc: '16 ядер',
+        frequency: '4.2(5.7)GHz',
+        memory: '128MB',
+        type: 'AM5',
+      },
     },
     {
       id: 5,
@@ -123,14 +115,12 @@ const ProductCart = () => {
       title: 'Процесор AMD Ryzen 9 5',
       price: 25819,
       bonus: 21,
-      property: [
-        {
-          proc: '16 ядер',
-          frequency: '4.2(5.7)GHz',
-          memory: '128MB',
-          type: 'AM5',
-        },
-      ],
+      property: {
+        proc: '16 ядер',
+        frequency: '4.2(5.7)GHz',
+        memory: '128MB',
+        type: 'AM5',
+      },
     },
     {
       id: 6,
@@ -138,14 +128,12 @@ const ProductCart = () => {
       title: 'Процесор AMD Ryzen 9 6',
       price: 25819,
       bonus: 21,
-      property: [
-        {
-          proc: '16 ядер',
-          frequency: '4.2(5.7)GHz',
-          memory: '128MB',
-          type: 'AM5',
-        },
-      ],
+      property: {
+        proc: '16 ядер',
+        frequency: '4.2(5.7)GHz',
+        memory: '128MB',
+        type: 'AM5',
+      },
     },
     {
       id: 7,
@@ -153,14 +141,12 @@ const ProductCart = () => {
       title: 'Процесор AMD Ryzen 9 6',
       price: 25819,
       bonus: 21,
-      property: [
-        {
-          proc: '16 ядер',
-          frequency: '4.2(5.7)GHz',
-          memory: '128MB',
-          type: 'AM5',
-        },
-      ],
+      property: {
+        proc: '16 ядер',
+        frequency: '4.2(5.7)GHz',
+        memory: '128MB',
+        type: 'AM5',
+      },
     },
   ];
   const scrollRef = useRef<HTMLInputElement | null | any>(null);
@@ -239,7 +225,7 @@ const ProductCart = () => {
               </div>
               <section className={cls.price}>
                 <div className={cls.title}>
-                  <h1>Материнська плата Asus PRIME Z790-P </h1>
+                  <h1>{chooseProduct[0].title}</h1>
                   <ul className={cls.characteristicMobile}>
                     <li>(WIFI) D4</li>
                     <li>DDR4 для ПК</li>
