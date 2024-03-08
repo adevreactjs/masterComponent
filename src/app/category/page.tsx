@@ -58,7 +58,7 @@ const Page = () => {
 
   useEffect(() => {
     dispatch(loadData(products));
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={cls.category}>
