@@ -7,8 +7,8 @@ export interface Products {
 
 export interface Product {
   id: number;
-  image: StaticImageData;
-  title: string;
+  image: string;
+  title: string;  
   price: number;
   bonus: number;
   property: Propers;
