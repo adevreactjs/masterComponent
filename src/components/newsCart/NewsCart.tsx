@@ -1,8 +1,6 @@
 import React, { FC, useState } from 'react';
 import cls from './index.module.scss';
 import Image from 'next/image';
-import favIcon from '../../assets/favIcon.svg';
-import heartGreen from '../../assets/heartGreen.svg'
 import { Product } from '@/types/type';
 import Heart from './Heart';
 
@@ -26,17 +24,18 @@ const NewsCart: FC<NewsCartProps> = ({ width, discount, fontSize, product, id })
   return (
     <div style={styles} className={cls.cart}>
       <div className={cls.cartImage}>
-        <Image
+        {/* <Image
           className={cls.cartImg}
           src={product.image}
           width={646}
-          height={312}
-          placeholder='blur'
+          width={646}
+          // placeholder='blur'
           alt='img'
           loading='lazy'
-        />
+        /> */}
+        <img className={cls.cartImg} src={product.image} alt="img" width={646} width={646}/>
         <div className={cls.bonusLabel}>+{product.bonus} бонуси</div>
-        <Heart favIcon={favIcon} heartGreen={heartGreen} id={id}/>
+        <Heart id={id}/>
       </div>
       <div className={cls.cartCharacteristic}>
         <h1 style={fontStyles} className={cls.cartTitle}>
@@ -48,7 +47,7 @@ const NewsCart: FC<NewsCartProps> = ({ width, discount, fontSize, product, id })
         {discount && <div className={cls.discount}>{discount} ₴</div>}
       </div>
       <ul className={cls.characteristic}>
-        <li>{product.property[0].proc}</li>
+        <li>{product.property.proc}</li>
         <li>4.2(5.7)GHz</li>
         <li>128MB</li>
         <li>AM5</li>

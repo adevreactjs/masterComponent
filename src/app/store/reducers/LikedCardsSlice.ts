@@ -28,12 +28,12 @@ export const LikedCards = createSlice({
         state.stylesObj.push(style.payload)
       },
       pushID: (state, id: PayloadAction<number>) => {
-        state.id.push(id.payload)
+        state.id.push(id.payload)  
         state.id = state.id.filter((num, id, massive) => massive.indexOf(num) === id)
       },
       deleteID: (state, deleteId: PayloadAction<number>) => {
-        state.id = state.id.filter(num => num !== deleteId.payload)
-      },
+          state.id = state.id.filter(num => num !== deleteId.payload)
+        },
     },
 });
 

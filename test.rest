@@ -1,0 +1,1 @@
+GET https://online-store-1g8i.onrender.com/products/

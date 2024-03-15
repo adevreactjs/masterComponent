@@ -43,102 +43,99 @@ const NewsSlider: FC<NewsSliderProps> = ({
     setActiveBreakLine(false);
   };
 
-  const products: Product[] = [
-    {
-      id: 1,
-      image: procImg,
-      title: 'Процесор AMD Ryzen 9 1',
-      price: 25819,
-      bonus: 21,
-      property: [
-        {
-          proc: '16 ядер',
-          frequency: '4.2(5.7)GHz',
-          memory: '128MB',
-          type: 'AM5',
-        },
-      ],
-    },
-    {
-      id: 2,
-
-      image: procImg,
-      title: 'Процесор AMD Ryzen 9 2',
-      price: 25000,
-      bonus: 20,
-      property: [
-        {
-          proc: '15 ядер',
-          frequency: '4.2(5.7)GHz',
-          memory: '128MB',
-          type: 'AM5',
-        },
-      ],
-    },
-    {
-      id: 3,
-
-      image: procImg,
-      title: 'Процесор AMD Ryzen 9 3',
-      price: 25819,
-      bonus: 19,
-      property: [
-        {
-          proc: '14 ядер',
-          frequency: '4.2(5.7)GHz',
-          memory: '128MB',
-          type: 'AM5',
-        },
-      ],
-    },
-    {
-      id: 4,
-
-      image: procImg,
-      title: 'Процесор AMD Ryzen 9 4',
-      price: 25819,
-      bonus: 21,
-      property: [
-        {
-          proc: '16 ядер',
-          frequency: '4.2(5.7)GHz',
-          memory: '128MB',
-          type: 'AM5',
-        },
-      ],
-    },
-    {
-      id: 5,
-      image: procImg,
-      title: 'Процесор AMD Ryzen 9 5',
-      price: 25819,
-      bonus: 21,
-      property: [
-        {
-          proc: '16 ядер',
-          frequency: '4.2(5.7)GHz',
-          memory: '128MB',
-          type: 'AM5',
-        },
-      ],
-    },
-    {
-      id: 6,
-
-      image: procImg,
-      title: 'Процесор AMD Ryzen 9 6',
-      price: 25819,
-      bonus: 21,
-      property: [
-        {
-          proc: '16 ядер',
-          frequency: '4.2(5.7)GHz',
-          memory: '128MB',
-          type: 'AM5',
-        },
-      ],
-    },
-  ];
+  const products: any = 
+    [
+      {
+        id: 3,
+        title: "Материнська плата Asus PRIME Z790-P",
+        slug: "asus-prime-z790-p",
+        code: 1040267,
+        available: true,
+        promotion: true,
+        image: "http://res.cloudinary.com/dewql5auf/image/upload/v1709561028/online_store/mwkil01ftjhgpfvgepa9",
+        price: "3499.00",
+        sale: "200.00",
+        bonus: "13.00",
+        property: {
+          proc: "Intel",
+          type: "am",
+          memory: "16",
+          frequency: "10000"
+        }
+      },
+      {
+        id: 4,
+        title: "Материнська плата Asus PRIME Z790-A",
+        slug: "asus-prime-z790-a",
+        code: 1040268,
+        available: true,
+        promotion: true,
+        image: "http://res.cloudinary.com/dewql5auf/image/upload/v1709561167/online_store/ba9gvz4skksszkrhbiab",
+        price: "3499.00",
+        sale: "300.00",
+        bonus: "15.00",
+        property: {
+          proc: "Intel",
+          type: "am",
+          memory: "16",
+          frequency: "10000"
+        }
+      },
+      {
+        id: 5,
+        title: "Материнська плата Asus PRIME Z790-B",
+        slug: "asus-prime-z790-b",
+        code: 1040269,
+        available: true,
+        promotion: true,
+        image: "http://res.cloudinary.com/dewql5auf/image/upload/v1709561219/online_store/mjipswiiwfhjyekswmfe",
+        price: "3599.00",
+        sale: "400.00",
+        bonus: "20.00",
+        property: {
+          proc: "Intel",
+          type: "am",
+          memory: "16",
+          frequency: "10000"
+        }
+      },
+      {
+        id: 6,
+        title: "Материнська плата Asus PRIME Z790-C",
+        slug: "asus-prime-z790-c",
+        code: 1040270,
+        available: true,
+        promotion: false,
+        image: "http://res.cloudinary.com/dewql5auf/image/upload/v1709561269/online_store/zn6jxcz3n0wcelasybgf",
+        price: "3699.00",
+        sale: "400.00",
+        bonus: "18.00",
+        property: {
+          proc: "Intel",
+          type: "am",
+          memory: "16",
+          frequency: "10000"
+        }
+      },
+      {
+        id: 7,
+        title: "Материнська плата Asus PRIME Z790-D",
+        slug: "asus-prime-z790-d",
+        code: 1040271,
+        available: true,
+        promotion: false,
+        image: "http://res.cloudinary.com/dewql5auf/image/upload/v1709561312/online_store/bl5iami5j5iiu1bfa6e9",
+        price: "3799.00",
+        sale: "350.00",
+        bonus: "25.00",
+        property: {
+          proc: "Intel",
+          type: "am",
+          memory: "16",
+          frequency: "10000"
+        }
+      }
+    ]
 
   return (
     <div className={cls.newsSlider}>
@@ -151,7 +148,7 @@ const NewsSlider: FC<NewsSliderProps> = ({
           <Image src={rightArrow} width={22} height={22} alt='rightArrow' />
         </button>
         <div className={cls.carts} ref={scrollRef}>
-          {products.map((product: Product) => (
+          {products.map((product: any) => (
             <NewsCart
               key={product.id}
               id={product.id}

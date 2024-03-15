@@ -31,7 +31,7 @@ const CategoryCard: FC<CategoryCardProps> = ({ product }) => {
   return (
     <div className={cls.cartItem} onClick={chooseProductCart}>
       <div className={cls.cart}>
-        <div className={cls.cartWrapper}>
+        {/* <div className={cls.cartWrapper}>
           <div className={cls.cartLabels}>
             <div className={productsItems[0].promotion ? cls.promote : cls.cartLabel}>
               {productsItems[0] ? 'Акція' : 'Хіт продажу'}
@@ -95,7 +95,8 @@ const CategoryCard: FC<CategoryCardProps> = ({ product }) => {
               <li>ATX</li>
             </ul>
           </div>
-        </div>
+        </div> */}
+        1
       </div>
     </div>
   );
