@@ -136,6 +136,7 @@ const NewsSlider: FC<NewsSliderProps> = ({
         }
       }
     ]
+
   return (
     <div className={cls.newsSlider}>
       <h1 className={cls.title}>{title}</h1>
