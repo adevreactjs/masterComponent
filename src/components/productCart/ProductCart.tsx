@@ -55,7 +55,7 @@ const ProductCart = () => {
     setActiveImageGallery(ind);
   };
   const chooseImage = galleryImages[activeImageGallery];
-  const products: Product[] = [
+  const products: any = [
     {
       id: 1,
       image: procesIcon,
@@ -458,7 +458,7 @@ const ProductCart = () => {
             <h2 className={cls.recentlyShowTitle}>Нещодавно переглянуті</h2>
             <div className={cls.recentlyProductsWrapper}>
               <div className={cls.recentlyProducts} ref={scrollRef}>
-                {products.map(product => (
+                {products.map((product: any) => (
                   <RecentlyShowCart key={product.id} />
                 ))}
               </div>

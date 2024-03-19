@@ -10,7 +10,7 @@ import CardNoHeard from "../newsCart/CardNoHeard";
 
 
 export default function LikedItems() {
-    const products: Product[] = [
+    const products: any = [
         {
           id: 1,
           image: procImg,
