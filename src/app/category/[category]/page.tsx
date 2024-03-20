@@ -11,19 +11,22 @@ import cls from './index.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/app/store/store';
 import { openMobileFilterHandler } from '@/app/store/reducers/MobileFilterSlice';
-import { chooseProduct, loadData } from '../store/reducers/LoadDataProducts';
-import { products } from '../api/mockDataProducts';
+import { chooseProduct, loadData } from '../../store/reducers/LoadDataProducts';
+// import { products } from '../../api/mockDataProducts';
+import axios from 'axios';
+import { Product } from '@/types/type';
 
-const Page = () => {
+const Page = ({params}: any) => {
   const [openSortMenu, setOpenSortMenu] = useState(false);
   const [sortValue, setSortValue] = useState(0);
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
+  const [products, setProducts] = useState<Product[] | null>(null)
   const dispatch = useDispatch();
   const isOpenMobileFilter = useSelector(
     (state: RootState) => state.mobileFilter.isOpenMobileFilter,
   );
   const productsItems = useSelector((state: RootState) => state.productItems.products);
-  const params = [
+  const filterParams = [
     {
       id: '1',
       title: 'Наявність у магазинах',
@@ -41,6 +44,12 @@ const Page = () => {
     },
   ];
 
+  useEffect(() => {
+    axios.get(`https://online-store-1g8i.onrender.com/products/filter/?category=${params.category}`).then((res: any) => setProducts(res.data)) 
+  }, [params])
+
+  
+
   const sortMenu = ['Популярністю', 'Рейтингом', 'Ціною (дорожче)', 'Ціною (дешевше)'];
 
   const changeSortValue = (ind: number) => {
@@ -57,7 +66,7 @@ const Page = () => {
   };
 
   useEffect(() => {
-    dispatch(loadData(products));
+    // dispatch(loadData(products));
   }, [dispatch]);
 
   return (
@@ -79,7 +88,7 @@ const Page = () => {
             </svg>
           </div>
           <RangeSlider />
-          {params.map(param => (
+          {filterParams.map(param => (
             <ParamsFilter key={param.id} param={param} />
           ))}
         </div>
@@ -127,7 +136,7 @@ const Page = () => {
             </div>
           </div>
           <div className={cls.categoryCart}>
-            {products.map((product: any) => (
+            {products && products.map((product: any) => (
               <div key={product.id} onClick={() => sortProductById(product.id)}>
                 <CategoryCard key={product.id} product={product} />
               </div>
