@@ -8,7 +8,7 @@ import userIcon from '../../assets/userIcon.svg';
 import favoriteIcon from '../../assets/favoriteIcon.svg';
 import cartIcon from '../../assets/cartIcon.svg';
 import menu from '../../assets/menu.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { openRegistrationFormHandler } from '@/app/store/reducers/RegistrationSlice';
 import Link from 'next/link';
@@ -21,6 +21,8 @@ import MobileProductFilter from '../mobileProductFilter/MobileProductFilter';
 import MobileMenu from '../mobileMenu/MobileMenu';
 import HelpMenu from '../helpMenu/HelpMenu';
 import CategoryMenu from '../categoryMenu/CategoryMenu';
+import { setGoods } from '@/app/store/reducers/GoodsCardsSlice';
+import axios from 'axios';
 
 const Header = () => {
   const [activeMenu, setActiveMenu] = useState(false);
@@ -55,6 +57,15 @@ const Header = () => {
     setActiveMobileMenu(false);
     dispatch(openRegistrationFormHandler(true));
   };
+
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await axios.get('https://online-store-1g8i.onrender.com/products/')
+      dispatch(setGoods(data.data))
+    }
+    getData()
+  }, [])
 
   return (
     <header className={cls.header}>
@@ -98,8 +109,10 @@ const Header = () => {
               onClick={() => dispatch(openRegistrationFormHandler(true))}>
               <Image src={userIcon} width={15} height={20} alt='registrationUser' />
             </button>
-            <button className={cls.favUser} onClick={() => setOpenLiked(!openLiked)}>
-              <Image src={favoriteIcon} width={20} height={17} alt='registrationUser' />
+            <button>
+              <Link href='/favorite' className={cls.favUser}>
+                <Image src={favoriteIcon} width={20} height={17} alt='registrationUser' />
+              </Link>
             </button>
             <button className={cls.cart} onClick={openBasketHandler}>
               <Image src={cartIcon} width={19} height={20} alt='registrationUser' />

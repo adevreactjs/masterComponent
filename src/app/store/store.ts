@@ -7,6 +7,7 @@ import LikedCardsReducer from './reducers/LikedCardsSlice';
 import amountComments from './reducers/amountComments';
 import Basket from './reducers/BasketSlice';
 import productItems from './reducers/LoadDataProducts';
+import GoodsCards from './reducers/GoodsCardsSlice';
 export const store = configureStore({
   reducer: {
     registration: registrationReducer,
@@ -15,6 +16,7 @@ export const store = configureStore({
     basket: Basket,
     mobileFilter: mobileFilter,
     productItems: productItems,
+    GoodsCards: GoodsCards,
   },
   devTools: true,
 });

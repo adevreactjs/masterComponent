@@ -13,17 +13,15 @@ const Payment = () => {
         {number: '4441 1144 2976 0934', date: '09/27'},
     ]
 
-    const checkCard = (number: string) => { 
-        const firstDigital = number[0]
-
-        switch(firstDigital) {
-            case '4':
-                return visa
-            case '5':
-                return masterCard
-            default:
-                return masterCard
-        }
+    const cardIssuers = [
+        { issuer: 'visa', image: visa, prefixes: ['4'] },
+        { issuer: 'masterCard', image: masterCard, prefixes: ['51', '52', '53', '54', '55'] },
+        // { issuer: 'americanExpress', prefixes: ['34', '37'] },
+        // { issuer: 'discover', prefixes: ['6011', '644', '65'] },
+    ];
+      
+    const checkCard = (number: string): any => { 
+        return cardIssuers.find(issuer => issuer.prefixes.some(prefix => number.startsWith(prefix)))
     }
 
     return (
@@ -36,7 +34,7 @@ const Payment = () => {
                 {cards.map((card, index) => (
                     <div key={index} className={cls.methodBlock}>
                         <div className={`${cls.methodCard} max-[1367px]:!w-[90%]`}>
-                            <Image src={checkCard(card.number)} alt='visa' width={31} height={9}/>
+                            <Image src={checkCard(card.number)?.image} alt={checkCard(card.number)?.issuer!} width={31} height={9}/>
                             <div className={cls.methodNumber}>{card.number}</div>
                             <div className={cls.methodDate}>{card.date}</div>
                         </div>

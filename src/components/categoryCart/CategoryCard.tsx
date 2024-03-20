@@ -10,6 +10,7 @@ import cartIcon from '@/assets/cartIcon.svg';
 import Image, { StaticImageData } from 'next/image';
 import { Product } from '@/types/type';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface CategoryCardProps {
   product: Product;
@@ -17,23 +18,28 @@ interface CategoryCardProps {
 
 const CategoryCard: FC<CategoryCardProps> = ({ product }) => {
   const router = useRouter();
-  const chooseProductCart = () => {
-    //  dispatch(chooseProduct(product.id));
-    router.push(`/category/product`);
-  };
+  // const chooseProductCart = () => {
+  //   //  dispatch(chooseProduct(product.id));
+  //   router.push(`/category/product/${product.slug}`);
+  // };
+
+  console.log(product);
+  
 
   return (
-    <div className={cls.cartItem} onClick={chooseProductCart}>
+    // <Link href="/category/product/[id]" as={`/category/product/${product.slug}`} className={cls.cartItem}>
+    <Link href={`/category/product/${product.slug}`} className={cls.cartItem}>
       <div className={cls.cart}>
         <div className={cls.cartWrapper}>
           <div className={cls.cartLabels}>
             <div className={product.promotion ? cls.promote : cls.cartLabel}>
               {product.promotion ? 'Акція' : 'Хіт продажу'}
             </div>
-            <div className={cls.cartId}>Код:{product.id}</div>
+            <div className={cls.cartId}>Код:{product.code}</div>
           </div>
           <div className={cls.cartImage}>
-            <Image src={product.image} width={225} height={174} alt='cartImg' />
+            {/* <Image src={product.image} width={225} height={174} alt='cartImg' /> */}
+            <img src={product.image} alt="cartImg" width={225} height={174}/>
           </div>
           <div className={cls.cartTitle}>
             <h1>{product.title}</h1>
@@ -79,18 +85,19 @@ const CategoryCard: FC<CategoryCardProps> = ({ product }) => {
               </button>
             </div>
           </div>
-          <div className={cls.characteristic}>
-            <ul>
-              <li>(WIFI) D4</li>
-              <li>DDR4 для ПК</li>
-              <li>LGA1700</li>
-              <li>ATX</li>
-            </ul>
-          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
 export default CategoryCard;
+
+{/* <div className={cls.characteristic}>
+  <ul>
+    <li>(WIFI) D4</li>
+    <li>DDR4 для ПК</li>
+    <li>LGA1700</li>
+    <li>ATX</li>
+  </ul>
+</div> */}

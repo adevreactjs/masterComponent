@@ -127,7 +127,7 @@ const Page = () => {
             </div>
           </div>
           <div className={cls.categoryCart}>
-            {products.map(product => (
+            {products.map((product: any) => (
               <div key={product.id} onClick={() => sortProductById(product.id)}>
                 <CategoryCard key={product.id} product={product} />
               </div>
