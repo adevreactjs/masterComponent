@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 import { openMobileFilterHandler } from '../store/reducers/MobileFilterSlice';
 import NewsCart from '@/components/newsCart/NewsCart';
+import { Product } from '@/types/type';
 
 const Page = () => {
   // const products = useSelector((state: RootState) => state.productItems.products);
@@ -18,7 +19,7 @@ const Page = () => {
   const isOpenMobileFilter = useSelector(
     (state: RootState) => state.mobileFilter.isOpenMobileFilter,
   );
-  const { goods, favoriteGoodsIds } = useSelector((state:any) => state.GoodsCards)
+  const { goods, favoriteGoodsIds } = useSelector((state:any) => state.GoodsCards) 
   
   const products = goods.filter((good: any) => favoriteGoodsIds.includes(good.id));
 
@@ -44,9 +45,11 @@ const Page = () => {
       params: ['Білий', 'Зелений', 'Коричневий', 'Сірий', 'Синій', 'Червоний'],
     },
   ];
+
   const openFilterMenu = () => {
     dispatch(openMobileFilterHandler(!isOpenMobileFilter));
   };
+  
   
   return (
     <div className={cls.favorite}>
@@ -70,19 +73,22 @@ const Page = () => {
             ))}
           </div>
           <div className={cls.favoriteItems}>
-            {products.map((product: any) => (
+            {products.map((product: Product) => (
               <CategoryCard key={product.id} product={product} />
-              // <NewsCart key={product.id}
-              // id={product.id}
-              // product={product}/>
             ))}
           </div>
         </div>
-        <p className='text-grey text-center w-full text-[16px] normal font-semibold leading-normal underline mb-[39px] cursor-pointer'>
-          Показати ще 20/144
-        </p>
-
-        <PaginationNavigation />
+        {
+          products.length > 20 && (
+            <>
+              <p className='text-grey text-center w-full text-[16px] normal font-semibold leading-normal underline mb-[39px] cursor-pointer'>
+                Показати ще 20/144
+              </p>
+      
+              <PaginationNavigation />
+            </>
+          )
+        }
       </div>
     </div>
   );

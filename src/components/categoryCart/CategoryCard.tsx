@@ -11,13 +11,14 @@ import Image, { StaticImageData } from 'next/image';
 import { Product } from '@/types/type';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Heart from '../newsCart/Heart';
 
 interface CategoryCardProps {
   product: Product;
 }
 
 const CategoryCard: FC<CategoryCardProps> = ({ product }) => {
-  const router = useRouter();
+  // const router = useRouter();
   // const chooseProductCart = () => {
   //   //  dispatch(chooseProduct(product.id));
   //   router.push(`/category/product/${product.slug}`);
@@ -26,11 +27,13 @@ const CategoryCard: FC<CategoryCardProps> = ({ product }) => {
   console.log(product);
   
 
+
   return (
     // <Link href="/category/product/[id]" as={`/category/product/${product.slug}`} className={cls.cartItem}>
-    <Link href={`/category/product/${product.slug}`} className={cls.cartItem}>
+    <div className={cls.cartItem}>
       <div className={cls.cart}>
         <div className={cls.cartWrapper}>
+        <Link href={`/category/product/${product.slug}`}>
           <div className={cls.cartLabels}>
             <div className={product.promotion ? cls.promote : cls.cartLabel}>
               {product.promotion ? 'Акція' : 'Хіт продажу'}
@@ -44,6 +47,7 @@ const CategoryCard: FC<CategoryCardProps> = ({ product }) => {
           <div className={cls.cartTitle}>
             <h1>{product.title}</h1>
           </div>
+          </Link>
           <div className={cls.cartStars}>
             <div className={cls.cartStar}>
               <Image src={starIcon} width={18} height={18} alt='cartImg' />
@@ -78,7 +82,8 @@ const CategoryCard: FC<CategoryCardProps> = ({ product }) => {
             {product.price} ₴
             <div className={cls.cartBtns}>
               <button className={cls.favoriteBtn}>
-                <Image src={favIcon} width={18} height={16} alt='favIcon' />
+                {/* <Image src={favIcon} width={18} height={16} alt='favIcon' /> */}
+                <Heart id={product.id}/>
               </button>
               <button className={cls.addToCartBtn}>
                 <Image src={cartIcon} width={18} height={18} alt='cartIcon' />
@@ -87,7 +92,7 @@ const CategoryCard: FC<CategoryCardProps> = ({ product }) => {
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

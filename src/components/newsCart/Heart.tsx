@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux"
 import Image from 'next/image'
 import { addFavoriteGoods } from '@/app/store/reducers/GoodsCardsSlice';
 
-export default function Heart({id}: {id: number}) {
+export default function Heart({id, right}: {id: number, right?: boolean}) {
     const favoriteGoods = useSelector((state: any) => state.GoodsCards.favoriteGoodsIds)
     // const [liked, setLike] = useState(favoriteGoods.includes(id))
     const dispatch = useDispatch()
@@ -21,8 +21,8 @@ export default function Heart({id}: {id: number}) {
 
     return(
         <>
-            <button>
-                <Image className="absolute right-[30px] top-[26px] z-[1]" src={favoriteGoods.includes(id) ? heartGreen : favIcon} width={30} height={30} alt='img' onClick={handleClick} />
+            <button className={`absolute right-[30px] top-[26px] ${right ? 'right-[30px] top-[26px]' : 'right-[9%] top-[19%]'} z-[1]`}>
+                <Image src={favoriteGoods.includes(id) ? heartGreen : favIcon} width={30} height={30} alt='img' onClick={handleClick} />
             </button>
                     
         </>

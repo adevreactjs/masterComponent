@@ -35,7 +35,7 @@ const NewsCart: FC<NewsCartProps> = ({ width, discount, fontSize, product, id })
         /> */}
         <img className={cls.cartImg} src={product.image} alt="img" width={646} height={312}/>
         <div className={cls.bonusLabel}>+{product.bonus} бонуси</div>
-        <Heart id={id}/>
+        <Heart id={id} right/>
       </div>
       <div className={cls.cartCharacteristic}>
         <h1 style={fontStyles} className={cls.cartTitle}>
