@@ -12,7 +12,7 @@ import { RootState } from '../store';
   
 const initialState: any = {
     goods: [],
-    favoriteGoodsIds: JSON.parse(localStorage.getItem('favoriteGoodsIds') || '') || []
+    favoriteGoodsIds: typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('favoriteGoodsIds') || '[]') : []
 };
 
 export const GoodsCards = createSlice({

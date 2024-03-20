@@ -47,6 +47,7 @@ const Page = () => {
   const openFilterMenu = () => {
     dispatch(openMobileFilterHandler(!isOpenMobileFilter));
   };
+  
   return (
     <div className={cls.favorite}>
       <div className={cls.container}>
@@ -70,10 +71,10 @@ const Page = () => {
           </div>
           <div className={cls.favoriteItems}>
             {products.map((product: any) => (
-              // <CategoryCard key={product.id} product={product} />
-              <NewsCart key={product.id}
-              id={product.id}
-              product={product}/>
+              <CategoryCard key={product.id} product={product} />
+              // <NewsCart key={product.id}
+              // id={product.id}
+              // product={product}/>
             ))}
           </div>
         </div>

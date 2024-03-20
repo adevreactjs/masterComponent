@@ -35,7 +35,7 @@ import Comments from './commentsSection/Comments';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/app/store/store';
 
-const ProductCart = () => {
+const ProductCart = ({product}: {product: Product}) => {
   const amountCom = useSelector((state: RootState) => state.amount);
   const chooseProduct = useSelector((state: RootState) => state.productItems.products);
   const [activeCategory, setActiveCategory] = useState(0);

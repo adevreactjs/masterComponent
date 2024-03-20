@@ -7,12 +7,23 @@ export interface Products {
 
 export interface Product {
   id: number;
+  title: string;
+  slug: string;
+  code: number;
+  available: boolean;
+  promotion: boolean;
   image: string;
-  title: string;  
-  price: number;
-  bonus: number;
-  property: Propers;
-  promotion?: boolean;
+  price: string;
+  sale: string;
+  bonus: string;
+  property: Property;
+}
+
+interface Property {
+  proc: string;
+  type: string;
+  memory: string;
+  frequency: string;
 }
 
 export interface Propers {

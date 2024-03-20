@@ -109,9 +109,11 @@ const Header = () => {
               onClick={() => dispatch(openRegistrationFormHandler(true))}>
               <Image src={userIcon} width={15} height={20} alt='registrationUser' />
             </button>
-            <Link href='/favorite' className={cls.favUser} onClick={() => setOpenLiked(!openLiked)}>
-              <Image src={favoriteIcon} width={20} height={17} alt='registrationUser' />
-            </Link>
+            <button>
+              <Link href='/favorite' className={cls.favUser}>
+                <Image src={favoriteIcon} width={20} height={17} alt='registrationUser' />
+              </Link>
+            </button>
             <button className={cls.cart} onClick={openBasketHandler}>
               <Image src={cartIcon} width={19} height={20} alt='registrationUser' />
             </button>
