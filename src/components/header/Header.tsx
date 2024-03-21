@@ -23,6 +23,7 @@ import HelpMenu from '../helpMenu/HelpMenu';
 import CategoryMenu from '../categoryMenu/CategoryMenu';
 import { setGoods } from '@/app/store/reducers/GoodsCardsSlice';
 import axios from 'axios';
+import { getProducts } from '@/services/productsApi';
 
 const Header = () => {
   const [activeMenu, setActiveMenu] = useState(false);
@@ -58,13 +59,9 @@ const Header = () => {
     dispatch(openRegistrationFormHandler(true));
   };
 
-
+  axios.defaults.baseURL = 'https://online-store-1g8i.onrender.com/';
   useEffect(() => {
-    const getData = async () => {
-      const data = await axios.get('https://online-store-1g8i.onrender.com/products/')
-      dispatch(setGoods(data.data))
-    }
-    getData()
+    getProducts().then((products) => dispatch(setGoods(products)))
   }, [])
 
   return (

@@ -16,6 +16,7 @@ export interface Product {
   price: string;
   sale: string;
   bonus: string;
+  category: string;
   property: Property;
 }
 

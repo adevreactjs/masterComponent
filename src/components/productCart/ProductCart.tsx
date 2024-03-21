@@ -225,7 +225,7 @@ const ProductCart = ({product}: {product: Product}) => {
               </div>
               <section className={cls.price}>
                 <div className={cls.title}>
-                  <h1>{'title' }</h1>
+                  <h1>{product.title}</h1>
                   <ul className={cls.characteristicMobile}>
                     <li>(WIFI) D4</li>
                     <li>DDR4 для ПК</li>

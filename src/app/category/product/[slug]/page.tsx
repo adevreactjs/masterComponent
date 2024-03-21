@@ -1,5 +1,6 @@
 'use client'
 import ProductCart from "@/components/productCart/ProductCart"
+import { fetchProductBySlug } from "@/services/productsApi"
 import { Product } from "@/types/type"
 import axios from "axios"
 import { useEffect, useState } from "react"
@@ -9,20 +10,9 @@ const Product = ({params}: any) => {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    // Here we need to create a request using the slug parameter
-    const fetchData = async () => {
-      try {
-        const { data } = await axios.get(`https://online-store-1g8i.onrender.com/products/${params.slug}`)
-        setProduct(data)
-      } catch (error: any) {
-        setError(error.message)
-      }
-    }
-
-    fetchData()
-  }, [])
-
-  console.log(product)
+    fetchProductBySlug(params.slug)
+        .then((data) => setProduct(data)).catch((error) => setError(error.message))
+  }, [params.slug])
   
   return (
     <div>

@@ -8,6 +8,7 @@ import monicIcon from '../../assets/monicIcon.svg';
 import mouseIcon from '../../assets/mouseIcon.svg';
 import wifiIcon from '../../assets/wifiIcon.svg';
 import rightArrow from '../../assets/rightArrow.svg';
+import Link from 'next/link';
 
 const CategoryMenu = () => {
   const [activeCategory, setActiveCategory] = useState(0);
@@ -54,8 +55,8 @@ const CategoryMenu = () => {
           <div className={cls.accessoriesItem}>
             <h2>Процесори</h2>
             <ul>
-              <li>Intel</li>
-              <li>AMD</li>
+              <li><Link href='http://localhost:3000/category/intel'>Intel</Link></li>
+              <li><Link href='http://localhost:3000/category/amd'>Amd</Link></li>
             </ul>
             <button>
               Більше варіантів
