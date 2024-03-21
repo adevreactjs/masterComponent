@@ -15,6 +15,7 @@ import { chooseProduct, loadData } from '../../store/reducers/LoadDataProducts';
 // import { products } from '../../api/mockDataProducts';
 import axios from 'axios';
 import { Product } from '@/types/type';
+import { fetchProductsByCategory } from '@/services/productsApi';
 
 const Page = ({params}: any) => {
   const [openSortMenu, setOpenSortMenu] = useState(false);
@@ -44,8 +45,9 @@ const Page = ({params}: any) => {
     },
   ];
 
-  useEffect(() => {
-    axios.get(`https://online-store-1g8i.onrender.com/products/filter/?category=${params.category}`).then((res: any) => setProducts(res.data)) 
+  useEffect(() => { 
+    fetchProductsByCategory(params.category).then((res: any) => setProducts(res)).catch((err: any) => console.log(err))
+
   }, [params])
 
   

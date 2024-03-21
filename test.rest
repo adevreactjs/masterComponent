@@ -1,1 +1,5 @@
 GET https://online-store-1g8i.onrender.com/products/
+
+###
+
+GET https://online-store-1g8i.onrender.com/products/asus-prime-z790-p

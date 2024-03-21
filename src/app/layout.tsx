@@ -4,7 +4,7 @@ import './globals.css';
 import Header from '@/components/header/Header';
 import Footer from '../components/footer/Footer';
 import { Providers } from './store/provider';
-import { ProvidersAuth } from '@/app/api/auth/Providers';
+import { ProvidersAuth } from '@/app/api/auth/Providers'; 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const exo = Exo_2({ subsets: ['latin'], variable: '--font-exo_2' });
 

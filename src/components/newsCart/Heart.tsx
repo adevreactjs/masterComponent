@@ -21,7 +21,7 @@ export default function Heart({id, right}: {id: number, right?: boolean}) {
 
     return(
         <>
-            <button className={`absolute right-[30px] top-[26px] ${right ? 'right-[30px] top-[26px]' : 'right-[9%] top-[19%]'} z-[1]`}>
+            <button className={`absolute ${right ? 'right-[30px] top-[26px]' : 'right-[9%] top-[19%]'} z-[1]`}>
                 <Image src={favoriteGoods.includes(id) ? heartGreen : favIcon} width={30} height={30} alt='img' onClick={handleClick} />
             </button>
                     
